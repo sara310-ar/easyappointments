@@ -30,8 +30,8 @@ class Config {
     // GENERAL SETTINGS
     // ------------------------------------------------------------------------
 
-    const BASE_URL      = 'http://url-to-easyappointments-directory';
-    const LANGUAGE      = 'english';
+    const BASE_URL      = 'http://localhost/easyappointments/';
+    const LANGUAGE      = 'french';
     const DEBUG_MODE    = FALSE;
 
     // ------------------------------------------------------------------------
@@ -39,9 +39,9 @@ class Config {
     // ------------------------------------------------------------------------
 
     const DB_HOST       = 'localhost';
-    const DB_NAME       = 'easyappointments';
+    const DB_NAME       = 'quick32_rdv';
     const DB_USERNAME   = 'root';
-    const DB_PASSWORD   = 'root';
+    const DB_PASSWORD   = '';
 
     // ------------------------------------------------------------------------
     // GOOGLE CALENDAR SYNC

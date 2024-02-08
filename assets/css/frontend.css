@@ -1,18 +1,35 @@
 /* ----------------------------------------------------------------------------
- * Easy!Appointments - Open Source Web Scheduler
+ * Developily - Open Source Web Scheduler
  *
  * @package     EasyAppointments
- * @author      A.Tselegidis <alextselegidis@gmail.com>
- * @copyright   Copyright (c) 2013 - 2020, Alex Tselegidis
+ * @author      A.Tselegidis <brahmi.info@gmail.com>
+ * @copyright   Copyright (c) 2013 - 2020, developily Med
  * @license     http://opensource.org/licenses/GPL-3.0 - GPLv3
- * @link        http://easyappointments.org
+ * @link        http://developily.com
  * @since       v1.0.0
  * ---------------------------------------------------------------------------- */
 
-root {
+ root {
     display: block;
 }
-
+:root{
+    --primary-color : #3690fa;
+    --primary-color-dark: #005792;
+    --secondary-color: #bbebfd;
+    --white: #fff;
+}
+::-webkit-scrollbar{
+    height: .5rem;
+    width: .5rem;
+  
+}
+::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--primary-color-dark);
+    border-radius: 50px;
+}
 html,
 body {
     height: 100%;
@@ -30,37 +47,78 @@ body {
  ------------------------------------------------------------------------------ */
 
 #book-appointment-wizard {
-    background: #FFF;
+    background: var(--white);
     min-height: 480px;
     padding: 0;
     margin: auto;
 }
 
 #book-appointment-wizard #header {
-    overflow: auto;
     height: auto;
-    padding: 20px 15px;
-    background: #429a82;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+   
 }
-
-#book-appointment-wizard #company-name {
-    float: none;
-    display: block;
-    text-align: center;
-    font-size: 24px;
-    font-weight: lighter;
-    color: #FFF;
-    margin: 20px 0;
+#book-appointment-wizard #header .logo{
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
+  
+#book-appointment-wizard #header #content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-weight: 700;
+    width: 100%;
+ }
+/***********************************steps***********************************/
 #book-appointment-wizard #steps {
     float: none;
-    display: block;
     overflow: auto;
     margin: 15px auto;
-    width: 190px;
+    width: 100%;
+    display: flex;
+    JUSTIFY-CONTENT: space-evenly;
+    position: relative;
+}
+#book-appointment-wizard .book-step {
+    display: inline-block;
+    height: 35px;
+    width: 35px;
+    background: var(--secondary-color);
+    border-radius: 50%;
+    padding: 8px;
+    transition: all .3s linear;
+    z-index: 1111;
 }
 
+
+
+#book-appointment-wizard .book-step strong {
+    font-size: 12px;
+    display: block;
+    text-align: center;
+    color: var(--white);
+    transition: all .3s linear;
+    cursor: default;
+}
+#book-appointment-wizard .active-step {
+    display: inline-block;
+    height: 35px;
+    width: 35px;
+    float: left;
+    background: var(--primary-color-dark);
+}
+#book-appointment-wizard .active-step strong {
+    color: var(--white);
+    font-size: 12px;
+}
 #book-appointment-wizard #book-appointment-form #book-appointment-submit {
     width: 100%;
     margin-right: 0;
@@ -83,14 +141,18 @@ body {
 }
 
 #book-appointment-wizard .frame-container .frame-title {
-    font-weight: lighter;
     text-align: center;
-    margin-bottom: 30px;
-    color: #666;
+    margin-bottom: 10px;
+    color: var(--primary-color-dark);
+    font-weight: 600;
 }
 
 #book-appointment-wizard .frame-container .frame-content {
     float: none;
+}
+/*css display none*/
+#book-appointment-wizard .frame-container .frame-content .form-provider{
+    display: none;
 }
 
 #book-appointment-wizard .wizard-frame .command-buttons {
@@ -98,12 +160,23 @@ body {
     margin: 15px auto;
     text-align: center;
 }
-
 #book-appointment-wizard .wizard-frame .command-buttons .btn {
     min-width: 120px;
     margin-right: 10px;
+    background-color: var(--primary-color-dark);
+    color: var(--white);
+    border: none;
+    height: 40px;
 }
-
+#book-appointment-wizard .wizard-frame .command-buttons .btn:hover{
+    background-color: var(--primary-color);
+}
+#book-appointment-wizard .wizard-frame .command-buttons .btn.button-back{
+    background-color: var(--secondary-color);
+}
+#book-appointment-wizard .wizard-frame .command-buttons .btn.button-back:hover{
+    background-color: var(--primary-color);
+}
 #book-appointment-wizard .wizard-frame .command-buttons .btn:last-child {
     margin-right: 0;
 }
@@ -116,6 +189,10 @@ body {
 
 #book-appointment-wizard .wizard-frame #select-date > .ui-datepicker {
     margin: auto;
+    border-radius: 10px;
+    background: #eee;
+    border-color: #eee;
+    padding: 0px 0px 20px;
 }
 
 #book-appointment-wizard .wizard-frame #select-time {
@@ -124,47 +201,7 @@ body {
     padding: 15px 0;
 }
 
-#book-appointment-wizard .book-step {
-    display: inline-block;
-    height: 35px;
-    width: 35px;
-    float: left;
-    background: #225d4d;
-    padding: 8px;
-    margin-right: 12px;
-    margin-top: 6px;
-    border-radius: .25rem;
-    transition: all .3s linear;
-}
 
-#book-appointment-wizard .book-step:last-child {
-    margin-right: 0;
-}
-
-#book-appointment-wizard .book-step strong {
-    font-size: 12px;
-    display: block;
-    text-align: center;
-    color: #0bb98d;
-    transition: all .3s linear;
-    cursor: default;
-}
-
-#book-appointment-wizard .active-step {
-    display: inline-block;
-    height: 45px;
-    width: 45px;
-    float: left;
-    background: #FFF;
-    padding: 7px;
-    margin-right: 13px;
-    margin-top: 0;
-}
-
-#book-appointment-wizard .active-step strong {
-    color: #429a82;
-    font-size: 21px;
-}
 
 #book-appointment-wizard #frame-footer {
     padding: 15px;
@@ -186,35 +223,40 @@ body {
 
 #book-appointment-wizard #available-hours .available-hour {
     margin-bottom: 10px;
+    color: var(--primary-color-dark);
 }
 
 #book-appointment-wizard #available-hours .selected-hour {
-    background-color: #439a82;
-    border-color: #439a82;
-    color: white;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white);
 }
 
 #book-appointment-wizard .span3 {
     min-width: 270px; /* This is especially needed for ie8 */
 }
-
+/*css display none*/
 #book-appointment-wizard #select-timezone {
     margin-bottom: 15px;
+    display: none;
 }
 
 #book-appointment-wizard #appointment-details p,
 #book-appointment-wizard #customer-details p {
     font-size: 16px;
     line-height: 28px;
+    color: grey;
 }
 
 #book-appointment-wizard #wizard-frame-1 label {
     font-size: 19px;
     margin-bottom: 12px;
+    color: var(--primary-color-dark);
 }
 
 #book-appointment-wizard #wizard-frame-1 select {
     margin-bottom: 25px;
+    color: var(--primary-color-dark);
 }
 
 #book-appointment-wizard .captcha-title {
@@ -248,6 +290,7 @@ body {
     clear: both;
     max-height: 153px;
     box-shadow: none;
+    color: var(--primary-color-dark);
 }
 
 #book-appointment-wizard #select-language,
@@ -277,15 +320,11 @@ body {
         box-shadow: rgba(45, 62, 80, 0.12) 0 1px 5px 0;
     }
 
-    #book-appointment-wizard #company-name {
-        display: inline-block;
-        float: left;
-        margin: 10px auto;
-    }
+   
 
     #book-appointment-wizard #steps {
-        display: inline-block;
-        float: right;
+        width: 100%;
+        display: flex;
         margin: 5px auto;
     }
 
@@ -320,13 +359,16 @@ body {
     #book-appointment-wizard .footer-powered-by,
     #book-appointment-wizard .footer-options {
         width: 50%;
+        color: var(--primary-color-dark);
     }
 
     #book-appointment-wizard .footer-powered-by {
         text-align: left;
         padding: 5px 5px 5px 0;
     }
-
+    #book-appointment-wizard .footer-powered-by a {
+        color: var(--primary-color);
+    }
     #book-appointment-wizard .footer-options {
         text-align: right;
     }
@@ -341,6 +383,7 @@ body {
         min-width: 120px;
         padding: 5px;
         margin: 5px auto;
+        background-color: var(--primary-color);
     }
 }
 
@@ -349,7 +392,7 @@ body {
 
 #message-frame,
 #success-frame {
-    background: #FFF;
+    background: var(--white);
     border: 1px solid #DDDADA;
     padding: 70px;
 }

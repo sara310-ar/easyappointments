@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 // Hindi
 $lang['page_title'] = 'नअपॉइंटमेंट बुक करें';
-$lang['service_and_provider'] = 'प्रदान करनेवाला और सेवा का चयन करें';
+$lang['service_and_info'] = 'प्रदान करनेवाला और सेवा का चयन करें';
 $lang['select_service'] = 'सेवा का चयन करें';
 $lang['select_provider'] = ' प्रबन्धक का चयन करें';
 $lang['duration'] = 'अवधि';

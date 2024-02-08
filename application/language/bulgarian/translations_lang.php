@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 // Bulgarian
 $lang['page_title'] = 'Запазете час с ...';
-$lang['service_and_provider'] = 'Изберете Услуга и Изпълнител';
+$lang['service_and_info'] = 'Изберете Услуга и Изпълнител';
 $lang['select_service'] = 'Изберете Услуга';
 $lang['select_provider'] = 'Изберете Изпълнител';
 $lang['duration'] = 'Продължителност';

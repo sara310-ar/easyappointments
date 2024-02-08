@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 // German
 $lang['page_title'] = 'Vereinbaren Sie einen Termin mit';
-$lang['service_and_provider'] = 'Dienstleistung & Anbieter';
+$lang['service_and_info'] = 'Dienstleistung & Anbieter';
 $lang['select_service'] = 'Auswahl der Dienstleistung';
 $lang['select_provider'] = 'Auswahl des Anbieters';
 $lang['duration'] = 'Dauer';

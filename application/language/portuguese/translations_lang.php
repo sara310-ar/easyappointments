@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 // Portuguese
 $lang['page_title'] = 'Livro de Apontamentos';
-$lang['service_and_provider'] = 'Selecione o serviço e o fornecedor';
+$lang['service_and_info'] = 'Selecione o serviço e o fornecedor';
 $lang['select_service'] = 'Selecione o serviço';
 $lang['select_provider'] = 'Selecione o fornecedor';
 $lang['duration'] = 'Duração';

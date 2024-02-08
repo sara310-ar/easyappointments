@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 // Marathi
 $lang['page_title'] = 'अपॉईंटमेंट बुक करा';
-$lang['service_and_provider'] = 'प्रदाता आणि सेवा निवडा';
+$lang['service_and_info'] = 'प्रदाता आणि सेवा निवडा';
 $lang['select_service'] = 'सेवा निवडा';
 $lang['select_provider'] = ' व्यवस्थापक निवडा';
 $lang['duration'] = 'कालावधी';

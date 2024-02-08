@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 // Danish
 $lang['page_title'] = 'Boka tid med ...';
-$lang['service_and_provider'] = 'Välj tjänst och leverantör';
+$lang['service_and_info'] = 'Välj tjänst och leverantör';
 $lang['select_service'] = 'Välj tjänst';
 $lang['select_provider'] = 'Välj leverantör';
 $lang['duration'] = 'Längd:';

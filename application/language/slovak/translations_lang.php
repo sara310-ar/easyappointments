@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 // Slovak
 $lang['page_title'] = 'Rezervácie';
-$lang['service_and_provider'] = 'Vyberte si službu a pracovníka';
+$lang['service_and_info'] = 'Vyberte si službu a pracovníka';
 $lang['select_service'] = 'Vyberte si službu';
 $lang['select_provider'] = 'Vyberte si pracovníka';
 $lang['duration'] = 'Trvanie';

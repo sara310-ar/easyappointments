@@ -22,10 +22,10 @@ class Config {
     // DATABASE SETTINGS
     // ------------------------------------------------------------------------
     
-    const DB_HOST       = 'easyappointments-database:3306';
-    const DB_NAME       = 'easyappointments';
+    const DB_HOST       = 'localhost';
+    const DB_NAME       = 'quick32_rdv';
     const DB_USERNAME   = 'root';
-    const DB_PASSWORD   = 'root';
+    const DB_PASSWORD   = '';
 
     // ------------------------------------------------------------------------
     // GOOGLE CALENDAR SYNC

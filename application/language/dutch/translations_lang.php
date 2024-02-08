@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 // Dutch
 $lang['page_title'] = 'Boek afspraak met';
-$lang['service_and_provider'] = 'Kies een dienst en een medewerker';
+$lang['service_and_info'] = 'Kies een dienst en een medewerker';
 $lang['select_service'] = 'Kies een dienst';
 $lang['select_provider'] = 'Kies een medewerker';
 $lang['duration'] = 'Duur:';

@@ -19,6 +19,26 @@
 
     <script src="<?= asset_url('assets/ext/fontawesome/js/fontawesome.min.js') ?>"></script>
     <script src="<?= asset_url('assets/ext/fontawesome/js/solid.min.js') ?>"></script>
+    <style>
+        
+
+        /* bootstrap*/
+        label {
+            color: #005792;
+        }
+        .form-control {
+            color: #005792;
+        }
+        
+        .h4, h4 {
+            color: #005792;
+        }
+        #book-appointment-wizard #appointment-details p, #book-appointment-wizard #customer-details p {
+            color: grey;
+        }
+        
+        
+            </style>
 </head>
 
 <body>
@@ -29,29 +49,28 @@
             <!-- FRAME TOP BAR -->
 
             <div id="header">
-                <span id="company-name"><?= $company_name ?></span>
-
+                <!-- <span id="company-name"><?= $company_name ?></span> -->
+                <img src="./assets/img/logo BIOALLIANCE.png" alt="" class="logo">
                 <div id="steps">
                     <div id="step-1" class="book-step active-step"
-                         data-tippy-content="<?= lang('service_and_provider') ?>">
+                         data-tippy-content="<?= lang('service_and_info') ?>">
                         <strong>1</strong>
                     </div>
-
                     <div id="step-2" class="book-step" data-toggle="tooltip"
                          data-tippy-content="<?= lang('appointment_date_and_time') ?>">
                         <strong>2</strong>
                     </div>
-                    <div id="step-3" class="book-step" data-toggle="tooltip"
+                    <!--    <div id="step-3" class="book-step" data-toggle="tooltip"
                          data-tippy-content="<?= lang('customer_information') ?>">
                         <strong>3</strong>
-                    </div>
+                    </div> -->
+                   
                     <div id="step-4" class="book-step" data-toggle="tooltip"
                          data-tippy-content="<?= lang('appointment_confirmation') ?>">
-                        <strong>4</strong>
+                        <strong>3</strong>
                     </div>
                 </div>
             </div>
-
             <?php if ($manage_mode): ?>
                 <div id="cancel-appointment-frame" class="row booking-header-bar">
                     <div class="col-12 col-md-10">
@@ -97,7 +116,7 @@
 
             <div id="wizard-frame-1" class="wizard-frame">
                 <div class="frame-container">
-                    <h2 class="frame-title"><?= lang('service_and_provider') ?></h2>
+                    <h2 class="frame-title"><?= lang('service_and_info') ?></h2>
 
                     <div class="row frame-content">
                         <div class="col">
@@ -174,16 +193,77 @@
                                     ?>
                                 </select>
                             </div>
-
-                            <div class="form-group">
+                            <!-- css display none -->
+                            <div class="form-group form-provider">
                                 <label for="select-provider">
                                     <strong><?= lang('provider') ?></strong>
                                 </label>
-
                                 <select id="select-provider" class="form-control"></select>
                             </div>
-
-                            <div id="service-description"></div>
+                            <!-- form -->
+                            <div class="row frame-content">
+                                <div class="col-12 col-md-6">
+                                   
+                                    <div class="form-group">
+                                        <label for="last-name" class="control-label">
+                                            <?= lang('last_name') ?>
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="text" id="last-name" class="required form-control" maxlength="120"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="birth" class="control-label">
+                                            Date de naissance
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="text" id="birth" class="required form-control" maxlength="120"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email" class="control-label">
+                                            <?= lang('email') ?>
+                                        </label>
+                                        <input type="text" id="email" class="form-control" maxlength="120"/>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="address" class="control-label">
+                                            <?= lang('address') ?>
+                                        </label>
+                                        <input type="text" id="address" class="form-control" maxlength="120"/>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="form-group">
+                                        <label for="first-name" class="control-label">
+                                            <?= lang('first_name') ?>
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="text" id="first-name" class="required form-control" maxlength="100"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone-number" class="control-label">
+                                            <?= lang('phone_number') ?>
+                                            <?= $require_phone_number === '1' ? '<span class="text-danger">*</span>' : '' ?>
+                                        </label>
+                                        <input type="text" id="phone-number" maxlength="60"
+                                            class="<?= $require_phone_number === '1' ? 'required' : '' ?> form-control"/>
+                                    </div>
+                                    <!-- liste des villes -->
+                                    <div class="form-group">
+                                        <label for="city" class="control-label">
+                                            <?= lang('city') ?>
+                                        </label>
+                                        <input type="text" id="city" class="form-control" maxlength="120"/>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="notes" class="control-label">
+                                            <?= lang('notes') ?>
+                                        </label>
+                                        <textarea id="notes" maxlength="500" class="form-control" rows="1" style="resize:'none"></textarea>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -238,7 +318,7 @@
                 </div>
             </div>
 
-            <!-- ENTER CUSTOMER DATA -->
+            <!-- ENTER CUSTOMER DATA 
 
             <div id="wizard-frame-3" class="wizard-frame" style="display:none;">
                 <div class="frame-container">
@@ -347,7 +427,7 @@
                         <i class="fas fa-chevron-right ml-2"></i>
                     </button>
                 </div>
-            </div>
+            </div>-->
 
             <!-- APPOINTMENT DATA CONFIRMATION -->
 
@@ -404,7 +484,6 @@
 
                     <span class="footer-options">
                         <span id="select-language" class="badge badge-secondary">
-                            <i class="fas fa-language mr-2"></i>
                             <?= ucfirst(config('language')) ?>
                         </span>
 

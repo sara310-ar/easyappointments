@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 // Greek
 $lang['page_title'] = 'Κράτηση Ραντεβού Με';
-$lang['service_and_provider'] = 'Υπηρεσία & Πάροχος';
+$lang['service_and_info'] = 'Υπηρεσία & Πάροχος';
 $lang['select_service'] = 'Επιλογή Υπηρεσίας';
 $lang['select_provider'] = 'Επιλογή Πάροχου';
 $lang['duration'] = 'Διάρκεια';

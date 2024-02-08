@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 // Hungarian
 $lang['page_title'] = 'Foglalj időpontot a ...';
-$lang['service_and_provider'] = 'Válassz szolgáltatást és szolgáltatót';
+$lang['service_and_info'] = 'Válassz szolgáltatást és szolgáltatót';
 $lang['select_service'] = 'Válassz szolgáltatást';
 $lang['select_provider'] = 'Válassz szolgáltatót';
 $lang['duration'] = 'Időtartam';
