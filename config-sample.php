@@ -30,7 +30,7 @@ class Config {
     // GENERAL SETTINGS
     // ------------------------------------------------------------------------
 
-    const BASE_URL      = 'http://localhost/easyappointments/';
+    const BASE_URL      = 'http://localhost/easyappointments';
     const LANGUAGE      = 'french';
     const DEBUG_MODE    = FALSE;
 
