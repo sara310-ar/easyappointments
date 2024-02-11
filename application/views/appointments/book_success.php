@@ -61,7 +61,7 @@
             <div class="mt-2">
                 <small>
                     Powered by
-                    <a href="https://easyappointments.org">Easy!Appointments</a>
+                    <a href="https://developily.com/" target="_blank">Developily</a>
                 </small>
             </div>
         </div>

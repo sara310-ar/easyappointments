@@ -21,6 +21,8 @@ $lang['address'] = 'العنوان';
 $lang['city'] = 'المدينة';
 $lang['zip_code'] = 'الرمز البريدي';
 $lang['notes'] = 'ملاحظات';
+//date de naissance
+$lang['date_birth'] = 'تاريخ الميلاد';
 $lang['language'] = 'Language';
 $lang['no_language'] = 'No language';
 $lang['fields_are_required'] = 'الحقول ب* مطلوب تعبئتها';

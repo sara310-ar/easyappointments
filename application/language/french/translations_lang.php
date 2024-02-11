@@ -21,6 +21,8 @@ $lang['address'] = 'Adresse';
 $lang['city'] = 'Ville';
 $lang['zip_code'] = 'Code postal';
 $lang['notes'] = 'Commentaires';
+//date de naissance
+$lang['date_birth'] = 'Date de naissance';
 $lang['language'] = 'Langue';
 $lang['no_language'] = 'Pas de langue';
 $lang['fields_are_required'] = 'Les champs avec * sont obligatoires';

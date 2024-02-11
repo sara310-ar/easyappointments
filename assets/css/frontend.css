@@ -150,10 +150,10 @@ body {
 #book-appointment-wizard .frame-container .frame-content {
     float: none;
 }
-/*css display none*/
+/*css display none
 #book-appointment-wizard .frame-container .frame-content .form-provider{
     display: none;
-}
+}*/
 
 #book-appointment-wizard .wizard-frame .command-buttons {
     float: none;
@@ -235,11 +235,11 @@ body {
 #book-appointment-wizard .span3 {
     min-width: 270px; /* This is especially needed for ie8 */
 }
-/*css display none*/
+/*css display none
 #book-appointment-wizard #select-timezone {
     margin-bottom: 15px;
     display: none;
-}
+}*/
 
 #book-appointment-wizard #appointment-details p,
 #book-appointment-wizard #customer-details p {

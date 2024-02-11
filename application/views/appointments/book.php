@@ -50,7 +50,7 @@
 
             <div id="header">
                 <!-- <span id="company-name"><?= $company_name ?></span> -->
-                <img src="./assets/img/logo BIOALLIANCE.png" alt="" class="logo">
+                <img src="<?= base_url('assets/img/logo BIOALLIANCE.png') ?>" class="logo">
                 <div id="steps">
                     <div id="step-1" class="book-step active-step"
                          data-tippy-content="<?= lang('service_and_info') ?>">
@@ -60,14 +60,14 @@
                          data-tippy-content="<?= lang('appointment_date_and_time') ?>">
                         <strong>2</strong>
                     </div>
-                    <!--    <div id="step-3" class="book-step" data-toggle="tooltip"
+                     <div id="step-3" class="book-step" data-toggle="tooltip"
                          data-tippy-content="<?= lang('customer_information') ?>">
                         <strong>3</strong>
-                    </div> -->
+                    </div>
                    
                     <div id="step-4" class="book-step" data-toggle="tooltip"
                          data-tippy-content="<?= lang('appointment_confirmation') ?>">
-                        <strong>3</strong>
+                        <strong>4</strong>
                     </div>
                 </div>
             </div>
@@ -124,7 +124,6 @@
                                 <label for="select-service">
                                     <strong><?= lang('service') ?></strong>
                                 </label>
-
                                 <select id="select-service" class="form-control">
                                     <?php
                                     // Group services by category, only if there is at least one service with a parent category.
@@ -193,76 +192,12 @@
                                     ?>
                                 </select>
                             </div>
-                            <!-- css display none -->
-                            <div class="form-group form-provider">
+                            <!-- TODO remove provider -->
+                            <div class="form-group">
                                 <label for="select-provider">
                                     <strong><?= lang('provider') ?></strong>
                                 </label>
                                 <select id="select-provider" class="form-control"></select>
-                            </div>
-                            <!-- form -->
-                            <div class="row frame-content">
-                                <div class="col-12 col-md-6">
-                                   
-                                    <div class="form-group">
-                                        <label for="last-name" class="control-label">
-                                            <?= lang('last_name') ?>
-                                            <span class="text-danger">*</span>
-                                        </label>
-                                        <input type="text" id="last-name" class="required form-control" maxlength="120"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="birth" class="control-label">
-                                            Date de naissance
-                                            <span class="text-danger">*</span>
-                                        </label>
-                                        <input type="text" id="birth" class="required form-control" maxlength="120"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="email" class="control-label">
-                                            <?= lang('email') ?>
-                                        </label>
-                                        <input type="text" id="email" class="form-control" maxlength="120"/>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="address" class="control-label">
-                                            <?= lang('address') ?>
-                                        </label>
-                                        <input type="text" id="address" class="form-control" maxlength="120"/>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="form-group">
-                                        <label for="first-name" class="control-label">
-                                            <?= lang('first_name') ?>
-                                            <span class="text-danger">*</span>
-                                        </label>
-                                        <input type="text" id="first-name" class="required form-control" maxlength="100"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="phone-number" class="control-label">
-                                            <?= lang('phone_number') ?>
-                                            <?= $require_phone_number === '1' ? '<span class="text-danger">*</span>' : '' ?>
-                                        </label>
-                                        <input type="text" id="phone-number" maxlength="60"
-                                            class="<?= $require_phone_number === '1' ? 'required' : '' ?> form-control"/>
-                                    </div>
-                                    <!-- liste des villes -->
-                                    <div class="form-group">
-                                        <label for="city" class="control-label">
-                                            <?= lang('city') ?>
-                                        </label>
-                                        <input type="text" id="city" class="form-control" maxlength="120"/>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="notes" class="control-label">
-                                            <?= lang('notes') ?>
-                                        </label>
-                                        <textarea id="notes" maxlength="500" class="form-control" rows="1" style="resize:'none"></textarea>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -294,10 +229,10 @@
                         <div class="col-12 col-md-6">
                             <div id="select-time">
                                 <div class="form-group">
+                                    <!-- TODO remove timezone -->
                                     <label for="select-timezone"><?= lang('timezone') ?></label>
                                     <?= render_timezone_dropdown('id="select-timezone" class="form-control" value="UTC"'); ?>
                                 </div>
-
                                 <div id="available-hours"></div>
                             </div>
                         </div>
@@ -318,7 +253,7 @@
                 </div>
             </div>
 
-            <!-- ENTER CUSTOMER DATA 
+            <!-- ENTER CUSTOMER DATA-->
 
             <div id="wizard-frame-3" class="wizard-frame" style="display:none;">
                 <div class="frame-container">
@@ -327,26 +262,13 @@
 
                     <div class="row frame-content">
                         <div class="col-12 col-md-6">
-                            <div class="form-group">
-                                <label for="first-name" class="control-label">
-                                    <?= lang('first_name') ?>
-                                    <span class="text-danger">*</span>
-                                </label>
-                                <input type="text" id="first-name" class="required form-control" maxlength="100"/>
-                            </div>
+                           
                             <div class="form-group">
                                 <label for="last-name" class="control-label">
                                     <?= lang('last_name') ?>
                                     <span class="text-danger">*</span>
                                 </label>
                                 <input type="text" id="last-name" class="required form-control" maxlength="120"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="email" class="control-label">
-                                    <?= lang('email') ?>
-                                    <span class="text-danger">*</span>
-                                </label>
-                                <input type="text" id="email" class="required form-control" maxlength="120"/>
                             </div>
                             <div class="form-group">
                                 <label for="phone-number" class="control-label">
@@ -356,27 +278,52 @@
                                 <input type="text" id="phone-number" maxlength="60"
                                        class="<?= $require_phone_number === '1' ? 'required' : '' ?> form-control"/>
                             </div>
-                        </div>
-
-                        <div class="col-12 col-md-6">
+                            <!--TODO optionel -->
                             <div class="form-group">
-                                <label for="address" class="control-label">
-                                    <?= lang('address') ?>
+                                <label for="email" class="control-label">
+                                    <?= lang('email') ?>
+                                    <span class="text-danger">*</span>
                                 </label>
-                                <input type="text" id="address" class="form-control" maxlength="120"/>
+                                <input type="text" id="email" class="required form-control" maxlength="120"/>
                             </div>
+                            <!-- TODO city  -->
                             <div class="form-group">
                                 <label for="city" class="control-label">
                                     <?= lang('city') ?>
                                 </label>
                                 <input type="text" id="city" class="form-control" maxlength="120"/>
                             </div>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <div class="form-group">
+                                <label for="first-name" class="control-label">
+                                    <?= lang('first_name') ?>
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <input type="text" id="first-name" class="required form-control" maxlength="100"/>
+                            </div>
+                            <!-- TODO birth  -->
+                            <div class="form-group">
+                                <label for="birth" class="control-label">
+                                    <?= lang('date_birth') ?>
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <input type="text" id="birth" class="required form-control" maxlength="120"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="address" class="control-label">
+                                    <?= lang('address') ?>
+                                </label>
+                                <input type="text" id="address" class="form-control" maxlength="120"/>
+                            </div>
+                            <!-- >TODO remove code postal -->
                             <div class="form-group">
                                 <label for="zip-code" class="control-label">
                                     <?= lang('zip_code') ?>
                                 </label>
                                 <input type="text" id="zip-code" class="form-control" maxlength="120"/>
-                            </div>
+                            </div> 
                             <div class="form-group">
                                 <label for="notes" class="control-label">
                                     <?= lang('notes') ?>
@@ -427,7 +374,8 @@
                         <i class="fas fa-chevron-right ml-2"></i>
                     </button>
                 </div>
-            </div>-->
+            </div> 
+        
 
             <!-- APPOINTMENT DATA CONFIRMATION -->
 
@@ -436,7 +384,9 @@
                     <h2 class="frame-title"><?= lang('appointment_confirmation') ?></h2>
                     <div class="row frame-content">
                         <div id="appointment-details" class="col-12 col-md-6"></div>
-                        <div id="customer-details" class="col-12 col-md-6"></div>
+                        <div id="customer-details" class="col-12 col-md-6">
+                            <!-- TODO affichage -->
+                        </div>
                     </div>
                     <?php if ($this->settings_model->get_setting('require_captcha') === '1'): ?>
                         <div class="row frame-content">
@@ -478,8 +428,7 @@
                 <small>
                     <span class="footer-powered-by">
                         Powered By
-
-                        <a href="https://easyappointments.org" target="_blank">Easy!Appointments</a>
+                        <a href="https://developily.com/" target="_blank">Developily</a>
                     </span>
 
                     <span class="footer-options">

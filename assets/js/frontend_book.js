@@ -540,12 +540,12 @@ window.FrontendBook = window.FrontendBook || {};
                         }),
                         $('<br/>'),
                         $('<span/>', {
-                            'text': EALang.start + ': ' + selectedDate + ' ' + $('.selected-hour').text()
+                            'text': EALang.date + ': ' + selectedDate + ' ' + $('.selected-hour').text()
                         }),
                         $('<br/>'),
-                        $('<span/>', {
+                        /*$('<span/>', {
                             'text': EALang.timezone + ': ' + $('#select-timezone option:selected').text()
-                        }),
+                        }),*/
                         $('<br/>'),
                         $('<span/>', {
                             'text': EALang.price + ': ' + servicePrice + ' ' + serviceCurrency,
