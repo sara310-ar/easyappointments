@@ -1,13 +1,66 @@
 <html lang="en">
 <head>
-    <title><?= lang('appointment_cancelled_title') ?> | Easy!Appointments</title>
+    <title><?= lang('appointment_cancelled_title') ?> | <?= $company_name ?></title>
+    <style>
+        :root{
+            --primary-color : #3690fa;
+            --primary-color-dark: #005792;
+            --secondary-color: #bbebfd;
+            --white: #fff;
+        }
+        .email-container{
+            border: 1px solid #eee;
+        }
+        #header{
+            background-color: var(--secondary-color);
+            height: 65px;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo{
+            height:50px;
+        }
+        .email-content{
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+         h2{
+            color: var(--primary-color-dark);
+        }
+        p{
+            font-size: 18px;
+        }
+        .info{
+            color: rgb(105, 102, 102);
+        }
+        iframe{
+            width: 100%;
+            height: 250px;
+        }
+        .link-mail{
+            color: var(--primary-color);
+            display: block;
+            line-height: 2;
+            text-decoration: none;
+            font-size: 15px;
+        }
+        #edit{
+            color: green;
+        }
+        #cancel{
+            color: red;
+        }
+    </style>
 </head>
 <body style="font: 13px arial, helvetica, tahoma;">
-<div class="email-container" style="width: 650px; border: 1px solid #eee;">
-    <div id="header" style="background-color: #429a82; height: 45px; padding: 10px 15px;">
-        <strong id="logo" style="color: white; font-size: 20px; margin-top: 10px; display: inline-block">
-            <?= $company_name ?>
-        </strong>
+<!-- DONE -->
+<div class="email-container">
+    <div id="header">
+        <img src="<?= base_url('assets/img/logo BIOALLIANCE.png') ?>" class="logo">
     </div>
 
     <div id="content" style="padding: 10px 15px;">
@@ -20,15 +73,18 @@
                 <td class="label" style="padding: 3px;font-weight: bold;"><?= lang('service') ?></td>
                 <td style="padding: 3px;"><?= $appointment_service ?></td>
             </tr>
-            <tr>
+            <!-- 
+                <tr>
                 <td class="label" style="padding: 3px;font-weight: bold;"><?= lang('provider') ?></td>
                 <td style="padding: 3px;"><?= $appointment_provider ?></td>
             </tr>
+             -->
             <tr>
-                <td class="label" style="padding: 3px;font-weight: bold;"><?= lang('start') ?></td>
+                <td class="label" style="padding: 3px;font-weight: bold;"><?= lang('date') ?></td>
                 <td style="padding: 3px;"><?= $appointment_date ?></td>
             </tr>
-            <tr>
+            <!-- 
+                <tr>
                 <td class="label" style="padding: 3px;font-weight: bold;"><?= lang('duration') ?></td>
                 <td style="padding: 3px;"><?= $appointment_duration ?></td>
             </tr>
@@ -36,25 +92,26 @@
                 <td class="label" style="padding: 3px;font-weight: bold;"><?= lang('timezone') ?></td>
                 <td style="padding: 3px;"><?= $appointment_timezone ?></td>
             </tr>
+             -->
         </table>
 
         <h2><?= lang('customer_details_title') ?></h2>
         <table id="customer-details">
             <tr>
                 <td class="label" style="padding: 3px;font-weight: bold;"><?= lang('name') ?></td>
-                <td style="padding: 3px;"><?= $customer_name ?></td>
+                <td class="info" style="padding: 3px;"><?= $customer_name ?></td>
             </tr>
             <tr>
                 <td class="label" style="padding: 3px;font-weight: bold;"><?= lang('email') ?></td>
-                <td style="padding: 3px;"><?= $customer_email ?></td>
+                <td class="info" style="padding: 3px;"><?= $customer_email ?></td>
             </tr>
             <tr>
                 <td class="label" style="padding: 3px;font-weight: bold;"><?= lang('phone_number') ?></td>
-                <td style="padding: 3px;"><?= $customer_phone ?></td>
+                <td class="info" style="padding: 3px;"><?= $customer_phone ?></td>
             </tr>
             <tr>
                 <td class="label" style="padding: 3px;font-weight: bold;"><?= lang('address') ?></td>
-                <td style="padding: 3px;"><?= $customer_address ?></td>
+                <td class="info" style="padding: 3px;"><?= $customer_address ?></td>
             </tr>
         </table>
 
@@ -65,9 +122,9 @@
     <div id="footer" style="padding: 10px; text-align: center; margin-top: 10px;
                 border-top: 1px solid #EEE; background: #FAFAFA;">
         Powered by
-        <a href="https://developily.com/" style="text-decoration: none;" target="_blank">Developily</a>
+        <a href="https://developily.com/" style="color: #005792; text-decoration: none;" target="_blank">Developily</a>
         |
-        <a href="<?= $company_link ?>" style="text-decoration: none;"><?= $company_name ?></a>
+        <a href="<?= $company_link ?>" style="color: #005792; text-decoration: none;"><?= $company_name ?></a>
     </div>
 </div>
 </body>

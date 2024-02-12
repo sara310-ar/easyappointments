@@ -534,10 +534,13 @@ window.FrontendBook = window.FrontendBook || {};
                         $('<span/>', {
                             'text': EALang.service + ': ' + $('#select-service option:selected').text()
                         }),
-                        $('<br/>'),
-                        $('<span/>', {
+                        //DONE remove provider
+                       /* $('<br/>'),
+                       
+                         $('<span/>', {
                             'text': EALang.provider + ': ' + $('#select-provider option:selected').text()
                         }),
+                       */
                         $('<br/>'),
                         $('<span/>', {
                             'text': EALang.date + ': ' + selectedDate + ' ' + $('.selected-hour').text()
@@ -567,6 +570,8 @@ window.FrontendBook = window.FrontendBook || {};
         var address = GeneralFunctions.escapeHtml($('#address').val());
         var city = GeneralFunctions.escapeHtml($('#city').val());
         var zipCode = GeneralFunctions.escapeHtml($('#zip-code').val());
+        //DONE add comment
+        var notes = GeneralFunctions.escapeHtml($('#notes').val());
 
         $('#customer-details').empty();
 
@@ -597,8 +602,15 @@ window.FrontendBook = window.FrontendBook || {};
                             'text': city ? EALang.city + ': ' + city : ''
                         }),
                         $('<br/>'),
+                        /*
                         $('<span/>', {
                             'text': zipCode ? EALang.zip_code + ': ' + zipCode : ''
+                        }),
+                        $('<br/>'),
+                        */
+                       //DONE add comment
+                        $('<span/>', {
+                            'text': notes ? EALang.notes + ': ' + notes : ''
                         }),
                         $('<br/>'),
                     ]
@@ -618,8 +630,11 @@ window.FrontendBook = window.FrontendBook || {};
             phone_number: $('#phone-number').val(),
             address: $('#address').val(),
             city: $('#city').val(),
+            /* TODO remove */
             zip_code: $('#zip-code').val(),
-            timezone: $('#select-timezone').val()
+            timezone: $('#select-timezone').val(),
+            //DONE add comment
+            notes: $('#notes').val()
         };
 
         data.appointment = {

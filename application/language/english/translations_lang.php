@@ -23,6 +23,10 @@ $lang['zip_code'] = 'Zip Code';
 $lang['notes'] = 'Notes';
 //date de naissance
 $lang['date_birth'] = 'date of birth';
+$lang['online_appointment'] = 'Online appointments';
+$lang['edit_appointment'] = 'Edit appointment';
+$lang['cancel_appointment'] = 'Cancel the appointment';
+$lang['company_information_title'] = 'Laboratory information';
 $lang['language'] = 'Language';
 $lang['no_language'] = 'No language';
 $lang['fields_are_required'] = 'Fields with * are required.';

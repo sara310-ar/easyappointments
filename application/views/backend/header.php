@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="<?= asset_url('assets/css/backend.css') ?>">
     <link rel="stylesheet" type="text/css" href="<?= asset_url('assets/css/general.css') ?>">
 
-    <link rel="icon" type="image/x-icon" href="<?= asset_url('assets/img/favicon.ico') ?>">
+    <link rel="icon" type="image/x-icon" href="<?= asset_url('assets/img/logo.svg') ?>">
     <link rel="icon" sizes="192x192" href="<?= asset_url('assets/img/logo.png') ?>">
 
     <script>
@@ -43,8 +43,8 @@
         <!-- <img src="<?= base_url('assets/img/logo.png') ?>"> -->
         
         <h6><?= $company_name ?></h6>
-        <!-- TODO LANG -->
-        <small>Rendez-vous online</small>
+        <!-- DONE LANG -->
+        <small><?= lang('online_appointment') ?></small>
     </div>
 
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#header-menu">

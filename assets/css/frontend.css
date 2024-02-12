@@ -293,7 +293,7 @@ body {
     color: var(--primary-color-dark);
 }
 
-#book-appointment-wizard #select-language,
+
 #book-appointment-wizard .backend-link {
     display: block;
     min-width: 120px;
@@ -350,6 +350,7 @@ body {
         width: 100px;
         padding: 5px;
         margin: 5px auto;
+        background-color: #005792;
     }
 
     #book-appointment-wizard #frame-footer small {

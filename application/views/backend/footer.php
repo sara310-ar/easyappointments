@@ -1,8 +1,9 @@
 <div id="footer">
     <div id="footer-content" class="col-12 col-sm-8">
-        <img class="mr-1" src="<?= base_url('assets/img/logo-16x16.png') ?>" alt="Easy!Appointments Logo">
-        <a href="https://easyappointments.org">
-            Easy!Appointments
+        <!-- DONE edit logo & name -->
+        <img class="mr-1" style="height: 16px;" src="<?= base_url('assets/img/logo.svg') ?>" alt="developily Logo">
+        <a href="https://developily.com/">
+            Developily
         </a>
 
         v<?= config('version') ?>
@@ -11,7 +12,7 @@
         <?php endif ?>
 
         |
-
+          <!-- DONE remove   
         <img class="mx-1" src="<?= base_url('assets/img/alextselegidis-logo-16x16.png') ?>" alt="Alex Tselegidis Logo">
         <a href="https://alextselegidis.com">
             Alex Tselegidis
@@ -26,9 +27,11 @@
         </a>
 
         |
-
+         -->
         <span id="select-language" class="badge badge-secondary">
-            <i class="fas fa-language mr-2"></i>
+            <!-- DONE remove icon
+                <i class="fas fa-language mr-2"></i>
+            -->
         	<?= ucfirst(config('language')) ?>
         </span>
 
