@@ -249,11 +249,6 @@ window.FrontendBook = window.FrontendBook || {};
          * Some special tasks might be performed, depending the current wizard step.
          */
         $('.button-next').on('click', function () {
-            // If we are on the first step and there is not provider selected do not continue with the next step.
-            if ($(this).attr('data-step_index') === '1' && !$('#select-provider').val()) {
-                return;
-            }
-
             // If we are on the 2nd tab then the user should have an appointment hour selected.
             if ($(this).attr('data-step_index') === '2') {
                 if (!$('.selected-hour').length) {
@@ -271,7 +266,7 @@ window.FrontendBook = window.FrontendBook || {};
 
             // If we are on the 3rd tab then we will need to validate the user's input before proceeding to the next
             // step.
-            if ($(this).attr('data-step_index') === '3') {
+            if ($(this).attr('data-step_index') === '1') {
                 if (!validateCustomerForm()) {
                     return; // Validation failed, do not continue.
                 } else {
@@ -452,8 +447,8 @@ window.FrontendBook = window.FrontendBook || {};
      * @return {Boolean} Returns the validation result.
      */
     function validateCustomerForm() {
-        $('#wizard-frame-3 .has-error').removeClass('has-error');
-        $('#wizard-frame-3 label.text-danger').removeClass('text-danger');
+        $('#wizard-frame-1 .has-error').removeClass('has-error');
+        $('#wizard-frame-1 label.text-danger').removeClass('text-danger');
 
         try {
             // Validate required fields.
@@ -478,13 +473,6 @@ window.FrontendBook = window.FrontendBook || {};
             if ($acceptToPrivacyPolicy.length && !$acceptToPrivacyPolicy.prop('checked')) {
                 $acceptToPrivacyPolicy.parents('.form-check').addClass('text-danger');
                 throw new Error(EALang.fields_are_required);
-            }
-
-
-            // Validate email address.
-            if (!GeneralFunctions.validateEmail($('#email').val())) {
-                $('#email').parents('.form-group').addClass('has-error');
-                throw new Error(EALang.invalid_email);
             }
 
             return true;
@@ -569,7 +557,6 @@ window.FrontendBook = window.FrontendBook || {};
         var email = GeneralFunctions.escapeHtml($('#email').val());
         var address = GeneralFunctions.escapeHtml($('#address').val());
         var city = GeneralFunctions.escapeHtml($('#city').val());
-        var zipCode = GeneralFunctions.escapeHtml($('#zip-code').val());
         //DONE add comment
         var notes = GeneralFunctions.escapeHtml($('#notes').val());
 
@@ -591,24 +578,17 @@ window.FrontendBook = window.FrontendBook || {};
                         }),
                         $('<br/>'),
                         $('<span/>', {
-                            'text': EALang.email + ': ' + email
+                            'text': email ?  EALang.email + ': ' + email : ''
                         }),
-                        $('<br/>'),
+                        $(email ? '<br/>' : ''),
                         $('<span/>', {
                             'text': address ? EALang.address + ': ' + address : ''
                         }),
-                        $('<br/>'),
+                        $(address ? '<br/>' :''),
                         $('<span/>', {
                             'text': city ? EALang.city + ': ' + city : ''
                         }),
-                        $('<br/>'),
-                        /*
-                        $('<span/>', {
-                            'text': zipCode ? EALang.zip_code + ': ' + zipCode : ''
-                        }),
-                        $('<br/>'),
-                        */
-                       //DONE add comment
+                        $(city ? '<br/>' :''),
                         $('<span/>', {
                             'text': notes ? EALang.notes + ': ' + notes : ''
                         }),
@@ -630,10 +610,7 @@ window.FrontendBook = window.FrontendBook || {};
             phone_number: $('#phone-number').val(),
             address: $('#address').val(),
             city: $('#city').val(),
-            /* TODO remove */
-            zip_code: $('#zip-code').val(),
             timezone: $('#select-timezone').val(),
-            //DONE add comment
             notes: $('#notes').val()
         };
 
@@ -714,7 +691,6 @@ window.FrontendBook = window.FrontendBook || {};
             $('#phone-number').val(customer.phone_number);
             $('#address').val(customer.address);
             $('#city').val(customer.city);
-            $('#zip-code').val(customer.zip_code);
             if (customer.timezone) {
                 $('#select-timezone').val(customer.timezone)
             }

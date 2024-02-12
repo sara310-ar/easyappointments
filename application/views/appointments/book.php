@@ -64,11 +64,6 @@
                          data-tippy-content="<?= lang('customer_information') ?>">
                         <strong>3</strong>
                     </div>
-                   
-                    <div id="step-4" class="book-step" data-toggle="tooltip"
-                         data-tippy-content="<?= lang('appointment_confirmation') ?>">
-                        <strong>4</strong>
-                    </div>
                 </div>
             </div>
             <?php if ($manage_mode): ?>
@@ -112,10 +107,11 @@
             <?php endif ?>
 
 
-            <!-- SELECT SERVICE AND PROVIDER -->
+            <!-- ENTER CUSTOMER DATA-->
 
             <div id="wizard-frame-1" class="wizard-frame">
                 <div class="frame-container">
+
                     <h2 class="frame-title"><?= lang('service_and_info') ?></h2>
 
                     <div class="row frame-content">
@@ -192,8 +188,7 @@
                                     ?>
                                 </select>
                             </div>
-                            <!-- TODO remove provider -->
-                            <div class="form-group">
+                            <div class="form-group" style="display:none;">
                                 <label for="select-provider">
                                     <strong><?= lang('provider') ?></strong>
                                 </label>
@@ -201,65 +196,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="command-buttons">
-                    <span>&nbsp;</span>
-
-                    <button type="button" id="button-next-1" class="btn button-next btn-dark"
-                            data-step_index="1">
-                        <?= lang('next') ?>
-                        <i class="fas fa-chevron-right ml-2"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- SELECT APPOINTMENT DATE -->
-
-            <div id="wizard-frame-2" class="wizard-frame" style="display:none;">
-                <div class="frame-container">
-
-                    <h2 class="frame-title"><?= lang('appointment_date_and_time') ?></h2>
-
-                    <div class="row frame-content">
-                        <div class="col-12 col-md-6">
-                            <div id="select-date"></div>
-                        </div>
-
-                        <div class="col-12 col-md-6">
-                            <div id="select-time">
-                                <div class="form-group">
-                                    <!-- TODO remove timezone -->
-                                    <label for="select-timezone"><?= lang('timezone') ?></label>
-                                    <?= render_timezone_dropdown('id="select-timezone" class="form-control" value="UTC"'); ?>
-                                </div>
-                                <div id="available-hours"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="command-buttons">
-                    <button type="button" id="button-back-2" class="btn button-back btn-outline-secondary"
-                            data-step_index="2">
-                        <i class="fas fa-chevron-left mr-2"></i>
-                        <?= lang('back') ?>
-                    </button>
-                    <button type="button" id="button-next-2" class="btn button-next btn-dark"
-                            data-step_index="2">
-                        <?= lang('next') ?>
-                        <i class="fas fa-chevron-right ml-2"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- ENTER CUSTOMER DATA-->
-
-            <div id="wizard-frame-3" class="wizard-frame" style="display:none;">
-                <div class="frame-container">
-
-                    <h2 class="frame-title"><?= lang('customer_information') ?></h2>
-
                     <div class="row frame-content">
                         <div class="col-12 col-md-6">
                            
@@ -278,15 +214,20 @@
                                 <input type="text" id="phone-number" maxlength="60"
                                        class="<?= $require_phone_number === '1' ? 'required' : '' ?> form-control"/>
                             </div>
-                            <!--TODO optionel -->
                             <div class="form-group">
                                 <label for="email" class="control-label">
                                     <?= lang('email') ?>
-                                    <span class="text-danger">*</span>
                                 </label>
-                                <input type="text" id="email" class="required form-control" maxlength="120"/>
+                                <input type="text" id="email" class="form-control" maxlength="120"/>
                             </div>
                             <!-- TODO city  -->
+                            <div class="form-group">
+                                <label for="city" class="control-label">
+                                    <?= lang('city') ?>
+                                </label>
+                                <input type="text" id="city" class="form-control" maxlength="120"/>
+                            </div>
+                            <!-- TODO commune -->
                             <div class="form-group">
                                 <label for="city" class="control-label">
                                     <?= lang('city') ?>
@@ -317,18 +258,15 @@
                                 </label>
                                 <input type="text" id="address" class="form-control" maxlength="120"/>
                             </div>
-                            <!-- >TODO remove code postal -->
-                            <div class="form-group">
-                                <label for="zip-code" class="control-label">
-                                    <?= lang('zip_code') ?>
-                                </label>
-                                <input type="text" id="zip-code" class="form-control" maxlength="120"/>
-                            </div> 
+                        </div>
+                    </div>
+                    <div class="row frame-content">
+                        <div class="col">
                             <div class="form-group">
                                 <label for="notes" class="control-label">
                                     <?= lang('notes') ?>
                                 </label>
-                                <textarea id="notes" maxlength="500" class="form-control" rows="1"></textarea>
+                                <textarea id="notes" maxlength="500" class="form-control" rows="3"></textarea>
                             </div>
                         </div>
                     </div>
@@ -363,29 +301,62 @@
                 <?php endif ?>
 
                 <div class="command-buttons">
-                    <button type="button" id="button-back-3" class="btn button-back btn-outline-secondary"
-                            data-step_index="3">
+                    <span>&nbsp;</span>
+
+                    <button type="button" id="button-next-1" class="btn button-next btn-dark"
+                            data-step_index="1">
+                        <?= lang('next') ?>
+                        <i class="fas fa-chevron-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- SELECT APPOINTMENT DATE -->
+
+            <div id="wizard-frame-2" class="wizard-frame" style="display:none;">
+                <div class="frame-container">
+
+                    <h2 class="frame-title"><?= lang('appointment_date_and_time') ?></h2>
+
+                    <div class="row frame-content">
+                        <div class="col-12 col-md-6">
+                            <div id="select-date"></div>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <div id="select-time">
+                                <div class="form-group" style="display:none;">
+                                    <label for="select-timezone"><?= lang('timezone') ?></label>
+                                    <?= render_timezone_dropdown('id="select-timezone" class="form-control" value="UTC"'); ?>
+                                </div>
+                                <div id="available-hours"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="command-buttons">
+                    <button type="button" id="button-back-2" class="btn button-back btn-outline-secondary"
+                            data-step_index="2">
                         <i class="fas fa-chevron-left mr-2"></i>
                         <?= lang('back') ?>
                     </button>
-                    <button type="button" id="button-next-3" class="btn button-next btn-dark"
-                            data-step_index="3">
+                    <button type="button" id="button-next-2" class="btn button-next btn-dark"
+                            data-step_index="2">
                         <?= lang('next') ?>
                         <i class="fas fa-chevron-right ml-2"></i>
                     </button>
                 </div>
             </div> 
-        
 
             <!-- APPOINTMENT DATA CONFIRMATION -->
 
-            <div id="wizard-frame-4" class="wizard-frame" style="display:none;">
+            <div id="wizard-frame-3" class="wizard-frame" style="display:none;">
                 <div class="frame-container">
                     <h2 class="frame-title"><?= lang('appointment_confirmation') ?></h2>
                     <div class="row frame-content">
                         <div id="appointment-details" class="col-12 col-md-6"></div>
                         <div id="customer-details" class="col-12 col-md-6">
-                            <!-- TODO affichage -->
                         </div>
                     </div>
                     <?php if ($this->settings_model->get_setting('require_captcha') === '1'): ?>
@@ -406,8 +377,8 @@
                 </div>
 
                 <div class="command-buttons">
-                    <button type="button" id="button-back-4" class="btn button-back btn-outline-secondary"
-                            data-step_index="4">
+                    <button type="button" id="button-back-3" class="btn button-back btn-outline-secondary"
+                            data-step_index="3">
                         <i class="fas fa-chevron-left mr-2"></i>
                         <?= lang('back') ?>
                     </button>
