@@ -725,6 +725,7 @@ window.FrontendBook = window.FrontendBook || {};
             $('#address').val(customer.address);
             $('#city').val(customer.city);
             $('#zip-code').val(customer.zip_code);
+            $('#birth').val(customer.birthdate);
             if (customer.timezone) {
                 $('#select-timezone').val(customer.timezone)
             }

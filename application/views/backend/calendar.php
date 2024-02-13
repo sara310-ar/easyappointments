@@ -213,15 +213,15 @@
                                     </select>
                                 </div>
 
-                                <!-- 
-                                    <div class="form-group">
+                                
+                                <div style="display: none;" class="form-group">
                                     <label for="select-provider" class="control-label">
                                     <?= lang('provider') ?>
                                         <span class="text-danger">*</span>
                                     </label>
                                     <select id="select-provider" class="required form-control"></select>
                                 </div>
-                                 -->
+                                
 
                                 <div class="form-group">
                                     <label for="appointment-location" class="control-label">
@@ -244,15 +244,15 @@
                                     <textarea id="appointment-notes" class="form-control" rows="3"></textarea>
                                 </div>
 
-                                <!-- 
-                                    <div class="form-group">
+                                
+                                <div style="display: none;" class="form-group">
                                     <label for="end-datetime" class="control-label"><?= lang('end_date_time') ?></label>
                                     <input id="end-datetime" class="required form-control">
                                 </div>
-                                 -->
+                                
 
-                                <!-- 
-                                    <div class="form-group">
+                                
+                                    <div style="display: none;" class="form-group">
                                     <label class="control-label"><?= lang('timezone') ?></label>
 
                                     <ul>
@@ -270,7 +270,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                 -->
+                                
                             </div>
                         </div>
                     </fieldset>
@@ -359,14 +359,14 @@
 
                                 
 
-                                <!-- 
-                                    <div class="form-group">
+                                
+                                    <div style="display: none;" class="form-group">
                                         <label for="zip-code" class="control-label">
                                         <?= lang('zip_code') ?>
                                         </label>
                                         <input id="zip-code" class="form-control">
                                     </div>
-                                 -->
+                                
                                  <!-- TODO -->
                                  <div class="form-group">
                                     <label for="city" class="control-label">

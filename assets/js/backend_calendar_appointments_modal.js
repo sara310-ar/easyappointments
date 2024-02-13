@@ -78,6 +78,7 @@ window.BackendCalendarAppointmentsModal = window.BackendCalendarAppointmentsModa
                 address: $dialog.find('#address').val(),
                 city: $dialog.find('#city').val(),
                 zip_code: $dialog.find('#zip-code').val(),
+                birthdate: $dialog.find('#birth').val(),
                 notes: $dialog.find('#customer-notes').val()
             };
 
@@ -213,6 +214,7 @@ window.BackendCalendarAppointmentsModal = window.BackendCalendarAppointmentsModa
                 $('#first-name').val(customer.first_name);
                 $('#last-name').val(customer.last_name);
                 $('#email').val(customer.email);
+                $('#birth').val(customer.birthdate);
                 $('#phone-number').val(customer.phone_number);
                 $('#address').val(customer.address);
                 $('#city').val(customer.city);

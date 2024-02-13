@@ -290,6 +290,7 @@
         $('#address').val(customer.address);
         $('#city').val(customer.city);
         $('#zip-code').val(customer.zip_code);
+        $('#birth').val(customer.birthdate);
         $('#notes').val(customer.notes);
         $('#timezone').val(customer.timezone);
         $('#language').val(customer.language || 'english');
