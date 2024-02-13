@@ -521,13 +521,13 @@ window.BackendCalendarDefaultView = window.BackendCalendarDefaultView || {};
                 'html': [
                     $('<strong/>', {
                         'class': 'd-inline-block mr-2',
-                        'text': EALang.start
+                        'text': EALang.date
                     }),
                     $('<span/>', {
                         'text': GeneralFunctions.formatDate(event.start.format('YYYY-MM-DD HH:mm:ss'), GlobalVariables.dateFormat, true)
                     }),
                     $('<br/>'),
-
+                    /*
                     $('<strong/>', {
                         'class': 'd-inline-block mr-2',
                         'text': EALang.end
@@ -544,7 +544,7 @@ window.BackendCalendarDefaultView = window.BackendCalendarDefaultView || {};
                     $('<span/>', {
                         'text': GlobalVariables.timezones[event.data.provider.timezone]
                     }),
-                    $('<br/>'),
+                    $('<br/>'),*/
 
                     $('<strong/>', {
                         'class': 'd-inline-block mr-2',
@@ -554,7 +554,7 @@ window.BackendCalendarDefaultView = window.BackendCalendarDefaultView || {};
                         'text': event.data.service.name
                     }),
                     $('<br/>'),
-
+                    /*
                     $('<strong/>', {
                         'class': 'd-inline-block mr-2',
                         'text': EALang.provider
@@ -563,13 +563,14 @@ window.BackendCalendarDefaultView = window.BackendCalendarDefaultView || {};
                     $('<span/>', {
                         'text': event.data.provider.first_name + ' ' + event.data.provider.last_name
                     }),
-                    $('<br/>'),
+                    $('<br/>'),*/
 
                     $('<strong/>', {
                         'class': 'd-inline-block mr-2',
                         'text': EALang.customer
                     }),
-                    GeneralFunctions.renderMapIcon(event.data.customer),
+                    //DONE TODO
+                    //GeneralFunctions.renderMapIcon(event.data.customer),
                     $('<span/>', {
                         'class': 'd-inline-block ml-1',
                         'text': event.data.customer.first_name + ' ' + event.data.customer.last_name
@@ -595,6 +596,17 @@ window.BackendCalendarDefaultView = window.BackendCalendarDefaultView || {};
                     $('<span/>', {
                         'class': 'd-inline-block ml-1',
                         'text': event.data.customer.phone_number
+                    }),
+                    $('<br/>'),
+                    ////
+                    $('<strong/>', {
+                        'class': 'd-inline-block mr-2',
+                        'text': EALang.city
+                    }),
+                    GeneralFunctions.renderMapIcon(event.data.customer.city),
+                    $('<span/>', {
+                        'class': 'd-inline-block ml-1',
+                        'text': event.data.customer.city
                     }),
                     $('<br/>'),
 

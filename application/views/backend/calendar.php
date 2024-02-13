@@ -213,13 +213,15 @@
                                     </select>
                                 </div>
 
-                                <div class="form-group">
+                                <!-- 
+                                    <div class="form-group">
                                     <label for="select-provider" class="control-label">
-                                        <?= lang('provider') ?>
+                                    <?= lang('provider') ?>
                                         <span class="text-danger">*</span>
                                     </label>
                                     <select id="select-provider" class="required form-control"></select>
                                 </div>
+                                 -->
 
                                 <div class="form-group">
                                     <label for="appointment-location" class="control-label">
@@ -228,30 +230,34 @@
                                     <input id="appointment-location" class="form-control">
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="appointment-notes" class="control-label"><?= lang('notes') ?></label>
-                                    <textarea id="appointment-notes" class="form-control" rows="3"></textarea>
-                                </div>
+                                
                             </div>
 
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
                                     <label for="start-datetime"
-                                           class="control-label"><?= lang('start_date_time') ?></label>
+                                           class="control-label"><?= lang('date') ?></label>
                                     <input id="start-datetime" class="required form-control">
                                 </div>
-
                                 <div class="form-group">
+                                    <label for="appointment-notes" class="control-label"><?= lang('notes') ?></label>
+                                    <textarea id="appointment-notes" class="form-control" rows="3"></textarea>
+                                </div>
+
+                                <!-- 
+                                    <div class="form-group">
                                     <label for="end-datetime" class="control-label"><?= lang('end_date_time') ?></label>
                                     <input id="end-datetime" class="required form-control">
                                 </div>
+                                 -->
 
-                                <div class="form-group">
+                                <!-- 
+                                    <div class="form-group">
                                     <label class="control-label"><?= lang('timezone') ?></label>
 
                                     <ul>
                                         <li>
-                                            <?= lang('provider') ?>:
+                                        <?= lang('provider') ?>:
                                             <span class="provider-timezone">
                                                 -
                                             </span>
@@ -264,6 +270,7 @@
                                         </li>
                                     </ul>
                                 </div>
+                                 -->
                             </div>
                         </div>
                     </fieldset>
@@ -295,13 +302,7 @@
 
                         <div class="row">
                             <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label for="first-name" class="control-label">
-                                        <?= lang('first_name') ?>
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <input id="first-name" class="required form-control">
-                                </div>
+                                
 
                                 <div class="form-group">
                                     <label for="last-name" class="control-label">
@@ -310,7 +311,13 @@
                                     </label>
                                     <input id="last-name" class="required form-control">
                                 </div>
-
+                                <!-- TODO -->
+                                <div class="form-group">
+                                    <label for="birth" class="control-label">
+                                        <?= lang('date_birth') ?>
+                                    </label>
+                                    <input type="text" id="birth" class="form-control" maxlength="120"/>
+                                </div>
                                 <div class="form-group">
                                     <label for="email" class="control-label">
                                         <?= lang('email') ?>
@@ -318,7 +325,21 @@
                                     </label>
                                     <input id="email" class="required form-control">
                                 </div>
-
+                                <div class="form-group">
+                                    <label for="city" class="control-label">
+                                        <?= lang('city') ?>
+                                    </label>
+                                    <input id="city" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group">
+                                    <label for="first-name" class="control-label">
+                                        <?= lang('first_name') ?>
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <input id="first-name" class="required form-control">
+                                </div>
                                 <div class="form-group">
                                     <label for="phone-number" class="control-label">
                                         <?= lang('phone_number') ?>
@@ -329,8 +350,6 @@
                                     <input id="phone-number"
                                            class="form-control <?= $require_phone_number === '1' ? 'required' : '' ?>">
                                 </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
                                 <div class="form-group">
                                     <label for="address" class="control-label">
                                         <?= lang('address') ?>
@@ -338,26 +357,33 @@
                                     <input id="address" class="form-control">
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="city" class="control-label">
-                                        <?= lang('city') ?>
-                                    </label>
-                                    <input id="city" class="form-control">
-                                </div>
+                                
 
-                                <div class="form-group">
-                                    <label for="zip-code" class="control-label">
+                                <!-- 
+                                    <div class="form-group">
+                                        <label for="zip-code" class="control-label">
                                         <?= lang('zip_code') ?>
+                                        </label>
+                                        <input id="zip-code" class="form-control">
+                                    </div>
+                                 -->
+                                 <!-- TODO -->
+                                 <div class="form-group">
+                                    <label for="city" class="control-label">
+                                        <?= lang('commune') ?>
                                     </label>
-                                    <input id="zip-code" class="form-control">
+                                    <input type="text" id="city" class="form-control" maxlength="120"/>
                                 </div>
-
-                                <div class="form-group">
-                                    <label for="customer-notes" class="control-label">
-                                        <?= lang('notes') ?>
-                                    </label>
-                                    <textarea id="customer-notes" rows="2" class="form-control"></textarea>
-                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                            <div class="form-group">
+                                <label for="customer-notes" class="control-label">
+                                    <?= lang('notes') ?>
+                                </label>
+                                <textarea id="customer-notes" maxlength="500" class="form-control" rows="3"></textarea>
+                            </div>  
                             </div>
                         </div>
                     </fieldset>
