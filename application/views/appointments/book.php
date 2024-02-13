@@ -36,8 +36,6 @@
         #book-appointment-wizard #appointment-details p, #book-appointment-wizard #customer-details p {
             color: grey;
         }
-        
-        
             </style>
 </head>
 
@@ -217,17 +215,11 @@
                             <div class="form-group">
                                 <label for="email" class="control-label">
                                     <?= lang('email') ?>
+                                    <span class="text-danger">*</span>
                                 </label>
-                                <input type="text" id="email" class="form-control" maxlength="120"/>
+                                <input type="text" id="email" class="required form-control" maxlength="120"/>
                             </div>
                             <!-- TODO city  -->
-                            <div class="form-group">
-                                <label for="city" class="control-label">
-                                    <?= lang('city') ?>
-                                </label>
-                                <input type="text" id="city" class="form-control" maxlength="120"/>
-                            </div>
-                            <!-- TODO commune -->
                             <div class="form-group">
                                 <label for="city" class="control-label">
                                     <?= lang('city') ?>
@@ -250,13 +242,23 @@
                                     <?= lang('date_birth') ?>
                                     <span class="text-danger">*</span>
                                 </label>
-                                <input type="text" id="birth" class="required form-control" maxlength="120"/>
+                                <input type="text" readonly id="birth" class="required form-control" maxlength="120"/>
+                                <div class="input-group-append" id="datepicker-trigger">
+                                    <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="address" class="control-label">
                                     <?= lang('address') ?>
                                 </label>
                                 <input type="text" id="address" class="form-control" maxlength="120"/>
+                            </div>
+                            <!-- TODO commune -->
+                            <div class="form-group">
+                                <label for="city" class="control-label">
+                                    <?= lang('city') ?>
+                                </label>
+                                <input type="text" id="city" class="form-control" maxlength="120"/>
                             </div>
                         </div>
                     </div>
@@ -470,6 +472,14 @@
         FrontendBook.initialize(true, GlobalVariables.manageMode);
         GeneralFunctions.enableLanguageSelection($('#select-language'));
     });
+</script>
+<script>
+  $(function() {
+    // Trigger date picker on icon click
+    $("#datepicker-trigger").click(function() {
+      $("#birth").datepicker("show");
+    });
+  });
 </script>
 
 <?php google_analytics_script(); ?>

@@ -93,6 +93,32 @@ window.FrontendBook = window.FrontendBook || {};
 
         var weekDayId = GeneralFunctions.getWeekDayId(GlobalVariables.firstWeekday);
 
+        $("#birth").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            firstDay: weekDayId,
+            yearRange: "-100:+0",
+            dateFormat: "dd-mm-yy",
+            dayNames: [
+                EALang.sunday, EALang.monday, EALang.tuesday, EALang.wednesday,
+                EALang.thursday, EALang.friday, EALang.saturday],
+            dayNamesShort: [EALang.sunday.substr(0, 5), EALang.monday.substr(0, 5),
+                EALang.tuesday.substr(0, 5), EALang.wednesday.substr(0, 5),
+                EALang.thursday.substr(0, 5), EALang.friday.substr(0, 5),
+                EALang.saturday.substr(0, 5)],
+            dayNamesMin: [EALang.sunday.substr(0, 2), EALang.monday.substr(0, 2),
+                EALang.tuesday.substr(0, 2), EALang.wednesday.substr(0, 2),
+                EALang.thursday.substr(0, 2), EALang.friday.substr(0, 2),
+                EALang.saturday.substr(0, 2)],
+            monthNames: [EALang.january, EALang.february, EALang.march, EALang.april,
+                EALang.may, EALang.june, EALang.july, EALang.august, EALang.september,
+                EALang.october, EALang.november, EALang.december],
+            prevText: EALang.previous,
+            nextText: EALang.next,
+            currentText: EALang.now,
+            closeText: EALang.close,
+        });
+
         $('#select-date').datepicker({
             dateFormat: 'dd-mm-yy',
             firstDay: weekDayId,
@@ -475,6 +501,12 @@ window.FrontendBook = window.FrontendBook || {};
                 throw new Error(EALang.fields_are_required);
             }
 
+            // Validate email address.
+            if (!GeneralFunctions.validateEmail($('#email').val())) {
+                $('#email').parents('.form-group').addClass('has-error');
+                throw new Error(EALang.invalid_email);
+            }
+
             return true;
         } catch (error) {
             $('#form-message').text(error.message);
@@ -557,7 +589,6 @@ window.FrontendBook = window.FrontendBook || {};
         var email = GeneralFunctions.escapeHtml($('#email').val());
         var address = GeneralFunctions.escapeHtml($('#address').val());
         var city = GeneralFunctions.escapeHtml($('#city').val());
-        //DONE add comment
         var notes = GeneralFunctions.escapeHtml($('#notes').val());
 
         $('#customer-details').empty();
@@ -610,6 +641,7 @@ window.FrontendBook = window.FrontendBook || {};
             phone_number: $('#phone-number').val(),
             address: $('#address').val(),
             city: $('#city').val(),
+            zip_code: null,
             timezone: $('#select-timezone').val(),
             notes: $('#notes').val()
         };
@@ -691,6 +723,7 @@ window.FrontendBook = window.FrontendBook || {};
             $('#phone-number').val(customer.phone_number);
             $('#address').val(customer.address);
             $('#city').val(customer.city);
+            $('#zip-code').val(customer.zip_code);
             if (customer.timezone) {
                 $('#select-timezone').val(customer.timezone)
             }
