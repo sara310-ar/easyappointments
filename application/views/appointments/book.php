@@ -237,14 +237,14 @@
                                 <input type="text" id="first-name" class="required form-control" maxlength="100"/>
                             </div>
                             <!-- TODO birth  -->
-                            <div class="form-group">
+                            <div class="form-group birth">
                                 <label for="birth" class="control-label">
                                     <?= lang('date_birth') ?>
                                     <span class="text-danger">*</span>
                                 </label>
-                                <input type="text" readonly id="birth" class="required form-control" maxlength="120"/>
+                                <input type="text" readonly id="birth" class="required form-control birth" maxlength="120"/>
                                 <div class="input-group-append" id="datepicker-trigger">
-                                    <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                    <span class="input-group-text birth-icon"><i class="fa fa-calendar"></i></span>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -256,7 +256,7 @@
                             <!-- TODO commune -->
                             <div class="form-group">
                                 <label for="city" class="control-label">
-                                    <?= lang('city') ?>
+                                    <?= lang('commune') ?>
                                 </label>
                                 <input type="text" id="city" class="form-control" maxlength="120"/>
                             </div>

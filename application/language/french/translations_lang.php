@@ -23,6 +23,7 @@ $lang['zip_code'] = 'Code postal';
 $lang['notes'] = 'Commentaires';
 //date de naissance
 $lang['date_birth'] = 'Date de naissance';
+$lang['commune'] = 'Commune';
 $lang['online_appointment'] = 'Rendez-vous en ligne';
 $lang['edit_appointment'] = 'Modifier le rendez-vous';
 $lang['cancel_appointment'] = 'Annuler le rendez-vous';

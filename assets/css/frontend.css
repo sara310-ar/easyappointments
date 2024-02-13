@@ -463,4 +463,19 @@ body {
     }
 }
 
-
+/*birth icon
+----------------------------------------------------------------------------*/
+.birth{
+    position: relative;
+    background-color: transparent !important;
+}
+.input-group-append{
+    position: absolute;
+    left: 5px; 
+    top: 55%;
+}
+.birth-icon{
+    background-color: transparent;
+    border: none;
+    color: var(--primary-color-dark);
+}

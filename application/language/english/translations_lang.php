@@ -23,6 +23,7 @@ $lang['zip_code'] = 'Zip Code';
 $lang['notes'] = 'Notes';
 //date de naissance
 $lang['date_birth'] = 'date of birth';
+$lang['commune'] = 'Municipality';
 $lang['online_appointment'] = 'Online appointments';
 $lang['edit_appointment'] = 'Edit appointment';
 $lang['cancel_appointment'] = 'Cancel the appointment';

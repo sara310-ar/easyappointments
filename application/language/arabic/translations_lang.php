@@ -23,6 +23,7 @@ $lang['zip_code'] = 'الرمز البريدي';
 $lang['notes'] = 'ملاحظات';
 //date de naissance
 $lang['date_birth'] = 'تاريخ الميلاد';
+$lang['commune'] = 'البلدية';
 $lang['online_appointment'] = 'المواعيد عبر الإنترنت';
 $lang['edit_appointment'] = 'تعديل الموعد';
 $lang['cancel_appointment'] = 'إلغاء الموعد';
