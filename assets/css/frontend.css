@@ -471,8 +471,8 @@ body {
 }
 .input-group-append{
     position: absolute;
-    left: 5px; 
-    top: 55%;
+    left: 90%; 
+    top: 58%;
 }
 .birth-icon{
     background-color: transparent;
