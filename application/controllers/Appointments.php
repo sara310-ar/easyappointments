@@ -183,7 +183,9 @@ class Appointments extends EA_Controller {
                     'timezone' => $customer['timezone'],
                     'address' => $customer['address'],
                     'city' => $customer['city'],
-                    'zip_code' => $customer['zip_code']
+                    'zip_code' => $customer['zip_code'],
+                    // TODO
+                    'birthdate' => $customer['birthdate'],
                 ];
 
                 $customer_token = md5(uniqid(mt_rand(), TRUE));

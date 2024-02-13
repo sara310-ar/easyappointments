@@ -101,18 +101,17 @@ window.FrontendBook = window.FrontendBook || {};
             dateFormat: "dd-mm-yy",
             dayNames: [
                 EALang.sunday, EALang.monday, EALang.tuesday, EALang.wednesday,
-                EALang.thursday, EALang.friday, EALang.saturday],
-            dayNamesShort: [EALang.sunday.substr(0, 5), EALang.monday.substr(0, 5),
-                EALang.tuesday.substr(0, 5), EALang.wednesday.substr(0, 5),
-                EALang.thursday.substr(0, 5), EALang.friday.substr(0, 5),
-                EALang.saturday.substr(0, 5)],
-            dayNamesMin: [EALang.sunday.substr(0, 2), EALang.monday.substr(0, 2),
-                EALang.tuesday.substr(0, 2), EALang.wednesday.substr(0, 2),
-                EALang.thursday.substr(0, 2), EALang.friday.substr(0, 2),
-                EALang.saturday.substr(0, 2)],
-            monthNames: [EALang.january, EALang.february, EALang.march, EALang.april,
+                EALang.thursday, EALang.friday, EALang.saturday
+            ],
+            dayNamesMin: [EALang.cal_sun, EALang.cal_mon,
+                EALang.cal_tue, EALang.cal_wed,
+                EALang.cal_thu, EALang.cal_fri,
+                EALang.cal_sat
+            ],
+            monthNamesShort: [EALang.january, EALang.february, EALang.march, EALang.april,
                 EALang.may, EALang.june, EALang.july, EALang.august, EALang.september,
-                EALang.october, EALang.november, EALang.december],
+                EALang.october, EALang.november, EALang.december
+            ],
             prevText: EALang.previous,
             nextText: EALang.next,
             currentText: EALang.now,
@@ -132,10 +131,11 @@ window.FrontendBook = window.FrontendBook || {};
                 EALang.tuesday.substr(0, 3), EALang.wednesday.substr(0, 3),
                 EALang.thursday.substr(0, 3), EALang.friday.substr(0, 3),
                 EALang.saturday.substr(0, 3)],
-            dayNamesMin: [EALang.sunday.substr(0, 2), EALang.monday.substr(0, 2),
-                EALang.tuesday.substr(0, 2), EALang.wednesday.substr(0, 2),
-                EALang.thursday.substr(0, 2), EALang.friday.substr(0, 2),
-                EALang.saturday.substr(0, 2)],
+            dayNamesMin: [EALang.cal_sun, EALang.cal_mon,
+                EALang.cal_tue, EALang.cal_wed,
+                EALang.cal_thu, EALang.cal_fri,
+                EALang.cal_sat
+            ],
             monthNames: [EALang.january, EALang.february, EALang.march, EALang.april,
                 EALang.may, EALang.june, EALang.july, EALang.august, EALang.september,
                 EALang.october, EALang.november, EALang.december],
@@ -642,6 +642,7 @@ window.FrontendBook = window.FrontendBook || {};
             address: $('#address').val(),
             city: $('#city').val(),
             zip_code: null,
+            birthdate: $('#birth').datepicker('getDate').toString('yyyy-MM-dd'),
             timezone: $('#select-timezone').val(),
             notes: $('#notes').val()
         };
