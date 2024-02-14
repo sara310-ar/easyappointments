@@ -471,3 +471,9 @@ body {
     border: none;
     color: var(--primary-color-dark);
 }
+
+/*commune
+----------------------------------------------------------------------------*/
+.commune{
+    display: none;
+}

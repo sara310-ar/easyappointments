@@ -239,10 +239,6 @@
                                            class="control-label"><?= lang('date') ?></label>
                                     <input id="start-datetime" class="required form-control">
                                 </div>
-                                <div class="form-group">
-                                    <label for="appointment-notes" class="control-label"><?= lang('notes') ?></label>
-                                    <textarea id="appointment-notes" class="form-control" rows="3"></textarea>
-                                </div>
 
                                 
                                 <div style="display: none;" class="form-group">
@@ -367,23 +363,22 @@
                                         <input id="zip-code" class="form-control">
                                     </div>
                                 
-                                 <!-- TODO -->
+                                 <!-- TODO commune 
                                  <div class="form-group">
                                     <label for="city" class="control-label">
                                         <?= lang('commune') ?>
                                     </label>
                                     <input type="text" id="city" class="form-control" maxlength="120"/>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
+   
                             <div class="form-group">
-                                <label for="customer-notes" class="control-label">
-                                    <?= lang('notes') ?>
-                                </label>
-                                <textarea id="customer-notes" maxlength="500" class="form-control" rows="3"></textarea>
-                            </div>  
+                                    <label for="appointment-notes" class="control-label"><?= lang('notes') ?></label>
+                                    <textarea id="appointment-notes" class="form-control" rows="3"></textarea>
+                                </div>
                             </div>
                         </div>
                     </fieldset>
