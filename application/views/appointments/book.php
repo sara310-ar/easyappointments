@@ -253,7 +253,12 @@
                                 </label>
                                 <input type="text" id="address" class="form-control" maxlength="120"/>
                             </div>
+<<<<<<< HEAD
                             <div class="form-group">
+=======
+                            <!-- TODO commune display none -->
+                            <div class="form-group commune">
+>>>>>>> 67de0d449ab5669a3a3e31de0ba20e91869e4cb9
                                 <label for="city" class="control-label">
                                     <?= lang('commune') ?>
                                 </label>
