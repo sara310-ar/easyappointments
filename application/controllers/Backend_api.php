@@ -308,7 +308,7 @@ class Backend_api extends EA_Controller {
             $provider = $this->providers_model->get_row($appointment['id_users_provider']);
             $customer = $this->customers_model->get_row($appointment['id_users_customer']);
             $service = $this->services_model->get_row($appointment['id_services']);
-
+            // TODO
             $settings = [
                 'company_name' => $this->settings_model->get_setting('company_name'),
                 'company_link' => $this->settings_model->get_setting('company_link'),

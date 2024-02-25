@@ -185,6 +185,7 @@ window.BackendCalendarTableView = window.BackendCalendarTableView || {};
                 $dialog.find('.modal-header h3').text(EALang.edit_appointment_title);
                 $dialog.find('#appointment-id').val(appointment.id);
                 $dialog.find('#select-service').val(appointment.id_services).trigger('change');
+                $dialog.find('#select-city').val(appointment.id_city).trigger('change');
                 $dialog.find('#select-provider').val(appointment.id_users_provider);
 
                 // Set the start and end datetime of the appointment.
@@ -932,6 +933,7 @@ window.BackendCalendarTableView = window.BackendCalendarTableView || {};
             return;
         }
 
+        // TODO
         var filterServiceIds = $filterService.val();
 
         appointments = appointments.filter(function (appointment) {

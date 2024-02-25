@@ -654,7 +654,8 @@ window.FrontendBook = window.FrontendBook || {};
             notes: $('#notes').val(),
             is_unavailable: false,
             id_users_provider: $('#select-provider').val(),
-            id_services: $('#select-service').val()
+            id_services: $('#select-service').val(),
+            id_city: $('#select-city').val(),
         };
 
         data.manage_mode = FrontendBook.manageMode;
@@ -710,6 +711,7 @@ window.FrontendBook = window.FrontendBook || {};
         try {
             // Select Service & Provider
             $('#select-service').val(appointment.id_services).trigger('change');
+            $('#select-city').val(appointment.id_city).trigger('change');
             $('#select-provider').val(appointment.id_users_provider);
 
             // Set Appointment Date

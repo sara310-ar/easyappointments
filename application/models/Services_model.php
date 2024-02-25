@@ -354,6 +354,7 @@ class Services_model extends EA_Model {
      */
     public function get_available_services()
     {
+        // TODO
         $this->db->distinct();
         return $this->db
             ->select('services.*, service_categories.name AS category_name, '

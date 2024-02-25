@@ -75,6 +75,7 @@ class Backend extends EA_Controller {
         $view['company_name'] = $this->settings_model->get_setting('company_name');
         $view['require_phone_number'] = $this->settings_model->get_setting('require_phone_number');
         $view['available_providers'] = $this->providers_model->get_available_providers();
+        $view['available_cities'] = $this->cities_model->get_available_cities();
         $view['available_services'] = $this->services_model->get_available_services();
         $view['customers'] = $this->customers_model->get_batch();
         $view['calendar_view'] = ! empty($calendar_view_query_param) ? $calendar_view_query_param : $user['settings']['calendar_view'];
@@ -207,6 +208,7 @@ class Backend extends EA_Controller {
         $view['require_phone_number'] = $this->settings_model->get_setting('require_phone_number');
         $view['customers'] = $this->customers_model->get_batch();
         $view['available_providers'] = $this->providers_model->get_available_providers();
+        $view['available_cities'] = $this->cities_model->get_available_cities();
         $view['available_services'] = $this->services_model->get_available_services();
         $view['timezones'] = $this->timezones->to_array();
 

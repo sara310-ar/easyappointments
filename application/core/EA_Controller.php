@@ -44,6 +44,7 @@
  * @property Consents_model $consents_model
  * @property Customers_model $customers_model
  * @property Providers_model $providers_model
+ * @property Cities_model $cities_model
  * @property Roles_model $roles_model
  * @property Secretaries_model $secretaries_model
  * @property Services_model $services_model

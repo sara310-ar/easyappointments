@@ -57,6 +57,7 @@ window.BackendCalendarAppointmentsModal = window.BackendCalendarAppointmentsModa
 
             var appointment = {
                 id_services: $dialog.find('#select-service').val(),
+                id_city: $dialog.find('#select-city').val(),
                 id_users_provider: $dialog.find('#select-provider').val(),
                 start_datetime: startDatetime,
                 end_datetime: endDatetime,

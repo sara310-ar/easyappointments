@@ -221,10 +221,10 @@
                             </div>
                             <!-- TODO city  -->
                             <div class="form-group">
-                                <label for="city" class="control-label">
-                                    <?= lang('city') ?>
+                                <label for="select-city">
+                                    <strong><?= lang('city') ?></strong>
                                 </label>
-                                <input type="text" id="city" class="form-control" maxlength="120"/>
+                                <select id="select-city" class="form-control"></select>
                             </div>
                         </div>
 
@@ -253,7 +253,6 @@
                                 </label>
                                 <input type="text" id="address" class="form-control" maxlength="120"/>
                             </div>
-                            <!-- TODO commune -->
                             <div class="form-group">
                                 <label for="city" class="control-label">
                                     <?= lang('commune') ?>
@@ -436,6 +435,7 @@
     var GlobalVariables = {
         availableServices: <?= json_encode($available_services) ?>,
         availableProviders: <?= json_encode($available_providers) ?>,
+        availableCities: <?= json_encode($available_cities) ?>,
         baseUrl: <?= json_encode(config('base_url')) ?>,
         manageMode: <?= $manage_mode ? 'true' : 'false' ?>,
         customerToken: <?= json_encode($customer_token) ?>,

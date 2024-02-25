@@ -31,6 +31,7 @@ class Appointments extends EA_Controller {
         $this->load->model('admins_model');
         $this->load->model('secretaries_model');
         $this->load->model('services_model');
+        $this->load->model('cities_model');
         $this->load->model('customers_model');
         $this->load->model('settings_model');
         $this->load->library('timezones');
@@ -59,6 +60,7 @@ class Appointments extends EA_Controller {
             }
 
             $available_services = $this->services_model->get_available_services();
+            $available_cities = $this->cities_model->get_available_cities();
             $available_providers = $this->providers_model->get_available_providers();
             $company_name = $this->settings_model->get_setting('company_name');
             $book_advance_timeout = $this->settings_model->get_setting('book_advance_timeout');
@@ -86,6 +88,16 @@ class Appointments extends EA_Controller {
                     'timezone' => $provider['timezone']
                 ];
                 $available_providers[$index] = $stripped_data;
+            }
+
+            // Remove the data that are not needed inside the $available_cities array.
+            foreach ($available_cities as $index => $city)
+            {
+                $stripped_data = [
+                    'id' => $city['id'],
+                    'name' => $city['name']
+                ];
+                $available_cities[$index] = $stripped_data;
             }
 
             // Remove the data that are not needed inside the $available_services array.
@@ -157,6 +169,7 @@ class Appointments extends EA_Controller {
                     'start_datetime' => $appointment['start_datetime'],
                     'end_datetime' => $appointment['end_datetime'],
                     'id_services' => $appointment['id_services'],
+                    // TODO
                     'id_users_customer' => $appointment['id_users_customer'],
                     'id_users_provider' => $appointment['id_users_provider'],
                     'notes' => $appointment['notes']
@@ -207,6 +220,7 @@ class Appointments extends EA_Controller {
             // Load the book appointment view.
             $variables = [
                 'available_services' => $available_services,
+                'available_cities' => $available_cities,
                 'available_providers' => $available_providers,
                 'company_name' => $company_name,
                 'manage_mode' => $manage_mode,
@@ -480,6 +494,7 @@ class Appointments extends EA_Controller {
      */
     protected function search_any_provider($service_id, $date, $hour = NULL)
     {
+        // TODO
         $available_providers = $this->providers_model->get_available_providers();
 
         $service = $this->services_model->get_row($service_id);
@@ -535,7 +550,7 @@ class Appointments extends EA_Controller {
 
             $provider = $this->providers_model->get_row($appointment['id_users_provider']);
             $service = $this->services_model->get_row($appointment['id_services']);
-
+            // TODO
             $require_captcha = $this->settings_model->get_setting('require_captcha');
             $captcha_phrase = $this->session->userdata('captcha_phrase');
 
