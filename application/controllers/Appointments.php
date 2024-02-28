@@ -61,6 +61,8 @@ class Appointments extends EA_Controller {
 
             $available_services = $this->services_model->get_available_services();
             $available_cities = $this->cities_model->get_available_cities();
+            // $locations = $this->cities_model->get_locations_by_city('city_id');
+            $locations = $this->cities_model->get_locations();
             $available_providers = $this->providers_model->get_available_providers();
             $company_name = $this->settings_model->get_setting('company_name');
             $book_advance_timeout = $this->settings_model->get_setting('book_advance_timeout');
@@ -221,6 +223,7 @@ class Appointments extends EA_Controller {
             $variables = [
                 'available_services' => $available_services,
                 'available_cities' => $available_cities,
+                'locations' =>$locations,
                 'available_providers' => $available_providers,
                 'company_name' => $company_name,
                 'manage_mode' => $manage_mode,
@@ -259,7 +262,14 @@ class Appointments extends EA_Controller {
      *
      * @param string $appointment_hash This appointment hash identifier.
      */
-    public function cancel($appointment_hash)
+    public function fetch_locations()
+    {
+        $city_id = $this->input->get('city_id');
+        $locations = $this->cities_model->get_locations_by_city($city_id);
+        header('Content-Type: application/json');
+        echo json_encode($locations);
+    }
+     public function cancel($appointment_hash)
     {
         try
         {

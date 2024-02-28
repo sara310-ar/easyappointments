@@ -205,12 +205,13 @@
                                 <input type="text" id="last-name" class="required form-control" maxlength="120"/>
                             </div>
                             <div class="form-group">
-                                <label for="phone-number" class="control-label">
-                                    <?= lang('phone_number') ?>
-                                    <?= $require_phone_number === '1' ? '<span class="text-danger">*</span>' : '' ?>
-                                </label>
-                                <input type="text" id="phone-number" maxlength="60"
-                                       class="<?= $require_phone_number === '1' ? 'required' : '' ?> form-control"/>
+                              <label for="phone-number" class="control-label">
+                                 <?= lang('phone_number') ?>
+                                 <?= $require_phone_number === '1' ? '<span class="text-danger">*</span>' : '' ?>
+                               </label>
+                            <input type="text" id="phone-number" maxlength="60"
+                              class="<?= $require_phone_number === '1' ? '' : '' ?> form-control" 
+                            pattern="[0-9]*" oninput="this.value = this.value.replace(/[^0-9]/g, '');"/>
                             </div>
                             <div class="form-group">
                                 <label for="email" class="control-label">
@@ -224,7 +225,11 @@
                                 <label for="select-city">
                                     <strong><?= lang('city') ?></strong>
                                 </label>
-                                <select id="select-city" class="form-control"></select>
+                                <select id="select-city" class="form-control">
+                                <?php foreach ($available_cities as $city): ?>
+                                    <option value="<?php echo $city['id']; ?>"><?php echo $city['name']; ?></option>
+                                <?php endforeach; ?>
+                                </select>
                             </div>
                         </div>
 
@@ -253,20 +258,27 @@
                                 </label>
                                 <input type="text" id="address" class="form-control" maxlength="120"/>
                             </div>
-<<<<<<< HEAD
+
                             <div class="form-group">
-=======
-                            <!-- TODO commune display none -->
-                            <div class="form-group commune">
->>>>>>> 67de0d449ab5669a3a3e31de0ba20e91869e4cb9
+
+                            <!-- TODO commune  -->
+                            <div class="form-group">
+
                                 <label for="city" class="control-label">
                                     <?= lang('commune') ?>
                                 </label>
-                                <input type="text" id="city" class="form-control" maxlength="120"/>
+                                <select id="select-commun" class="form-control">
+                                    <option value="">Select a location</option>
+                                    <?php foreach ($locations as $location): ?>
+                                        <option value="<?php echo $location['id']; ?>"><?php echo $location['name']; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
                         </div>
                     </div>
-                    <div class="row frame-content">
+                    
+                </div>
+                <div class="row frame-content">
                         <div class="col">
                             <div class="form-group">
                                 <label for="notes" class="control-label">
@@ -276,8 +288,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
                 <?php if ($display_terms_and_conditions): ?>
                     <div class="form-check mb-3">
                         <input type="checkbox" class="required form-check-input" id="accept-to-terms-and-conditions">
@@ -320,26 +330,26 @@
             <!-- SELECT APPOINTMENT DATE -->
 
             <div id="wizard-frame-2" class="wizard-frame" style="display:none;">
-                <div class="frame-container">
 
-                    <h2 class="frame-title"><?= lang('appointment_date_and_time') ?></h2>
+            <div class="frame-container">
 
-                    <div class="row frame-content">
-                        <div class="col-12 col-md-6">
-                            <div id="select-date"></div>
-                        </div>
+                <h2 class="frame-title"><?= lang('appointment_date_and_time') ?></h2>
 
-                        <div class="col-12 col-md-6">
-                            <div id="select-time">
-                                <div class="form-group" style="display:none;">
-                                    <label for="select-timezone"><?= lang('timezone') ?></label>
-                                    <?= render_timezone_dropdown('id="select-timezone" class="form-control" value="UTC"'); ?>
-                                </div>
-                                <div id="available-hours"></div>
+                <div class="row frame-content">
+                    <div class="col-12 col-md-6">
+                        <div id="select-date"></div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div id="select-time">
+                            <div class="form-group" style="display:none;">
+                                <label for="select-timezone"><?= lang('timezone') ?></label>
+                                <?= render_timezone_dropdown('id="select-timezone" class="form-control" value="UTC"'); ?>
                             </div>
+                            <div id="available-hours"></div>
                         </div>
                     </div>
                 </div>
+            </div>
 
                 <div class="command-buttons">
                     <button type="button" id="button-back-2" class="btn button-back btn-outline-secondary"
@@ -486,6 +496,31 @@
     });
   });
 </script>
+    <script>
+        // $(document).ready(function(){
+        //     $('#select-city').change(function(){
+        //         var cityId = $(this).val();
+        //         // AJAX call to get locations for the selected city
+        //         $.ajax({
+        //             url: '<?php echo site_url("Appointments/fetch_locations"); ?>',
+        //             type: 'GET',
+        //             success: function(response){
+        //                 var locationsDropdown = $('#select-commun');
+        //                 // Clear previous options
+        //                 locationsDropdown.empty();
+        //                 // Populate dropdown with locations
+        //                 $.each(response, function(key, value){
+        //                     locationsDropdown.append('<option value="' + value.id + '">' + value.name + '</option>');
+        //                 });
+        //             },
+        //             error: function(xhr, status, error){
+        //                 console.error(error);
+        //             }
+        //         });
+        //     });
+        // });
+
+    </script>
 
 <?php google_analytics_script(); ?>
 </body>

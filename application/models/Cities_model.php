@@ -46,4 +46,28 @@ class Cities_model extends EA_Model {
 
         return $cities;
     }
+
+    public function get_locations()
+    {
+        $query = $this->db->get('locations');
+        return $query->result_array();
+    }
+
+    // public function get_locations_by_city($city_id)
+    // {
+    //     // Query to fetch locations based on city ID
+    //     // $this->db
+    //     //     ->select('*')
+    //     //     ->from('communes')
+    //     //     ->where('city_id', $city_id);
+
+    //     // $locations = $this->db->get()->result_array();
+
+    //     // return $locations;
+    //       // Assuming you have a 'locations' table
+    //       $this->db->where('city_id', $city_id);
+    //       $query = $this->db->get('locations');
+    //       return $query->result_array();
+    // }
+
 }
