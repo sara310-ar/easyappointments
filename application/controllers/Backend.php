@@ -28,6 +28,7 @@ class Backend extends EA_Controller {
 
         $this->load->model('appointments_model');
         $this->load->model('providers_model');
+        $this->load->model('cities_model');
         $this->load->model('services_model');
         $this->load->model('customers_model');
         $this->load->model('settings_model');

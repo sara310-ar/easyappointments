@@ -102,7 +102,8 @@ class Ics_file {
             lang('email') . ': ' . $customer['email'],
             lang('phone_number') . ': ' . $customer['phone_number'],
             lang('address') . ': ' . $customer['address'],
-            lang('city') . ': ' . $customer['city'],
+            // TODO City
+            // lang('city') . ': ' . $customer['city'],
             lang('zip_code') . ': ' . $customer['zip_code'],
             '',
             lang('notes'),

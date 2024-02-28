@@ -2171,11 +2171,8 @@ INSERT INTO `ea_locations` ( `name`, `city_id`) VALUES
 ('El Meniaa', '58'),
 ('Hassi Gara', '58'),
 ('Hassi Fehal', '58');
-     COMMIT;
+  COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 ALTER TABLE `ea_appointments`
   ADD COLUMN `location_id` INT ;
 

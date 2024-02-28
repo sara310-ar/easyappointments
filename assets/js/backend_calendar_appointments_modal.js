@@ -78,7 +78,7 @@ window.BackendCalendarAppointmentsModal = window.BackendCalendarAppointmentsModa
                 email: $dialog.find('#email').val(),
                 phone_number: $dialog.find('#phone-number').val(),
                 address: $dialog.find('#address').val(),
-                city: $dialog.find('#city').val(),
+                city: null,
                 zip_code: $dialog.find('#zip-code').val(),
                 birthdate: $dialog.find('#birth').val(),
                 notes: $dialog.find('#customer-notes').val()

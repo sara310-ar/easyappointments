@@ -556,23 +556,23 @@ window.BackendCalendarDefaultView = window.BackendCalendarDefaultView || {};
                         'text': event.data.service.name
                     }),
                     $('<br/>'),
-                    /*
-                    $('<strong/>', {
-                        'class': 'd-inline-block mr-2',
-                        'text': EALang.provider
-                    }),
+                    
+                    // $('<strong/>', {
+                    //     'class': 'd-inline-block mr-2',
+                    //     'text': EALang.provider
+                    // }),
                     GeneralFunctions.renderMapIcon(event.data.provider),
-                    $('<span/>', {
-                        'text': event.data.provider.first_name + ' ' + event.data.provider.last_name
-                    }),
-                    $('<br/>'),*/
+                    // $('<span/>', {
+                    //     'text': event.data.provider.first_name + ' ' + event.data.provider.last_name
+                    // }),
+                    // $('<br/>'),
 
                     $('<strong/>', {
                         'class': 'd-inline-block mr-2',
                         'text': EALang.customer
                     }),
                     //DONE TODO
-                    //GeneralFunctions.renderMapIcon(event.data.customer),
+                    GeneralFunctions.renderMapIcon(event.data.customer),
                     $('<span/>', {
                         'class': 'd-inline-block ml-1',
                         'text': event.data.customer.first_name + ' ' + event.data.customer.last_name
@@ -605,7 +605,8 @@ window.BackendCalendarDefaultView = window.BackendCalendarDefaultView || {};
                         'class': 'd-inline-block mr-2',
                         'text': EALang.city
                     }),
-                    GeneralFunctions.renderMapIcon(event.data.customer.city),
+                    // TODO display city
+                    GeneralFunctions.renderMapIcon(event.data.customer),
                     $('<span/>', {
                         'class': 'd-inline-block ml-1',
                         'text': event.data.customer.city
