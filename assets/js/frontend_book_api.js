@@ -268,6 +268,37 @@ window.FrontendBookApi = window.FrontendBookApi || {};
             });
     };
 
+    /**
+     * Get the available cummune of city.
+     *
+     *
+     * @param {Number} cityId The selected city ID.
+     */
+    exports.getCommune = function (cityId) {
+
+        if (!cityId) {
+            return;
+        }
+
+
+        var url = GlobalVariables.baseUrl + '/index.php/appointments/ajax_get_commune';
+
+        var data = {
+            city_id: cityId
+        };
+
+        $.ajax({
+            url: url,
+            type: 'GET',
+            data: data,
+            dataType: 'json'
+        })
+            .done(function (response) {
+                console.log(response)
+                // TODO naima update locations 
+            });
+    };
+
     exports.applyPreviousUnavailableDates = function () {
         applyUnavailableDates(unavailableDatesBackup, selectedDateStringBackup);
     };

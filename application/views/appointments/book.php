@@ -268,7 +268,6 @@
                                     <?= lang('commune') ?>
                                 </label>
                                 <select id="select-commun" class="form-control">
-                                    <option value="">Select a location</option>
                                     <?php foreach ($locations as $location): ?>
                                         <option value="<?php echo $location['id']; ?>"><?php echo $location['name']; ?></option>
                                     <?php endforeach; ?>
@@ -496,31 +495,6 @@
     });
   });
 </script>
-    <script>
-        // $(document).ready(function(){
-        //     $('#select-city').change(function(){
-        //         var cityId = $(this).val();
-        //         // AJAX call to get locations for the selected city
-        //         $.ajax({
-        //             url: '<?php echo site_url("Appointments/fetch_locations"); ?>',
-        //             type: 'GET',
-        //             success: function(response){
-        //                 var locationsDropdown = $('#select-commun');
-        //                 // Clear previous options
-        //                 locationsDropdown.empty();
-        //                 // Populate dropdown with locations
-        //                 $.each(response, function(key, value){
-        //                     locationsDropdown.append('<option value="' + value.id + '">' + value.name + '</option>');
-        //                 });
-        //             },
-        //             error: function(xhr, status, error){
-        //                 console.error(error);
-        //             }
-        //         });
-        //     });
-        // });
-
-    </script>
 
 <?php google_analytics_script(); ?>
 </body>

@@ -269,6 +269,16 @@ window.FrontendBook = window.FrontendBook || {};
         });
 
         /**
+         * Event: Selected Provider "Changed"
+         *
+         * Whenever the provider changes the available appointment date - time periods must be updated.
+         */
+        $('#select-city').on('change', function () {
+            // TODO naima update locations 
+            FrontendBookApi.getCommune($(this).val());
+        });
+
+        /**
          * Event: Next Step Button "Clicked"
          *
          * This handler is triggered every time the user pressed the "next" button on the book wizard.
