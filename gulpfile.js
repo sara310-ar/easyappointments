@@ -27,7 +27,7 @@ gulp.src = function () {
 };
 
 gulp.task('package', (done) => {
-    const archive = 'easyappointments-0.0.0.zip';
+    const archive = 'bioalliance-1.0.0.zip';
 
     fs.removeSync('build');
     fs.removeSync(archive);
