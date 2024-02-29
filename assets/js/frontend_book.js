@@ -274,7 +274,6 @@ window.FrontendBook = window.FrontendBook || {};
          * Whenever the provider changes the available appointment date - time periods must be updated.
          */
         $('#select-city').on('change', function () {
-            // TODO naima update locations 
             FrontendBookApi.getCommune($(this).val());
         });
 

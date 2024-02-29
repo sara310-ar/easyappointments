@@ -294,8 +294,10 @@ window.FrontendBookApi = window.FrontendBookApi || {};
             dataType: 'json'
         })
             .done(function (response) {
-                console.log(response)
-                // TODO naima update locations 
+                $('#select-commun').empty();
+                response.forEach(function (commune) {
+                    $('#select-commun').append(new Option(commune.name));
+                });
             });
     };
 
