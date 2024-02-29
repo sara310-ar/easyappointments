@@ -131,7 +131,7 @@
         <h2><?= lang('company_information_title') ?></h2>
         <table id="appointment-details">
             <tr>
-                <td class="label" style="padding: 3px;font-weight: bold;"><?= lang('address') ?><</td>
+                <td class="label" style="padding: 3px;font-weight: bold;"><?= lang('address') ?></td>
                 <td class="info" style="padding: 3px;">Lotissement 233 N°155 Hai Khemisti Bir El Djir 31000 Oran, Algérie</td>
             </tr>
             <tr>
