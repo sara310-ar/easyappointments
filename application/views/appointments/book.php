@@ -263,21 +263,20 @@
                             <div class="form-group">
 
                             <!-- TODO commune  -->
-                            <div class="form-group">
+                        <div class="form-group">
+                        <label for="city" class="control-label">
+                         <?= lang('commune') ?>
+                         </label>
+                         <select id="select-commun" class="form-control">
+                        
+                        <?php foreach ($locations as $location): ?>
+                         <option value="<?php echo $location['id']; ?>"><?php echo $location['name']; ?></option>
+                         <?php endforeach; ?>
+                         
+                         <option value="0">Autre</option> 
+                         </select>
+                         </div>
 
-                                <label for="city" class="control-label">
-                                    <?= lang('commune') ?>
-                                </label>
-                                <select id="select-commun" class="form-control">
-                                    
-                                    <?php foreach ($locations as $location): ?>
-                                        
-                                        <option value="<?php echo $location['id']; ?>"><?php echo $location['name']; ?></option>
-                                        
-                                    <?php endforeach; ?>
-                                    <option value =0>Autre</option>
-                                </select>
-                            </div>
                         </div>
                     </div>
                     

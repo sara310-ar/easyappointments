@@ -493,7 +493,7 @@ INSERT INTO `ea_cities` (`id`, `name`) VALUES
 (16, 'Alger'),
 (17, 'Djelfa'),
 (18, 'Jijel'),
-(19, 'Se9tif'),
+(19, 'Setif'),
 (20, 'Saefda'),
 (21, 'Skikda'),
 (22, 'Sidi Bel Abbes'),
