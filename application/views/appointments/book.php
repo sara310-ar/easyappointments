@@ -211,7 +211,8 @@
                                </label>
                             <input type="text" id="phone-number" maxlength="60"
                               class="<?= $require_phone_number === '1' ? '' : '' ?> form-control" 
-                            pattern="[0-9]*" oninput="this.value = this.value.replace(/[^0-9]/g, '');"/>
+                            pattern="[0-9]*" oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+                            placeholder="0X XX XX XX XX "/>
                             </div>
                             <div class="form-group">
                                 <label for="email" class="control-label">
