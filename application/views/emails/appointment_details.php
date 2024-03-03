@@ -122,9 +122,15 @@
         </table>
 
         <h2><?= lang('appointment_link_title') ?></h2>
-        <a class="link-mail" href="<?= $appointment_link ?>" style="width: 600px;"><i class="fa-solid fa-link"></i> <?= $appointment_link ?></a>
-        <a class="link-mail" id="edit" href=""><i class="fa-regular fa-pen-to-square"></i><?= lang('edit_appointment') ?></a>
-        <a class="link-mail" id="cancel" href=""><i class="fa-solid fa-xmark"></i><?= lang('cancel_appointment') ?></a>
+        <a href="<?= $appointment_link ?>">
+         <button style="padding: 5px 10px; border: 1px solid red; background-color: red; color: white; cursor: pointer; width: 600px;">
+        <i class="fa-solid fa-link">Modifier ou Annuler</i>
+        </button>
+        </a>
+
+
+
+        
     </div>
     <div id="content" style="padding: 10px 15px;">
     <!-- TODO info company bdd -->
@@ -141,9 +147,18 @@
             <tr>
                 <td  class="label" style="padding: 3px;font-weight: bold;"><?= lang('email') ?></td>
                 <td class="info" style="padding: 3px;">contact@bioalliancelab.com</td>
-            </tr> 
+            </tr>
+            
+               <td class="label" style="padding: 3px;font-weight: bold;"><?= lang('map_position')?></td>
+               <td class="info" style="padding: 3px;">
+               <button style="padding: 5px 10px; border: 1px solid #ccc; background-color: #f5f5f5; cursor: pointer;">
+               <a href="https://maps.app.goo.gl/9sdUU1GS9Ek9EAoG7">Google Maps</a>
+               </button>
+            </td>
+            
+  
         </table>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12954.51278356765!2d-0.5740046!3d35.7353615!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7e6365ce0d4389%3A0xe320c8a52c4402b7!2sLaboratoire%20BIOALLIANCE!5e0!3m2!1sfr!2sdz!4v1707736491004!5m2!1sfr!2sdz" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
     </div>
     <div id="footer" style="padding: 10px; text-align: center; margin-top: 10px;
                 border-top: 1px solid #EEE; background: #FAFAFA;">

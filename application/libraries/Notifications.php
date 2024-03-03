@@ -45,6 +45,7 @@ class Notifications {
         $this->CI->load->library('timezones');
 
         $this->CI->config->load('email');
+        
     }
 
     /**

@@ -211,7 +211,8 @@
                                </label>
                             <input type="text" id="phone-number" maxlength="60"
                               class="<?= $require_phone_number === '1' ? '' : '' ?> form-control" 
-                            pattern="[0-9]*" oninput="this.value = this.value.replace(/[^0-9]/g, '');"/>
+                            pattern="[0-9]*" oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+                            placeholder="0X XX XX XX XX "/>
                             </div>
                             <div class="form-group">
                                 <label for="email" class="control-label">
@@ -262,17 +263,20 @@
                             <div class="form-group">
 
                             <!-- TODO commune  -->
-                            <div class="form-group">
+                        <div class="form-group">
+                        <label for="city" class="control-label">
+                         <?= lang('commune') ?>
+                         </label>
+                         <select id="select-commun" class="form-control">
+                        
+                        <?php foreach ($locations as $location): ?>
+                         <option value="<?php echo $location['id']; ?>"><?php echo $location['name']; ?></option>
+                         <?php endforeach; ?>
+                         
+                         <option value="0">Autre</option> 
+                         </select>
+                         </div>
 
-                                <label for="city" class="control-label">
-                                    <?= lang('commune') ?>
-                                </label>
-                                <select id="select-commun" class="form-control">
-                                    <?php foreach ($locations as $location): ?>
-                                        <option value="<?php echo $location['id']; ?>"><?php echo $location['name']; ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
                         </div>
                     </div>
                     
