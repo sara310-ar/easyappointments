@@ -268,9 +268,13 @@
                                     <?= lang('commune') ?>
                                 </label>
                                 <select id="select-commun" class="form-control">
+                                    
                                     <?php foreach ($locations as $location): ?>
+                                        
                                         <option value="<?php echo $location['id']; ?>"><?php echo $location['name']; ?></option>
+                                        
                                     <?php endforeach; ?>
+                                    <option value =0>Autre</option>
                                 </select>
                             </div>
                         </div>
