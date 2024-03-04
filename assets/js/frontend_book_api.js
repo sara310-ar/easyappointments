@@ -99,7 +99,7 @@ window.FrontendBookApi = window.FrontendBookApi || {};
                         var availableHourMoment = moment
                             .tz(selectedDate + ' ' + availableHour + ':00', providerTimezone)
                             .tz(selectedTimezone);
-                        
+
                         if (availableHourMoment.format('YYYY-MM-DD') !== selectedDate) {
                             return; // Due to the selected timezone the available hour belongs to another date.  
                         }
@@ -298,6 +298,7 @@ window.FrontendBookApi = window.FrontendBookApi || {};
                 response.forEach(function (commune) {
                     $('#select-commun').append(new Option(commune.name));
                 });
+                $('#select-commun').append(new Option('Autre')); // Added
             });
     };
 
@@ -332,7 +333,7 @@ window.FrontendBookApi = window.FrontendBookApi || {};
 
         // Grey out unavailable dates.
         $('#select-date .ui-datepicker-calendar td:not(.ui-datepicker-other-month)').each(function (index, td) {
-            selectedDate.set({day: index + 1});
+            selectedDate.set({ day: index + 1 });
             if (unavailableDates.indexOf(selectedDate.toString('yyyy-MM-dd')) !== -1) {
                 $(td).addClass('ui-datepicker-unselectable ui-state-disabled');
             }
