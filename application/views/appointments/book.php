@@ -212,7 +212,7 @@
                             <input type="text" id="phone-number" maxlength="60"
                               class="<?= $require_phone_number === '1' ? '' : '' ?> form-control" 
                             pattern="[0-9]*" oninput="this.value = this.value.replace(/[^0-9]/g, '');"
-                            placeholder="0X XX XX XX XX "/>
+                            placeholder="0X XX XX XX XX "value="0"/>
                             </div>
                             <div class="form-group">
                                 <label for="email" class="control-label">
@@ -223,15 +223,15 @@
                             </div>
                             <!-- TODO city  -->
                             <div class="form-group">
-                                <label for="select-city">
-                                    <strong><?= lang('city') ?></strong>
-                                </label>
-                                <select id="select-city" class="form-control">
-                                <?php foreach ($available_cities as $city): ?>
-                                    <option value="<?php echo $city['id']; ?>"><?php echo $city['name']; ?></option>
-                                <?php endforeach; ?>
-                                </select>
-                            </div>
+                            <label for="select-city">
+                            <strong><?= lang('city') ?></strong>
+                            </label>
+                            <select id="select-city" class="form-control" required>
+                            <?php foreach ($available_cities as $city): ?>
+                            <option value="<?php echo $city['id']; ?>"><?php echo $city['name']; ?></option>
+                           <?php endforeach; ?>
+                           </select>
+                        </div>
                         </div>
 
                         <div class="col-12 col-md-6">
@@ -263,19 +263,17 @@
                             <div class="form-group">
 
                             <!-- TODO commune  -->
-                        <div class="form-group">
-                        <label for="city" class="control-label">
-                         <?= lang('commune') ?>
-                         </label>
-                         <select id="select-commun" class="form-control">
-                        
-                        <?php foreach ($locations as $location): ?>
-                         <option value="<?php echo $location['id']; ?>"><?php echo $location['name']; ?></option>
-                         <?php endforeach; ?>
-                         
-                         <option value="0">Autre</option> 
-                         </select>
-                         </div>
+                            <div class="form-group">
+                            <label for="city" class="control-label">
+                            <?= lang('commune') ?>
+                            </label>
+                            <select id="select-commun" class="form-control" required>
+                            <?php foreach ($locations as $location): ?>
+                            <option value="<?php echo $location['id']; ?>"><?php echo $location['name']; ?></option>
+                            <?php endforeach; ?>
+                            <option value="0">Autre</option> 
+                             </select>
+                            </div>
 
                         </div>
                     </div>

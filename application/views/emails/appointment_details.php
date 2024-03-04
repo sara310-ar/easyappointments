@@ -149,12 +149,15 @@
                 <td class="info" style="padding: 3px;">contact@bioalliancelab.com</td>
             </tr>
             
-               <td class="label" style="padding: 3px;font-weight: bold;"><?= lang('map_position')?></td>
-               <td class="info" style="padding: 3px;">
-               <button style="padding: 5px 10px; border: 1px solid #ccc; background-color: #f5f5f5; cursor: pointer;">
-               <a href="https://maps.app.goo.gl/9sdUU1GS9Ek9EAoG7">Google Maps</a>
-               </button>
-            </td>
+            <td class="label" style="padding: 3px; font-weight: bold;"><?= lang('map_position')?></td>
+<td class="info" style="padding: 3px;">
+    <button style="padding: 5px 10px; border: 1px solid #ccc; background-color: #f5f5f5; cursor: pointer; border-radius: 5px;">
+        <a href="https://maps.app.goo.gl/9sdUU1GS9Ek9EAoG7" style="text-decoration: none; color: #333; font-weight: bold;">
+             Google Maps
+        </a>
+    </button>
+</td>
+
             
   
         </table>

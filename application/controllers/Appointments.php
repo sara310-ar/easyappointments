@@ -298,10 +298,10 @@ class Appointments extends EA_Controller {
                 'company_email' => $this->settings_model->get_setting('company_email'),
                 'company_link' => $this->settings_model->get_setting('company_link'),
                 'date_format' => $this->settings_model->get_setting('date_format'),
-                'time_format' => $this->settings_model->get_setting('time_format')
-                // 'company_phone' => $this->settings_model->get_setting('company_phone'),
-                // 'company_address' => $this->settings_model->get_setting('company_address'),
-                // 'company_position' => $this->settings_model->get_setting('company_position')
+                'time_format' => $this->settings_model->get_setting('time_format'),
+                'company_phone' => $this->settings_model->get_setting('company_phone'),
+                'company_address' => $this->settings_model->get_setting('company_address'),
+                'company_position' => $this->settings_model->get_setting('company_position')
             ];
 
             // Remove the appointment record from the data.
