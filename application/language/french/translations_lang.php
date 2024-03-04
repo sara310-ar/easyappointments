@@ -19,6 +19,7 @@ $lang['phone_number'] = 'Numéro de téléphone';
 $lang['phone'] = 'Phone';
 $lang['address'] = 'Adresse';
 $lang['city'] = 'Ville';
+$lang['location'] = 'Commune';
 $lang['zip_code'] = 'Code postal';
 $lang['notes'] = 'Commentaires';
 //date de naissance
@@ -320,7 +321,6 @@ $lang['read_and_agree_to_privacy_policy'] = 'J\'ai lu, compris et accepte la {$l
 $lang['delete_personal_information_hint'] = 'Effacer toutes vos données personnelles du système.';
 $lang['delete_personal_information'] = 'Effacer toutes mes données personnelles';
 $lang['delete_personal_information_prompt'] = 'Etes-vous sûr(e) de vouloir effacer toutes vos données personnelles ? Cette action est irréversible.';
-$lang['location'] = 'Location';
 $lang['working_plan_exception'] = 'Working Plan Exception';
 $lang['working_plan_exceptions'] = 'Working Plan Exceptions';
 $lang['working_plan_exceptions_hint'] = 'Add a working plan exception day, outside the working plan.';

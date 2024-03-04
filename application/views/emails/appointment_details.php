@@ -99,6 +99,7 @@
                 <td class="info" style="padding: 3px;"><?= $appointment_timezone ?></td>
             </tr>
              -->
+             
         </table>
 
         <h2><?= lang('customer_details_title') ?></h2>
@@ -118,6 +119,14 @@
             <tr>
                 <td class="label" style="padding: 3px;font-weight: bold;"><?= lang('address') ?></td>
                 <td class="info" style="padding: 3px;"><?= $customer_address ?></td>
+            </tr>
+            <tr>
+                <td class="label" style="padding: 3px;font-weight: bold;"><?= lang('city') ?></td>
+                <td class="info" style="padding: 3px;"><?= $appointment_city ?></td>
+            </tr>
+            <tr>
+                <td class="label" style="padding: 3px;font-weight: bold;"><?= lang('location') ?></td>
+                <td class="info" style="padding: 3px;"><?= $appointment_location ?></td>
             </tr>
         </table>
 
