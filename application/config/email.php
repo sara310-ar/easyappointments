@@ -4,13 +4,13 @@
 // Example: $config['smtp_host'] = 'smtp.gmail.com';
 // @link https://codeigniter.com/user_guide/libraries/email.html
 
-$config['useragent'] = 'Bioalliance';
+$config['useragent'] = Config::USERAGENT;
 $config['protocol'] = 'smtp'; // or 'smtp'
 $config['mailtype'] = 'html'; // or 'text'
 $config['smtp_debug'] = '0'; // or '1'
 $config['smtp_auth'] = TRUE; //or FALSE for anonymous relay.
-$config['smtp_host'] = 'smtp.hostinger.com';
-$config['smtp_user'] = 'megherbi.abdelhak@developily.com';
-$config['smtp_pass'] = '@Imzad2020';
+$config['smtp_host'] = Config::SMTP_HOST;
+$config['smtp_user'] = Config::SMTP_USER;
+$config['smtp_pass'] = Config::SMTP_PASS;
 $config['smtp_crypto'] = 'ssl'; // or 'tls'
 $config['smtp_port'] = 465;

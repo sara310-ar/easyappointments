@@ -52,6 +52,15 @@ class Config {
     const GOOGLE_CLIENT_ID      = '';
     const GOOGLE_CLIENT_SECRET  = '';
     const GOOGLE_API_KEY        = '';
+
+    // ------------------------------------------------------------------------
+    // EMAIL SETTINGS
+    // ------------------------------------------------------------------------
+
+    const USERAGENT     = 'DEVELOPILY';
+    const SMTP_HOST     = 'smtp.hostinger.com';
+    const SMTP_USER     = 'megherbi.abdelhak@developily.com';
+    const SMTP_PASS     = '@Imzad2020';
 }
 
 /* End of file config.php */

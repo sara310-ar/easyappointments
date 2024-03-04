@@ -120,14 +120,14 @@
                 <td class="label" style="padding: 3px;font-weight: bold;"><?= lang('address') ?></td>
                 <td class="info" style="padding: 3px;"><?= $customer_address ?></td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td class="label" style="padding: 3px;font-weight: bold;"><?= lang('city') ?></td>
                 <td class="info" style="padding: 3px;"><?= $appointment_city ?></td>
             </tr>
             <tr>
                 <td class="label" style="padding: 3px;font-weight: bold;"><?= lang('location') ?></td>
                 <td class="info" style="padding: 3px;"><?= $appointment_location ?></td>
-            </tr>
+            </tr> -->
         </table>
 
         <h2><?= lang('appointment_link_title') ?></h2>
