@@ -296,9 +296,9 @@ window.FrontendBookApi = window.FrontendBookApi || {};
             .done(function (response) {
                 $('#select-commun').empty();
                 response.forEach(function (commune) {
-                    $('#select-commun').append(new Option(commune.name));
+                    $('#select-commun').append(new Option(commune.name, commune.id));
                 });
-                $('#select-commun').append(new Option('Autre')); // Added
+                $('#select-commun').append(new Option('Autre', null));
             });
     };
 

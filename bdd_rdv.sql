@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Mar 04, 2024 at 05:24 AM
--- Server version: 8.0.31
--- PHP Version: 8.0.26
+-- Host: localhost
+-- Generation Time: Mar 05, 2024 at 01:22 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.1.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,83 +27,22 @@ SET time_zone = "+00:00";
 -- Table structure for table `ea_appointments`
 --
 
-DROP TABLE IF EXISTS `ea_appointments`;
-CREATE TABLE IF NOT EXISTS `ea_appointments` (
-  `id` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ea_appointments` (
+  `id` int(11) NOT NULL,
   `book_datetime` datetime DEFAULT NULL,
   `start_datetime` datetime DEFAULT NULL,
   `end_datetime` datetime DEFAULT NULL,
-  `location` text,
-  `notes` text,
-  `hash` text,
-  `is_unavailable` tinyint NOT NULL DEFAULT '0',
-  `id_users_provider` int DEFAULT NULL,
-  `id_users_customer` int DEFAULT NULL,
-  `id_services` int DEFAULT NULL,
-  `id_google_calendar` text,
-  `city_id` int DEFAULT NULL,
-  `location_id` int DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_users_provider` (`id_users_provider`),
-  KEY `id_users_customer` (`id_users_customer`),
-  KEY `id_services` (`id_services`),
-  KEY `ea_appointments_city` (`city_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb3;
-
---
--- Dumping data for table `ea_appointments`
---
-
-INSERT INTO `ea_appointments` (`id`, `book_datetime`, `start_datetime`, `end_datetime`, `location`, `notes`, `hash`, `is_unavailable`, `id_users_provider`, `id_users_customer`, `id_services`, `id_google_calendar`, `city_id`, `location_id`) VALUES
-(9, '2023-06-03 11:54:19', '2023-06-04 09:00:00', '2023-06-04 09:15:00', NULL, '', 'qdOxiXBVRrlo', 0, 8, 9, 4, NULL, NULL, NULL),
-(10, '2023-06-03 11:56:15', '2023-06-04 09:00:00', '2023-06-04 09:15:00', NULL, '', 'PfiRqAsDQ7Ch', 0, 8, 9, 4, NULL, NULL, NULL),
-(11, '2023-06-11 12:29:14', '2023-06-11 14:00:00', '2023-06-11 14:15:00', NULL, '', '2nrCKoUwpi9g', 0, 8, 10, 4, NULL, NULL, NULL),
-(12, '2023-06-11 12:33:34', '2023-06-11 14:15:00', '2023-06-11 14:30:00', NULL, '', 'IF8tqh61MZKD', 0, 8, 11, 4, NULL, NULL, NULL),
-(13, '2024-02-15 09:54:06', '2024-02-15 11:30:00', '2024-02-15 11:45:00', NULL, '', 'XZS09hkvAlzG', 0, 8, 13, 4, NULL, NULL, NULL),
-(14, '2024-02-15 10:58:06', '2024-02-15 12:30:00', '2024-02-15 12:45:00', NULL, 'TEST6', 'xObcst3JCPIG', 0, 8, 11, 4, NULL, NULL, NULL),
-(15, '2024-02-15 16:59:12', '2024-02-20 09:45:00', '2024-02-20 10:00:00', NULL, 'TEST6', 'SUiuWLIvQfdN', 0, 8, 11, 4, NULL, NULL, NULL),
-(16, '2024-02-17 11:50:39', '2024-02-17 14:00:00', '2024-02-17 14:30:00', '', '', 'c6lJ5aL0rq7x', 0, 8, 14, 6, NULL, NULL, NULL),
-(17, '2024-02-18 09:10:29', '2024-02-20 09:00:00', '2024-02-20 09:30:00', NULL, 'TEST 5', 'H7IbEm03Vvog', 0, 8, 11, 6, NULL, NULL, NULL),
-(18, '2024-02-22 11:26:03', '2024-02-22 13:00:00', '2024-02-22 13:30:00', NULL, '', 'ToXrAfKyW92E', 0, 8, 15, 6, NULL, NULL, NULL),
-(19, '2024-02-22 11:29:05', '2024-02-22 13:30:00', '2024-02-22 14:00:00', NULL, '', 'RAthE6F9oMxY', 0, 8, 15, 6, NULL, NULL, NULL),
-(20, '2024-02-22 11:31:35', '2024-02-22 14:00:00', '2024-02-22 14:30:00', NULL, '', 'LMW1f64u8c7n', 0, 8, 15, 6, NULL, NULL, NULL),
-(21, '2024-02-22 11:35:08', '2024-02-22 15:00:00', '2024-02-22 15:30:00', NULL, '', 'msUF8yxBOK9Z', 0, 8, 15, 6, NULL, NULL, NULL),
-(22, '2024-02-22 11:36:59', '2024-02-22 15:30:00', '2024-02-22 16:00:00', NULL, '', 'tXDypduAOfTi', 0, 8, 14, 6, NULL, NULL, NULL),
-(23, '2024-02-22 11:38:23', '2024-02-22 16:00:00', '2024-02-22 16:30:00', NULL, '', 'do0AQE2M9tGJ', 0, 8, 14, 6, NULL, NULL, NULL),
-(24, '2024-02-22 11:43:06', '2024-02-22 16:30:00', '2024-02-22 17:00:00', NULL, '', 'VEsZhS5cAHTQ', 0, 8, 15, 6, NULL, NULL, NULL),
-(25, '2024-02-22 11:44:19', '2024-02-22 17:00:00', '2024-02-22 17:30:00', NULL, '', 'HioEks69nhgy', 0, 8, 14, 6, NULL, NULL, NULL),
-(26, '2024-02-22 11:46:37', '2024-02-22 17:30:00', '2024-02-22 18:00:00', NULL, '', 'MOqSHDzV1je3', 0, 8, 16, 6, NULL, NULL, NULL),
-(27, '2024-02-22 13:05:34', '2024-02-24 09:00:00', '2024-02-24 09:30:00', NULL, '', 'T1q8KDISAzfB', 0, 8, 14, 6, NULL, NULL, NULL),
-(28, '2024-02-28 11:19:14', '2024-02-28 13:15:00', '2024-02-28 13:45:00', NULL, 'hhhhhhhhhhhhhh', 'YK21lmMcSTzX', 0, 8, 17, 6, NULL, NULL, NULL),
-(29, '2024-02-28 15:48:33', '2024-02-28 17:30:00', '2024-02-28 18:00:00', NULL, '', 'drMmnXOjTwSl', 0, 8, 18, 6, NULL, NULL, NULL),
-(30, '2024-02-29 13:27:27', '2024-03-02 09:00:00', '2024-03-02 09:15:00', NULL, '', 'jXn82GMb4kcq', 0, 8, 14, 4, NULL, 31, 0),
-(31, '2024-02-29 15:53:41', '2024-02-29 17:30:00', '2024-02-29 17:45:00', NULL, '', 'fzqsYOj4mL1V', 0, 8, 18, 4, NULL, 31, 0),
-(32, '2024-03-01 10:18:58', '2024-03-01 12:00:00', '2024-03-01 12:15:00', NULL, '', '6vdPD3OTRKiU', 0, 8, 18, 4, NULL, 31, 0),
-(33, '2024-03-01 10:49:32', '2024-03-01 12:30:00', '2024-03-01 12:45:00', NULL, '', 'rQJpDct3OvBk', 0, 8, 18, 4, NULL, 31, 0),
-(34, '2024-03-01 10:51:12', '2024-03-01 12:30:00', '2024-03-01 12:45:00', NULL, '', 'BGv5wY6ogQe3', 0, 8, 18, 4, NULL, 31, 1),
-(35, '2024-03-01 11:01:42', '2024-03-01 12:45:00', '2024-03-01 13:00:00', NULL, '', 'BXOeZxft7Ca3', 0, 8, 19, 4, NULL, 1, 1),
-(36, '2024-03-01 11:03:18', '2024-03-01 13:15:00', '2024-03-01 13:30:00', NULL, '', 'r7WgZ145pHo2', 0, 8, 20, 4, NULL, 31, 0),
-(37, '2024-03-01 11:05:15', '2024-03-01 13:15:00', '2024-03-01 13:30:00', NULL, '', 'z9Djik2XC3ZP', 0, 8, 20, 4, NULL, 31, 0),
-(38, '2024-03-01 11:09:19', '2024-03-01 12:45:00', '2024-03-01 13:00:00', NULL, '', 'kNUue2nROxy5', 0, 8, 19, 4, NULL, 1, 1),
-(39, '2024-03-01 11:14:58', '2024-03-01 13:30:00', '2024-03-01 14:00:00', NULL, '', '604vKUw3A1jr', 0, 8, 19, 5, NULL, 1, 1),
-(40, '2024-03-01 11:19:41', '2024-03-01 13:00:00', '2024-03-01 13:15:00', NULL, '', 'EuUQYTd8pXtz', 0, 8, 20, 4, NULL, 2, 0),
-(41, '2024-03-01 11:32:35', '2024-03-01 14:00:00', '2024-03-01 14:15:00', NULL, '', 'eGrXa3EOdtwl', 0, 8, 20, 4, NULL, 2, 0),
-(42, '2024-03-01 11:37:34', '2024-03-01 14:00:00', '2024-03-01 14:15:00', NULL, '', 'Iun9XmoUy3i1', 0, 8, 21, 4, NULL, 1, 1),
-(43, '2024-03-01 11:38:29', '2024-03-01 14:15:00', '2024-03-01 14:30:00', NULL, '', 'JfDxnBUkPwVd', 0, 8, 20, 4, NULL, 31, 0),
-(44, '2024-03-01 11:55:53', '2024-03-01 14:15:00', '2024-03-01 14:30:00', NULL, '', 'THj5YoR1pGXN', 0, 8, 20, 4, NULL, 31, 17),
-(45, '2024-03-01 12:44:14', '2024-03-01 14:30:00', '2024-03-01 14:45:00', NULL, '', 'RmetNxyiMbkl', 0, 8, 20, 4, NULL, 31, 0),
-(46, '2024-03-01 12:49:42', '2024-03-01 14:30:00', '2024-03-01 14:45:00', NULL, '', 'nl5bkdPrM3Yh', 0, 8, 20, 4, NULL, 31, 0),
-(47, '2024-03-01 12:53:08', '2024-03-01 14:45:00', '2024-03-01 15:00:00', NULL, '', 'zd1OC0cDhIZk', 0, 8, 18, 4, NULL, 31, 0),
-(48, '2024-03-01 12:55:29', '2024-03-01 14:45:00', '2024-03-01 15:00:00', NULL, '', 'dk97RxLVswj8', 0, 8, 20, 4, NULL, 31, 0),
-(49, '2024-03-01 13:01:38', '2024-03-01 15:00:00', '2024-03-01 15:15:00', NULL, '', 'ZK1cotrR0Pl7', 0, 8, 20, 4, NULL, 31, 0),
-(50, '2024-03-01 13:05:38', '2024-03-01 15:00:00', '2024-03-01 15:15:00', NULL, '', 'iQWXf5ZeboHV', 0, 8, 20, 4, NULL, 31, 0),
-(51, '2024-03-01 13:12:44', '2024-03-01 15:15:00', '2024-03-01 15:30:00', NULL, '', 'LA9lkKaUCB7s', 0, 8, 20, 4, NULL, 2, 0),
-(52, '2024-03-01 16:45:10', '2024-03-02 09:00:00', '2024-03-02 09:15:00', NULL, '', 'jCWPv9OiJ7nY', 0, 8, 20, 4, NULL, 31, 0),
-(53, '2024-03-01 16:49:15', '2024-03-02 09:15:00', '2024-03-02 09:30:00', NULL, '', 'vLZtMmnVKbDe', 0, 8, 20, 4, NULL, 31, 0),
-(54, '2024-03-01 16:49:49', '2024-03-02 09:15:00', '2024-03-02 09:30:00', NULL, '', 'bIKqthw8erD5', 0, 8, 20, 4, NULL, 31, 0),
-(55, '2024-03-01 16:53:22', '2024-03-02 09:30:00', '2024-03-02 09:45:00', NULL, '', 'wH13mBiqzQD0', 0, 8, 20, 4, NULL, 31, 0),
-(56, '2024-03-03 14:02:27', '2024-03-03 15:45:00', '2024-03-03 16:00:00', NULL, '', 'sRmMPiXhdpcL', 0, 8, 20, 4, NULL, 1, 0),
-(57, '2024-03-03 14:24:40', '2024-03-03 16:00:00', '2024-03-03 16:15:00', NULL, '', 'ONX16DVGwMpP', 0, 8, 20, 4, NULL, 31, 0);
+  `location` text DEFAULT NULL,
+  `notes` text DEFAULT NULL,
+  `hash` text DEFAULT NULL,
+  `is_unavailable` tinyint(4) NOT NULL DEFAULT 0,
+  `id_users_provider` int(11) DEFAULT NULL,
+  `id_users_customer` int(11) DEFAULT NULL,
+  `id_services` int(11) DEFAULT NULL,
+  `id_google_calendar` text DEFAULT NULL,
+  `city_id` int(11) DEFAULT NULL,
+  `location_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -111,12 +50,10 @@ INSERT INTO `ea_appointments` (`id`, `book_datetime`, `start_datetime`, `end_dat
 -- Table structure for table `ea_cities`
 --
 
-DROP TABLE IF EXISTS `ea_cities`;
-CREATE TABLE IF NOT EXISTS `ea_cities` (
-  `id` int NOT NULL,
-  `name` varchar(256) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `ea_cities` (
+  `id` int(5) NOT NULL,
+  `name` varchar(256) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `ea_cities`
@@ -150,7 +87,7 @@ INSERT INTO `ea_cities` (`id`, `name`) VALUES
 (25, 'Constantine'),
 (26, 'Medea'),
 (27, 'Mostaganem'),
-(28, 'M\'Sila'),
+(28, "M\'Sila"),
 (29, 'Mascara'),
 (30, 'Ouargla'),
 (31, 'Oran'),
@@ -171,7 +108,7 @@ INSERT INTO `ea_cities` (`id`, `name`) VALUES
 (46, 'Ain Temouchent'),
 (47, 'Ghardaefa'),
 (48, 'Relizane'),
-(49, 'El M\'ghair'),
+(49, "El M\'ghair"),
 (50, 'El Menia'),
 (51, 'Ouled Djellal'),
 (52, 'Bordj Baji Mokhtar'),
@@ -188,18 +125,16 @@ INSERT INTO `ea_cities` (`id`, `name`) VALUES
 -- Table structure for table `ea_consents`
 --
 
-DROP TABLE IF EXISTS `ea_consents`;
-CREATE TABLE IF NOT EXISTS `ea_consents` (
-  `id` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ea_consents` (
+  `id` int(11) NOT NULL,
   `created` timestamp NULL DEFAULT NULL,
   `modified` timestamp NULL DEFAULT NULL,
   `first_name` varchar(256) DEFAULT NULL,
   `last_name` varchar(256) DEFAULT NULL,
   `email` varchar(512) DEFAULT NULL,
   `ip` varchar(256) DEFAULT NULL,
-  `type` varchar(256) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `type` varchar(256) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -207,13 +142,11 @@ CREATE TABLE IF NOT EXISTS `ea_consents` (
 -- Table structure for table `ea_locations`
 --
 
-DROP TABLE IF EXISTS `ea_locations`;
-CREATE TABLE IF NOT EXISTS `ea_locations` (
-  `id` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ea_locations` (
+  `id` int(11) NOT NULL,
   `name` varchar(24) DEFAULT NULL,
-  `city_id` int DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1588 DEFAULT CHARSET=utf8mb3;
+  `city_id` int(11) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `ea_locations`
@@ -1788,7 +1721,7 @@ INSERT INTO `ea_locations` (`id`, `name`, `city_id`) VALUES
 (1566, 'El Alia', 55),
 (1567, 'El-Hadjira', 55),
 (1568, 'Benaceur', 55),
-(1569, 'M\'naguer', 55),
+(1569, "M\'naguer", 55),
 (1570, 'Taibet', 55),
 (1571, 'Blidet Amor', 55),
 (1572, 'Temacine', 55),
@@ -1796,12 +1729,12 @@ INSERT INTO `ea_locations` (`id`, `name`, `city_id`) VALUES
 (1574, 'Sidi Slimane', 55),
 (1575, 'Bordj El Haouass', 56),
 (1576, 'Djanet', 56),
-(1577, 'El M\'Ghair', 57),
+(1577, "El M\'Ghair", 57),
 (1578, 'Oum Touyour', 57),
 (1579, 'Sidi Khelil', 57),
 (1580, 'Still', 57),
 (1581, 'Djamaa', 57),
-(1582, 'M\'rara', 57),
+(1582, "M\'rara", 57),
 (1583, 'Sidi Amrane', 57),
 (1584, 'Tenedla', 57),
 (1585, 'El Meniaa', 58),
@@ -1814,10 +1747,9 @@ INSERT INTO `ea_locations` (`id`, `name`, `city_id`) VALUES
 -- Table structure for table `ea_migrations`
 --
 
-DROP TABLE IF EXISTS `ea_migrations`;
-CREATE TABLE IF NOT EXISTS `ea_migrations` (
-  `version` bigint NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `ea_migrations` (
+  `version` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `ea_migrations`
@@ -1832,20 +1764,18 @@ INSERT INTO `ea_migrations` (`version`) VALUES
 -- Table structure for table `ea_roles`
 --
 
-DROP TABLE IF EXISTS `ea_roles`;
-CREATE TABLE IF NOT EXISTS `ea_roles` (
-  `id` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ea_roles` (
+  `id` int(11) NOT NULL,
   `name` varchar(256) DEFAULT NULL,
   `slug` varchar(256) DEFAULT NULL,
-  `is_admin` tinyint DEFAULT NULL,
-  `appointments` int DEFAULT NULL,
-  `customers` int DEFAULT NULL,
-  `services` int DEFAULT NULL,
-  `users` int DEFAULT NULL,
-  `system_settings` int DEFAULT NULL,
-  `user_settings` int DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+  `is_admin` tinyint(4) DEFAULT NULL,
+  `appointments` int(11) DEFAULT NULL,
+  `customers` int(11) DEFAULT NULL,
+  `services` int(11) DEFAULT NULL,
+  `users` int(11) DEFAULT NULL,
+  `system_settings` int(11) DEFAULT NULL,
+  `user_settings` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `ea_roles`
@@ -1853,7 +1783,7 @@ CREATE TABLE IF NOT EXISTS `ea_roles` (
 
 INSERT INTO `ea_roles` (`id`, `name`, `slug`, `is_admin`, `appointments`, `customers`, `services`, `users`, `system_settings`, `user_settings`) VALUES
 (1, 'Administrator', 'admin', 1, 15, 15, 15, 15, 15, 15),
-(2, 'Provider', 'provider', 0, 15, 15, 0, 0, 0, 15),
+(2, 'Provider', 'provider', 0, 15, 15, 0, 0, 0, 0),
 (3, 'Customer', 'customer', 0, 0, 0, 0, 0, 0, 0),
 (4, 'Secretary', 'secretary', 0, 15, 15, 0, 0, 0, 15);
 
@@ -1863,13 +1793,17 @@ INSERT INTO `ea_roles` (`id`, `name`, `slug`, `is_admin`, `appointments`, `custo
 -- Table structure for table `ea_secretaries_providers`
 --
 
-DROP TABLE IF EXISTS `ea_secretaries_providers`;
-CREATE TABLE IF NOT EXISTS `ea_secretaries_providers` (
-  `id_users_secretary` int NOT NULL,
-  `id_users_provider` int NOT NULL,
-  PRIMARY KEY (`id_users_secretary`,`id_users_provider`),
-  KEY `secretaries_users_provider` (`id_users_provider`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `ea_secretaries_providers` (
+  `id_users_secretary` int(11) NOT NULL,
+  `id_users_provider` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `ea_secretaries_providers`
+--
+
+INSERT INTO `ea_secretaries_providers` (`id_users_secretary`, `id_users_provider`) VALUES
+(18, 8);
 
 -- --------------------------------------------------------
 
@@ -1877,31 +1811,25 @@ CREATE TABLE IF NOT EXISTS `ea_secretaries_providers` (
 -- Table structure for table `ea_services`
 --
 
-DROP TABLE IF EXISTS `ea_services`;
-CREATE TABLE IF NOT EXISTS `ea_services` (
-  `id` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ea_services` (
+  `id` int(11) NOT NULL,
   `name` varchar(256) DEFAULT NULL,
-  `duration` int DEFAULT NULL,
+  `duration` int(11) DEFAULT NULL,
   `price` decimal(10,2) DEFAULT NULL,
   `currency` varchar(32) DEFAULT NULL,
-  `description` text,
-  `location` text,
+  `description` text DEFAULT NULL,
+  `location` text DEFAULT NULL,
   `availabilities_type` varchar(32) DEFAULT 'flexible',
-  `attendants_number` int DEFAULT '1',
-  `id_service_categories` int DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_service_categories` (`id_service_categories`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
+  `attendants_number` int(11) DEFAULT 1,
+  `id_service_categories` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `ea_services`
 --
 
 INSERT INTO `ea_services` (`id`, `name`, `duration`, `price`, `currency`, `description`, `location`, `availabilities_type`, `attendants_number`, `id_service_categories`) VALUES
-(4, 'Analyse groupe sanguin', 15, '0.00', '', '', '', 'flexible', 2, 1),
-(5, 'Anapath', 30, '0.00', '', '', '', 'flexible', 2, 1),
-(6, 'analyse FNS', 30, '0.00', '', '', '', 'flexible', 1, 1),
-(7, 'Analyses Médicales', 15, '0.00', '', '', '', 'flexible', 2, 2);
+(4, 'Analyse groupe sanguin', 15, 0.00, '', '', '', 'flexible', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -1909,22 +1837,17 @@ INSERT INTO `ea_services` (`id`, `name`, `duration`, `price`, `currency`, `descr
 -- Table structure for table `ea_services_providers`
 --
 
-DROP TABLE IF EXISTS `ea_services_providers`;
-CREATE TABLE IF NOT EXISTS `ea_services_providers` (
-  `id_users` int NOT NULL,
-  `id_services` int NOT NULL,
-  PRIMARY KEY (`id_users`,`id_services`),
-  KEY `services_providers_services` (`id_services`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `ea_services_providers` (
+  `id_users` int(11) NOT NULL,
+  `id_services` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `ea_services_providers`
 --
 
 INSERT INTO `ea_services_providers` (`id_users`, `id_services`) VALUES
-(8, 4),
-(8, 5),
-(8, 7);
+(8, 4);
 
 -- --------------------------------------------------------
 
@@ -1932,22 +1855,18 @@ INSERT INTO `ea_services_providers` (`id_users`, `id_services`) VALUES
 -- Table structure for table `ea_service_categories`
 --
 
-DROP TABLE IF EXISTS `ea_service_categories`;
-CREATE TABLE IF NOT EXISTS `ea_service_categories` (
-  `id` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ea_service_categories` (
+  `id` int(11) NOT NULL,
   `name` varchar(256) DEFAULT NULL,
-  `description` text,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+  `description` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `ea_service_categories`
 --
 
 INSERT INTO `ea_service_categories` (`id`, `name`, `description`) VALUES
-(1, 'Prestations', ''),
-(2, 'Analyse 2', 'Analyse 2Analyse 2Analyse 2Analyse 2Analyse 2Analyse 2Analyse 2'),
-(3, 'Analyse 3', 'Analyse 2Analyse 2Analyse 2Analyse 2Analyse 2Analyse 2Analyse 2');
+(1, 'Prestations', 'Prestations description');
 
 -- --------------------------------------------------------
 
@@ -1955,20 +1874,18 @@ INSERT INTO `ea_service_categories` (`id`, `name`, `description`) VALUES
 -- Table structure for table `ea_settings`
 --
 
-DROP TABLE IF EXISTS `ea_settings`;
-CREATE TABLE IF NOT EXISTS `ea_settings` (
-  `id` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ea_settings` (
+  `id` int(11) NOT NULL,
   `name` varchar(512) DEFAULT NULL,
-  `value` longtext,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb3;
+  `value` longtext DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `ea_settings`
 --
 
 INSERT INTO `ea_settings` (`id`, `name`, `value`) VALUES
-(1, 'company_working_plan', '{\"sunday\":{\"start\":\"09:00\",\"end\":\"18:00\",\"breaks\":[{\"start\":\"12:00\",\"end\":\"14:00\"},{\"start\":\"14:30\",\"end\":\"15:00\"}]},\"monday\":{\"start\":\"09:00\",\"end\":\"18:00\",\"breaks\":[{\"start\":\"14:30\",\"end\":\"15:00\"}]},\"tuesday\":{\"start\":\"09:00\",\"end\":\"18:00\",\"breaks\":[{\"start\":\"14:30\",\"end\":\"15:00\"}]},\"wednesday\":{\"start\":\"09:00\",\"end\":\"18:00\",\"breaks\":[{\"start\":\"14:30\",\"end\":\"15:00\"}]},\"thursday\":{\"start\":\"09:00\",\"end\":\"18:00\",\"breaks\":[{\"start\":\"14:30\",\"end\":\"15:00\"}]},\"friday\":{\"start\":\"09:00\",\"end\":\"18:00\",\"breaks\":[]},\"saturday\":{\"start\":\"09:00\",\"end\":\"18:00\",\"breaks\":[{\"start\":\"14:30\",\"end\":\"15:00\"}]}}'),
+(1, 'company_working_plan', '{\"sunday\":{\"start\":\"09:00\",\"end\":\"18:00\",\"breaks\":[{\"start\":\"12:00\",\"end\":\"14:00\"},{\"start\":\"14:30\",\"end\":\"15:00\"}]},\"monday\":{\"start\":\"09:00\",\"end\":\"18:00\",\"breaks\":[{\"start\":\"14:30\",\"end\":\"15:00\"}]},\"tuesday\":{\"start\":\"09:00\",\"end\":\"18:00\",\"breaks\":[{\"start\":\"14:30\",\"end\":\"15:00\"}]},\"wednesday\":{\"start\":\"09:00\",\"end\":\"18:00\",\"breaks\":[{\"start\":\"14:30\",\"end\":\"15:00\"}]},\"thursday\":{\"start\":\"09:00\",\"end\":\"18:00\",\"breaks\":[{\"start\":\"14:30\",\"end\":\"15:00\"}]},\"friday\":null,\"saturday\":{\"start\":\"09:00\",\"end\":\"18:00\",\"breaks\":[{\"start\":\"14:30\",\"end\":\"15:00\"}]}}'),
 (2, 'book_advance_timeout', '30'),
 (3, 'google_analytics_code', ''),
 (4, 'customer_notifications', '1'),
@@ -1987,10 +1904,10 @@ INSERT INTO `ea_settings` (`id`, `name`, `value`) VALUES
 (17, 'display_any_provider', '1'),
 (18, 'company_name', 'Laboratoire Bioalliance'),
 (19, 'company_email', 'megherbi.abdelhak@developily.com'),
-(20, 'company_link', 'https://developily.com'),
-(24, ' company_phone', '0550 71 71 50'),
-(25, ' company_address', 'Lotissement 233 N°155 Hai Khemisti Bir El Djir 31000 Oran, Algérie'),
-(26, 'company_position', 'https://maps.app.goo.gl/p9b7kdpgn4sCZWQK7');
+(20, 'company_link', 'https://bioalliance.com'),
+(20, 'company_phone', '0550717150'),
+(20, 'company_address', 'Lotissement 233 N°155 Hai Khemisti Bir El Djir, Oran, Algeria'),
+(20, 'company_position', 'https://maps.app.goo.gl/UwaTdmzfGkc1RccA8');
 
 -- --------------------------------------------------------
 
@@ -1998,9 +1915,8 @@ INSERT INTO `ea_settings` (`id`, `name`, `value`) VALUES
 -- Table structure for table `ea_users`
 --
 
-DROP TABLE IF EXISTS `ea_users`;
-CREATE TABLE IF NOT EXISTS `ea_users` (
-  `id` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ea_users` (
+  `id` int(11) NOT NULL,
   `first_name` varchar(256) DEFAULT NULL,
   `last_name` varchar(512) DEFAULT NULL,
   `email` varchar(512) DEFAULT NULL,
@@ -2010,35 +1926,22 @@ CREATE TABLE IF NOT EXISTS `ea_users` (
   `city` varchar(256) DEFAULT NULL,
   `state` varchar(128) DEFAULT NULL,
   `zip_code` varchar(64) DEFAULT NULL,
-  `notes` text,
+  `notes` text DEFAULT NULL,
   `timezone` varchar(256) DEFAULT 'UTC',
   `language` varchar(256) DEFAULT 'english',
-  `id_roles` int DEFAULT NULL,
-  `birthdate` date DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_roles` (`id_roles`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb3;
+  `id_roles` int(11) DEFAULT NULL,
+  `birthdate` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `ea_users`
 --
 
 INSERT INTO `ea_users` (`id`, `first_name`, `last_name`, `email`, `mobile_number`, `phone_number`, `address`, `city`, `state`, `zip_code`, `notes`, `timezone`, `language`, `id_roles`, `birthdate`) VALUES
-(1, 'Quick', 'Dot Net', 'contact@quickdotnetinfo.com', NULL, '0550469554', NULL, NULL, NULL, NULL, NULL, 'UTC', 'english', 1, NULL),
-(8, 'LAB', 'BIOALLIANCE', 'accueil@bioalliancelab.com', '', '079000000', '', '', '', '', '', 'Africa/Algiers', 'english', 2, NULL),
-(9, 'med', 'ali', 'brahmi.info@gmail.com', NULL, '+21356565656', '', '', NULL, '', NULL, 'Africa/Algiers', 'french', 3, NULL),
-(10, 'test', 'test', 'contact@bioalliance.com', NULL, '+213663728393', '', '', NULL, '', NULL, 'Africa/Algiers', 'french', 3, NULL),
-(11, 'TEST 2', 'Test 1', 'contact@bioalliancelab.com', NULL, 'TEST 3', 'TEST 4', 'Oran', NULL, '', 'TEST 5', 'Africa/Algiers', 'french', 3, '2024-02-05'),
+(8, 'Dr Abdelhak', 'Mgh', 'megherbi.abdelhak@developily.com', '', '+213790792956', '', '', '', '', '', 'Africa/Algiers', 'english', 2, NULL),
 (12, 'Bio', 'ALLIANCE', 'contact@bioalliancelab.com', '', '+21350505050', '', '', '', '', '', 'Africa/Algiers', 'english', 1, NULL),
-(13, 'mgh', 'abdelhak', 'megherbi.abdelhak@chibana.dz', NULL, '079079', 'bir el djir', 'oran ', NULL, '', '', 'Africa/Algiers', 'english', 3, '2000-02-22'),
-(14, 'megherbi', 'abdelhak', 'megherbi.abdelhak@developily.com', NULL, '0790792956', '', '', NULL, '', '', 'Africa/Algiers', 'french', 3, '2024-02-28'),
-(15, 'mgh', 'abdelhak', 's.arrar@developily.com', NULL, '079079', '', '', NULL, '', '', 'Africa/Algiers', 'english', 3, '2024-02-23'),
-(16, 'mgh', 'abdelhak', 'arsarah880@gmail.com', NULL, '079079', '', '', NULL, '', '', 'Africa/Algiers', 'french', 3, '2024-02-23'),
-(17, 'Sarah', 'Sarah Arar', 'sarrah.31598@gmail.com', NULL, '0670083231', 'cite 427 logts adl bir el djir oran', 'oran', NULL, '', 'hhhhhhhhhhhhhh', 'Africa/Lagos', 'french', 3, '2024-02-28'),
-(18, 'Naima ', 'Boukhiar ', 'naima.galaxie@gmail.com', NULL, '0658053605', 'N03 rue chahid bouâza ben nedji', 'oran', NULL, '', '', 'Europe/Paris', 'english', 3, '2024-03-01'),
-(19, 'Naima ', 'Boukhiar ', 'nurturedx@gmail.com', NULL, '33748254843', 'Toulouse,France', NULL, NULL, '', '', 'Europe/Paris', 'english', 3, '2024-01-17'),
-(20, 'Naima ', 'Boukhiar', 'naimaboukhiar0@gmail.com', NULL, '213658053605', 'N03 rue chahid bouâza ben nedji, misserghin, Oran', NULL, NULL, '', '', 'Europe/Paris', 'english', 3, '2024-03-03'),
-(21, 'Naima ', 'Boukhiar ', 'phants2206@gmail.com', NULL, '263718317925', 'Harare ,ZIMBABWE', NULL, NULL, '', '', 'Europe/Paris', 'english', 3, '2024-03-01');
+(15, 'megherbi', 'abdelhak', 'megherbi.abdelhak@developily.com', NULL, '0790792956', '', NULL, NULL, '', '', 'Africa/Algiers', 'english', 3, '2024-03-26'),
+(18, 'sarah', 'arrar', 'arsarah880@gmail.com', '', '0790000000', '', '', '', '', '', 'Africa/Algiers', 'english', 4, NULL);
 
 -- --------------------------------------------------------
 
@@ -2046,32 +1949,166 @@ INSERT INTO `ea_users` (`id`, `first_name`, `last_name`, `email`, `mobile_number
 -- Table structure for table `ea_user_settings`
 --
 
-DROP TABLE IF EXISTS `ea_user_settings`;
-CREATE TABLE IF NOT EXISTS `ea_user_settings` (
-  `id_users` int NOT NULL,
+CREATE TABLE `ea_user_settings` (
+  `id_users` int(11) NOT NULL,
   `username` varchar(256) DEFAULT NULL,
   `password` varchar(512) DEFAULT NULL,
   `salt` varchar(512) DEFAULT NULL,
-  `working_plan` text,
-  `working_plan_exceptions` text,
-  `notifications` tinyint DEFAULT NULL,
-  `google_sync` tinyint DEFAULT NULL,
-  `google_token` text,
+  `working_plan` text DEFAULT NULL,
+  `working_plan_exceptions` text DEFAULT NULL,
+  `notifications` tinyint(4) DEFAULT NULL,
+  `google_sync` tinyint(4) DEFAULT NULL,
+  `google_token` text DEFAULT NULL,
   `google_calendar` varchar(128) DEFAULT NULL,
-  `sync_past_days` int DEFAULT '30',
-  `sync_future_days` int DEFAULT '90',
-  `calendar_view` varchar(32) DEFAULT 'default',
-  PRIMARY KEY (`id_users`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `sync_past_days` int(11) DEFAULT 30,
+  `sync_future_days` int(11) DEFAULT 90,
+  `calendar_view` varchar(32) DEFAULT 'default'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `ea_user_settings`
 --
 
 INSERT INTO `ea_user_settings` (`id_users`, `username`, `password`, `salt`, `working_plan`, `working_plan_exceptions`, `notifications`, `google_sync`, `google_token`, `google_calendar`, `sync_past_days`, `sync_future_days`, `calendar_view`) VALUES
-(1, 'admin', '2e475ad176e59df141b7343781fa616a5f7f0304de209f428bbf4fcd285c0510', '12842b0eb12a5b725f1c4ebfe0c9753b8c80ed0153baa41a590d5bbf729d7464', NULL, NULL, 1, NULL, NULL, NULL, 30, 90, 'default'),
-(8, 'lab_bioalliance', '778071bc82af67de01144392f580c05f4f54d3c118f63a0f7d77b1976bf675cf', '8b1bdd4cdda8b4dfcfa0f1c8766eb23b7ccb2accf369b470cab953289557d58c', '{\"sunday\":{\"start\":\"09:00\",\"end\":\"18:00\",\"breaks\":[{\"start\":\"12:00\",\"end\":\"14:00\"},{\"start\":\"14:30\",\"end\":\"15:00\"}]},\"monday\":{\"start\":\"09:00\",\"end\":\"18:00\",\"breaks\":[{\"start\":\"14:30\",\"end\":\"15:00\"}]},\"tuesday\":{\"start\":\"09:00\",\"end\":\"18:00\",\"breaks\":[{\"start\":\"14:30\",\"end\":\"15:00\"}]},\"wednesday\":{\"start\":\"09:00\",\"end\":\"18:00\",\"breaks\":[{\"start\":\"14:30\",\"end\":\"15:00\"}]},\"thursday\":{\"start\":\"09:00\",\"end\":\"18:00\",\"breaks\":[{\"start\":\"14:30\",\"end\":\"15:00\"}]},\"friday\":{\"start\":\"09:00\",\"end\":\"18:00\",\"breaks\":[]},\"saturday\":{\"start\":\"09:00\",\"end\":\"18:00\",\"breaks\":[{\"start\":\"14:30\",\"end\":\"15:00\"}]}}', '[]', 1, NULL, NULL, NULL, 30, 90, 'default'),
-(12, 'bioalliance', '10d4782d397be8de242065aba120c71c1c143a9fd4c7a6aaba6cdffad3bdac4d', '55112e5ff83be6b4ad4c66d8d58ca53ab607f816f7befc6ab6fe6ba9006fdea2', NULL, NULL, 1, NULL, NULL, NULL, 30, 90, 'default');
+(8, 'hakouabh', '480786e5caac3bc93e4ef39075464fe4d06f74a4aac5f90a514f136be5e1ed01', '3a9330d23f625d887236a167d1c6a1b21e3bd39270cc238584f35aef0f7f9a00', '{\"sunday\":{\"start\":\"09:00\",\"end\":\"18:00\",\"breaks\":[{\"start\":\"12:00\",\"end\":\"14:00\"},{\"start\":\"14:30\",\"end\":\"15:00\"}]},\"monday\":{\"start\":\"09:00\",\"end\":\"18:00\",\"breaks\":[{\"start\":\"14:30\",\"end\":\"15:00\"}]},\"tuesday\":{\"start\":\"09:00\",\"end\":\"18:00\",\"breaks\":[{\"start\":\"14:30\",\"end\":\"15:00\"}]},\"wednesday\":{\"start\":\"09:00\",\"end\":\"18:00\",\"breaks\":[{\"start\":\"14:30\",\"end\":\"15:00\"}]},\"thursday\":{\"start\":\"09:00\",\"end\":\"18:00\",\"breaks\":[{\"start\":\"14:30\",\"end\":\"15:00\"}]},\"friday\":{\"start\":\"09:00\",\"end\":\"12:00\",\"breaks\":[]},\"saturday\":{\"start\":\"09:00\",\"end\":\"18:00\",\"breaks\":[{\"start\":\"14:30\",\"end\":\"15:00\"}]}}', '[]', 1, NULL, NULL, NULL, 30, 90, 'default'),
+(12, 'bioalliance', '10d4782d397be8de242065aba120c71c1c143a9fd4c7a6aaba6cdffad3bdac4d', '55112e5ff83be6b4ad4c66d8d58ca53ab607f816f7befc6ab6fe6ba9006fdea2', NULL, NULL, 1, NULL, NULL, NULL, 30, 90, 'default'),
+(18, 'saraharrar', '480786e5caac3bc93e4ef39075464fe4d06f74a4aac5f90a514f136be5e1ed01', '3a9330d23f625d887236a167d1c6a1b21e3bd39270cc238584f35aef0f7f9a00', NULL, NULL, 1, NULL, NULL, NULL, 30, 90, 'default');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `ea_appointments`
+--
+ALTER TABLE `ea_appointments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_users_provider` (`id_users_provider`),
+  ADD KEY `id_users_customer` (`id_users_customer`),
+  ADD KEY `id_services` (`id_services`),
+  ADD KEY `ea_appointments_city` (`city_id`);
+
+--
+-- Indexes for table `ea_cities`
+--
+ALTER TABLE `ea_cities`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ea_consents`
+--
+ALTER TABLE `ea_consents`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ea_locations`
+--
+ALTER TABLE `ea_locations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ea_roles`
+--
+ALTER TABLE `ea_roles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ea_secretaries_providers`
+--
+ALTER TABLE `ea_secretaries_providers`
+  ADD PRIMARY KEY (`id_users_secretary`,`id_users_provider`),
+  ADD KEY `secretaries_users_provider` (`id_users_provider`);
+
+--
+-- Indexes for table `ea_services`
+--
+ALTER TABLE `ea_services`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_service_categories` (`id_service_categories`);
+
+--
+-- Indexes for table `ea_services_providers`
+--
+ALTER TABLE `ea_services_providers`
+  ADD PRIMARY KEY (`id_users`,`id_services`),
+  ADD KEY `services_providers_services` (`id_services`);
+
+--
+-- Indexes for table `ea_service_categories`
+--
+ALTER TABLE `ea_service_categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ea_settings`
+--
+ALTER TABLE `ea_settings`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ea_users`
+--
+ALTER TABLE `ea_users`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_roles` (`id_roles`);
+
+--
+-- Indexes for table `ea_user_settings`
+--
+ALTER TABLE `ea_user_settings`
+  ADD PRIMARY KEY (`id_users`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `ea_appointments`
+--
+ALTER TABLE `ea_appointments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT for table `ea_consents`
+--
+ALTER TABLE `ea_consents`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ea_locations`
+--
+ALTER TABLE `ea_locations`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1588;
+
+--
+-- AUTO_INCREMENT for table `ea_roles`
+--
+ALTER TABLE `ea_roles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `ea_services`
+--
+ALTER TABLE `ea_services`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `ea_service_categories`
+--
+ALTER TABLE `ea_service_categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `ea_settings`
+--
+ALTER TABLE `ea_settings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `ea_users`
+--
+ALTER TABLE `ea_users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Constraints for dumped tables

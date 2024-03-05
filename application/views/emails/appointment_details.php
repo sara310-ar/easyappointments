@@ -62,7 +62,7 @@
 <!-- DONE -->
 <div class="email-container">
     <div id="header">
-        <img src="<?= base_url('assets/img/logo BIOALLIANCE.png') ?>" class="logo">
+        <img src="<?= base_url('assets/img/logo_BIOALLIANCE.png') ?>" class="logo">
     </div>
 
     <div id="content" style="padding: 10px 15px;">
@@ -120,14 +120,14 @@
                 <td class="label" style="padding: 3px;font-weight: bold;"><?= lang('address') ?></td>
                 <td class="info" style="padding: 3px;"><?= $customer_address ?></td>
             </tr>
-            <!-- <tr>
+            <tr>
                 <td class="label" style="padding: 3px;font-weight: bold;"><?= lang('city') ?></td>
-                <td class="info" style="padding: 3px;"><?= $appointment_city ?></td>
+                <td class="info" style="padding: 3px;"><?= $appointment_city['name'] ?></td>
             </tr>
             <tr>
                 <td class="label" style="padding: 3px;font-weight: bold;"><?= lang('location') ?></td>
-                <td class="info" style="padding: 3px;"><?= $appointment_location ?></td>
-            </tr> -->
+                <td class="info" style="padding: 3px;"><?= $appointment_location['name'] ?></td>
+            </tr>
         </table>
 
         <h2><?= lang('appointment_link_title') ?></h2>
@@ -147,21 +147,21 @@
         <table id="appointment-details">
             <tr>
                 <td class="label" style="padding: 3px;font-weight: bold;"><?= lang('address') ?></td>
-                <td class="info" style="padding: 3px;">Lotissement 233 N°155 Hai Khemisti Bir El Djir 31000 Oran, Algérie</td>
+                <td class="info" style="padding: 3px;"><?= $company_address ?></td>
             </tr>
             <tr>
                 <td  class="label" style="padding: 3px;font-weight: bold;"><?= lang('phone_number') ?></td>
-                <td class="info" style="padding: 3px;">0550 71 71 50</td>
+                <td class="info" style="padding: 3px;"><?= $company_phone ?></td>
             </tr>
             <tr>
                 <td  class="label" style="padding: 3px;font-weight: bold;"><?= lang('email') ?></td>
-                <td class="info" style="padding: 3px;">contact@bioalliancelab.com</td>
+                <td class="info" style="padding: 3px;"><?= $company_email ?></td>
             </tr>
             
             <td class="label" style="padding: 3px; font-weight: bold;"><?= lang('map_position')?></td>
 <td class="info" style="padding: 3px;">
     <button style="padding: 5px 10px; border: 1px solid #ccc; background-color: #f5f5f5; cursor: pointer; border-radius: 5px;">
-        <a href="https://maps.app.goo.gl/9sdUU1GS9Ek9EAoG7" style="text-decoration: none; color: #333; font-weight: bold;">
+        <a href="<?= $company_position ?>" style="text-decoration: none; color: #333; font-weight: bold;">
              Google Maps
         </a>
     </button>

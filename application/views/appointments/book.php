@@ -53,7 +53,7 @@
 
                 <div id="header">
                     <!-- <span id="company-name"><?= $company_name ?></span> -->
-                    <img src="<?= base_url('assets/img/logo BIOALLIANCE.png') ?>" class="logo">
+                    <img src="<?= base_url('assets/img/logo_BIOALLIANCE.png') ?>" class="logo">
                     <div id="steps">
                         <div id="step-1" class="book-step active-step"
                             data-tippy-content="<?= lang('service_and_info') ?>">
@@ -282,7 +282,7 @@
                                                     <?php echo $location['name']; ?>
                                                 </option>
                                             <?php endforeach; ?>
-                                            <option value="0">Autre</option>
+                                            <option value="<?php null?>">Autre</option>
                                         </select>
                                     </div>
 

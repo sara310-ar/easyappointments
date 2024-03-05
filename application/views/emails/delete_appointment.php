@@ -60,7 +60,7 @@
 <!-- DONE -->
 <div class="email-container">
     <div id="header">
-        <img src="<?= base_url('assets/img/logo BIOALLIANCE.png') ?>" class="logo">
+        <img src="<?= base_url('assets/img/logo_BIOALLIANCE.png') ?>" class="logo">
     </div>
 
     <div id="content" style="padding: 10px 15px;">

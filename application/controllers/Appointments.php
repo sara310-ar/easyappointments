@@ -613,10 +613,10 @@ class Appointments extends EA_Controller {
                 'company_link' => $this->settings_model->get_setting('company_link'),
                 'company_email' => $this->settings_model->get_setting('company_email'),
                 'date_format' => $this->settings_model->get_setting('date_format'),
-                'time_format' => $this->settings_model->get_setting('time_format')
-                 // 'company_phone' => $this->settings_model->get_setting('company_phone'),
-                // 'company_address' => $this->settings_model->get_setting('company_address'),
-                // 'company_position' => $this->settings_model->get_setting('company_position')
+                'time_format' => $this->settings_model->get_setting('time_format'),
+                'company_phone' => $this->settings_model->get_setting('company_phone'),
+                'company_address' => $this->settings_model->get_setting('company_address'),
+                'company_position' => $this->settings_model->get_setting('company_position')
             ];
 
             $this->synchronization->sync_appointment_saved($appointment, $service, $provider, $customer, $settings, $manage_mode);

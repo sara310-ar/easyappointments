@@ -33,7 +33,7 @@ use RuntimeException;
  *
  * @deprecated
  */
-class Email {
+class Email extends EA_Controller {
     /**
      * Framework Instance
      *
@@ -145,10 +145,14 @@ class Email {
             'appointment_end_date' => $appointment_end->format($date_format . ' ' . $time_format),
             'appointment_timezone' => $timezones[empty($timezone) ? $provider['timezone'] : $timezone],
             'appointment_link' => $appointment_link_address->get(),
-            'appointment_city' => $appointment['city_id'],
-            'appointment_location' => $appointment['location_id'],
+            'appointment_city' => $this->CI->cities_model->get_row($appointment['city_id']),
+            'appointment_location' => $this->CI->cities_model->get_location_row($appointment['location_id']),
             'company_link' => $settings['company_link'],
+            'company_email' => $settings['company_email'],
             'company_name' => $settings['company_name'],
+            'company_phone' => $settings['company_phone'],
+            'company_address' => $settings['company_address'],
+            'company_position' => $settings['company_position'],
             'customer_name' => $customer['first_name'] . ' ' . $customer['last_name'],
             'customer_email' => $customer['email'],
             'customer_phone' => $customer['phone_number'],
