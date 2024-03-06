@@ -94,6 +94,27 @@
                                     <?= lang('company_email_hint') ?>
                                 </span>
                             </div>
+                            <div class="form-group">
+                                <label for="company-phone"><?= lang('company_phone') ?> *</label>
+                                <input id="company-phone" data-field="company_phone" class="required form-control">
+                                <span class="form-text text-muted">
+                                    <?= lang('company_phone_hint') ?>
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <label for="company-address"><?= lang('company_address') ?> *</label>
+                                <input id="company-address" data-field="company_address" class="required form-control">
+                                <span class="form-text text-muted">
+                                    <?= lang('company_address_hint') ?>
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <label for="company-position"><?= lang('company_position') ?> *</label>
+                                <input id="company-position" data-field="company_position" class="required form-control">
+                                <span class="form-text text-muted">
+                                    <?= lang('company_position_hint') ?>
+                                </span>
+                            </div>
 
                             <div class="form-group">
                                 <label for="company-link"><?= lang('company_link') ?> *</label>

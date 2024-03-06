@@ -178,10 +178,10 @@ class User extends EA_Controller {
                 $company_settings = [
                     'company_name' => $this->settings_model->get_setting('company_name'),
                     'company_link' => $this->settings_model->get_setting('company_link'),
-                    'company_email' => $this->settings_model->get_setting('company_email')
-                 // 'company_phone' => $this->settings_model->get_setting('company_phone'),
-                // 'company_address' => $this->settings_model->get_setting('company_address'),
-                // 'company_position' => $this->settings_model->get_setting('company_position')
+                    'company_email' => $this->settings_model->get_setting('company_email'),
+                    'company_phone' => $this->settings_model->get_setting('company_phone'),
+                   'company_address' => $this->settings_model->get_setting('company_address'),
+                   'company_position' => $this->settings_model->get_setting('company_position')
                 ];
 
                 $email->send_password(new NonEmptyText($new_password), new Email($this->input->post('email')),

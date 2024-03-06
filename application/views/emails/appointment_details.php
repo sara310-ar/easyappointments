@@ -62,7 +62,7 @@
 <!-- DONE -->
 <div class="email-container">
     <div id="header">
-        <img src="<?= base_url('assets/img/logo_BIOALLIANCE.png') ?>" class="logo">
+        <img src="<?= base_url('assets/img/logo.webp') ?>" class="logo">
     </div>
 
     <div id="content" style="padding: 10px 15px;">
@@ -131,11 +131,12 @@
         </table>
 
         <h2><?= lang('appointment_link_title') ?></h2>
-        <a href="<?= $appointment_link ?>">
-         <button style="padding: 5px 10px; border: 1px solid red; background-color: red; color: white; cursor: pointer; width: 600px;">
-        <i class="fa-solid fa-link">Modifier ou Annuler</i>
-        </button>
-        </a>
+<a href="<?= $appointment_link ?>">
+  <button style="padding: 5px 10px; border: 1px solid red; background-color: red; color: white; cursor: pointer; width: 200px; border-radius: 5px; font-size: 14px;">
+    <i class="fa-solid fa-link"></i> Modifier ou Annuler
+  </button>
+</a>
+
 
 
 

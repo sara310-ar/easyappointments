@@ -1904,10 +1904,10 @@ INSERT INTO `ea_settings` (`id`, `name`, `value`) VALUES
 (17, 'display_any_provider', '1'),
 (18, 'company_name', 'Laboratoire Bioalliance'),
 (19, 'company_email', 'megherbi.abdelhak@developily.com'),
-(20, 'company_link', 'https://bioalliance.com'),
-(20, 'company_phone', '0550717150'),
-(20, 'company_address', 'Lotissement 233 N°155 Hai Khemisti Bir El Djir, Oran, Algeria'),
-(20, 'company_position', 'https://maps.app.goo.gl/UwaTdmzfGkc1RccA8');
+(20, 'company_link', 'https://www.labo-bioalliance.fr/Laboratoire/'),
+(24, 'company_phone', '0550717150'),
+(25, 'company_address', 'Lotissement 233 N°155 Hai Khemisti Bir El Djir, Oran, Algeria'),
+(26, 'company_position', 'https://maps.app.goo.gl/UwaTdmzfGkc1RccA8');
 
 -- --------------------------------------------------------
 

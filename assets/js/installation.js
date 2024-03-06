@@ -146,7 +146,10 @@ $(function () {
         return {
             company_name: $('#company-name').val(),
             company_email: $('#company-email').val(),
-            company_link: $('#company-link').val()
+            company_link: $('#company-link').val(),
+            company_phone: $('#company-phone').val(),
+            company_address: $('#company-address').val(),
+            company_position: $('#company-position').val()
         };
     }
 

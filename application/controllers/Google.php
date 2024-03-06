@@ -92,10 +92,10 @@ class Google extends EA_Controller {
             $company_settings = [
                 'company_name' => $CI->settings_model->get_setting('company_name'),
                 'company_link' => $CI->settings_model->get_setting('company_link'),
-                'company_email' => $CI->settings_model->get_setting('company_email')
-                 // 'company_phone' => $this->settings_model->get_setting('company_phone'),
-                // 'company_address' => $this->settings_model->get_setting('company_address'),
-                // 'company_position' => $this->settings_model->get_setting('company_position')
+                'company_email' => $CI->settings_model->get_setting('company_email'),
+                'company_phone' => $CI->settings_model->get_setting('company_phone'),
+                'company_address' => $CI->settings_model->get_setting('company_address'),
+                'company_position' => $CI->settings_model->get_setting('company_position')
             ];
 
             $provider_timezone = new DateTimeZone($provider['timezone']);

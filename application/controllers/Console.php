@@ -103,6 +103,9 @@ class Console extends EA_Controller {
         $this->settings_model->set_setting('company_name', 'Company Name');
         $this->settings_model->set_setting('company_email', 'info@example.org');
         $this->settings_model->set_setting('company_link', 'https://example.org');
+        $this->settings_model->set_setting('company_phone', '0x xx xx xx xx');
+        $this->settings_model->set_setting('company_address', 'oran,Algeria');
+        $this->settings_model->set_setting('company_position', 'map,Algeria');
 
         // Admin
         $this->admins_model->add([
