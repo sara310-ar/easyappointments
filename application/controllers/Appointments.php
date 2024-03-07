@@ -61,8 +61,7 @@ class Appointments extends EA_Controller {
 
             $available_services = $this->services_model->get_available_services();
             $available_cities = $this->cities_model->get_available_cities();
-            $locations = $this->cities_model->get_locations_by_city(1);
-            // $locations = $this->cities_model->get_locations();
+            $locations = $this->cities_model->get_locations_by_city('city_id');
             $available_providers = $this->providers_model->get_available_providers();
             $company_name = $this->settings_model->get_setting('company_name');
             $book_advance_timeout = $this->settings_model->get_setting('book_advance_timeout');

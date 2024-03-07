@@ -93,6 +93,13 @@ window.FrontendBook = window.FrontendBook || {};
 
         var weekDayId = GeneralFunctions.getWeekDayId(GlobalVariables.firstWeekday);
 
+        // add cities to select-city
+
+        $('#select-city').empty();
+        GlobalVariables.availableCities.forEach(function (city) {
+            $('#select-city').append(new Option(city.name, city.id));
+        });
+
         $("#birth").datepicker({
             changeMonth: true,
             changeYear: true,
@@ -516,6 +523,12 @@ window.FrontendBook = window.FrontendBook || {};
                 throw new Error(EALang.invalid_email);
             }
 
+            // Validate phone number.
+            if (!GeneralFunctions.validatePhone($('#phone-number').val())) {
+                $('#email').parents('.form-group').addClass('has-error');
+                throw new Error(EALang.invalid_phone);
+            }
+
             return true;
         } catch (error) {
             $('#form-message').text(error.message);
@@ -651,7 +664,7 @@ window.FrontendBook = window.FrontendBook || {};
             address: $('#address').val(),
             city: $('#city').val(),
             zip_code: null,
-            birthdate: $('#birth').datepicker('getDate').toString('yyyy-MM-dd'),
+            // birthdate: $('#birth').datepicker('getDate').toString('yyyy-MM-dd'),
             timezone: $('#select-timezone').val(),
             notes: $('#notes').val()
         };
