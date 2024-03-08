@@ -933,7 +933,6 @@ window.BackendCalendarTableView = window.BackendCalendarTableView || {};
             return;
         }
 
-        // TODO
         var filterServiceIds = $filterService.val();
 
         appointments = appointments.filter(function (appointment) {

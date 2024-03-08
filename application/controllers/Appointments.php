@@ -173,16 +173,12 @@ class Appointments extends EA_Controller {
 
                 $appointment = $results[0];
 
-                $locations = $this->cities_model->get_locations_by_city($appointment['city_id']);
-
                 $appointment = [
                     'id' => $appointment['id'],
                     'hash' => $appointment['hash'],
                     'start_datetime' => $appointment['start_datetime'],
                     'end_datetime' => $appointment['end_datetime'],
                     'id_services' => $appointment['id_services'],
-                    'location_id' => $appointment['location_id'],
-                    'city_id' => $appointment['city_id'],
                     'id_users_customer' => $appointment['id_users_customer'],
                     'id_users_provider' => $appointment['id_users_provider'],
                     'notes' => $appointment['notes']
@@ -200,6 +196,8 @@ class Appointments extends EA_Controller {
 
                 $customer = $this->customers_model->get_row($appointment['id_users_customer']);
 
+                $locations = $this->cities_model->get_locations_by_city($customer['city_id']);
+
                 $customer = [
                     'id' => $customer['id'],
                     'first_name' => $customer['first_name'],
@@ -209,6 +207,8 @@ class Appointments extends EA_Controller {
                     'timezone' => $customer['timezone'],
                     'address' => $customer['address'],
                     'city' => null,
+                    'location_id' => $customer['location_id'],
+                    'city_id' => $customer['city_id'],
                     'zip_code' => $customer['zip_code'],
                     'birthdate' => $customer['birthdate'],
                 ];
@@ -518,7 +518,6 @@ class Appointments extends EA_Controller {
      */
     protected function search_any_provider($service_id, $date, $hour = NULL)
     {
-        // TODO
         $available_providers = $this->providers_model->get_available_providers();
 
         $service = $this->services_model->get_row($service_id);
@@ -574,7 +573,6 @@ class Appointments extends EA_Controller {
 
             $provider = $this->providers_model->get_row($appointment['id_users_provider']);
             $service = $this->services_model->get_row($appointment['id_services']);
-            // TODO
             $require_captcha = $this->settings_model->get_setting('require_captcha');
             $captcha_phrase = $this->session->userdata('captcha_phrase');
 

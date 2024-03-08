@@ -110,7 +110,6 @@ window.BackendCalendarDefaultView = window.BackendCalendarDefaultView || {};
                 $dialog.find('.modal-header h3').text(EALang.edit_appointment_title);
                 $dialog.find('#appointment-id').val(appointment.id);
                 $dialog.find('#select-service').val(appointment.id_services).trigger('change');
-                $dialog.find('#select-city').val(appointment.city_id).trigger('change');
                 $dialog.find('#select-provider').val(appointment.id_users_provider);
 
                 // Set the start and end datetime of the appointment.
@@ -127,7 +126,8 @@ window.BackendCalendarDefaultView = window.BackendCalendarDefaultView || {};
                 $dialog.find('#email').val(customer.email);
                 $dialog.find('#phone-number').val(customer.phone_number);
                 $dialog.find('#address').val(customer.address);
-                $dialog.find('#city').val(customer.city);
+                $dialog.find('#city').val(customer.city.name);
+                $dialog.find('#commune').val(customer.location? customer.location.name : null);
                 $dialog.find('#zip-code').val(customer.zip_code);
                 $dialog.find('#birth').val(customer.birthdate);
                 $dialog.find('#appointment-location').val(appointment.location);
@@ -571,7 +571,6 @@ window.BackendCalendarDefaultView = window.BackendCalendarDefaultView || {};
                         'class': 'd-inline-block mr-2',
                         'text': EALang.customer
                     }),
-                    //DONE TODO
                     GeneralFunctions.renderMapIcon(event.data.customer),
                     $('<span/>', {
                         'class': 'd-inline-block ml-1',
@@ -598,18 +597,6 @@ window.BackendCalendarDefaultView = window.BackendCalendarDefaultView || {};
                     $('<span/>', {
                         'class': 'd-inline-block ml-1',
                         'text': event.data.customer.phone_number
-                    }),
-                    $('<br/>'),
-                    ////
-                    $('<strong/>', {
-                        'class': 'd-inline-block mr-2',
-                        'text': EALang.city
-                    }),
-                    // TODO display city
-                    GeneralFunctions.renderMapIcon(event.data.customer),
-                    $('<span/>', {
-                        'class': 'd-inline-block ml-1',
-                        'text': event.data.customer.city
                     }),
                     $('<br/>'),
 
@@ -1609,11 +1596,11 @@ window.BackendCalendarDefaultView = window.BackendCalendarDefaultView || {};
             var $dialog = $('#manage-appointment');
             var appointment = GlobalVariables.editAppointment;
             BackendCalendarAppointmentsModal.resetAppointmentDialog();
-
             $dialog.find('.modal-header h3').text(EALang.edit_appointment_title);
             $dialog.find('#appointment-id').val(appointment.id);
             $dialog.find('#select-service').val(appointment.id_services).trigger('change');
-            $dialog.find('#select-city').val(appointment.city_id).trigger('change');
+            $dialog.find('#city').val(appointment.customer.city.name);
+            $dialog.find('#commune').val(appointment.customer.location_id ? appointment.customer.location.name: null);
             $dialog.find('#select-provider').val(appointment.id_users_provider);
 
             // Set the start and end datetime of the appointment.
@@ -1630,7 +1617,8 @@ window.BackendCalendarDefaultView = window.BackendCalendarDefaultView || {};
             $dialog.find('#email').val(customer.email);
             $dialog.find('#phone-number').val(customer.phone_number);
             $dialog.find('#address').val(customer.address);
-            $dialog.find('#city').val(customer.city);
+            $dialog.find('#city').val(customer.city.name);
+            $dialog.find('#commune').val(customer.location? customer.location.name: null);
             $dialog.find('#zip-code').val(customer.zip_code);
             $dialog.find('#birth').val(customer.birthdate);
             $dialog.find('#appointment-location').val(appointment.location);

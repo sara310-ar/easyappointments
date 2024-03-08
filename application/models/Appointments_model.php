@@ -129,7 +129,6 @@ class Appointments_model extends EA_Model {
                 throw new Exception('Appointment customer id is invalid.');
             }
 
-            // TODO
 
             // Check if the service id is valid.
             $num_rows = $this->db->get_where('services', ['id' => $appointment['id_services']])->num_rows();

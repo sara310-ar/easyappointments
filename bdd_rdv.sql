@@ -39,9 +39,7 @@ CREATE TABLE `ea_appointments` (
   `id_users_provider` int(11) DEFAULT NULL,
   `id_users_customer` int(11) DEFAULT NULL,
   `id_services` int(11) DEFAULT NULL,
-  `id_google_calendar` text DEFAULT NULL,
-  `city_id` int(11) DEFAULT NULL,
-  `location_id` INT NULL DEFAULT NULL
+  `id_google_calendar` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
@@ -1904,7 +1902,7 @@ INSERT INTO `ea_settings` (`id`, `name`, `value`) VALUES
 (17, 'display_any_provider', '1'),
 (18, 'company_name', 'Laboratoire Bioalliance'),
 (19, 'company_email', 'megherbi.abdelhak@developily.com'),
-(20, 'company_link', 'https://www.labo-bioalliance.fr/Laboratoire/'),
+(20, 'company_link', 'https://bioalliancelab.com'),
 (24, 'company_phone', '0550717150'),
 (25, 'company_address', 'Lotissement 233 N°155 Hai Khemisti Bir El Djir, Oran, Algeria'),
 (26, 'company_position', 'https://maps.app.goo.gl/UwaTdmzfGkc1RccA8');
@@ -1923,12 +1921,13 @@ CREATE TABLE `ea_users` (
   `mobile_number` varchar(128) DEFAULT NULL,
   `phone_number` varchar(128) DEFAULT NULL,
   `address` varchar(256) DEFAULT NULL,
-  `city` varchar(256) DEFAULT NULL,
+  `city_id` INT NULL DEFAULT NULL,
+  `location_id` INT NULL DEFAULT NULL,
   `state` varchar(128) DEFAULT NULL,
   `zip_code` varchar(64) DEFAULT NULL,
   `notes` text DEFAULT NULL,
   `timezone` varchar(256) DEFAULT 'UTC',
-  `language` varchar(256) DEFAULT 'english',
+  `language` varchar(256) DEFAULT 'french',
   `id_roles` int(11) DEFAULT NULL,
   `birthdate` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
@@ -1937,11 +1936,11 @@ CREATE TABLE `ea_users` (
 -- Dumping data for table `ea_users`
 --
 
-INSERT INTO `ea_users` (`id`, `first_name`, `last_name`, `email`, `mobile_number`, `phone_number`, `address`, `city`, `state`, `zip_code`, `notes`, `timezone`, `language`, `id_roles`, `birthdate`) VALUES
-(8, 'Dr Abdelhak', 'Mgh', 'megherbi.abdelhak@developily.com', '', '+213790792956', '', '', '', '', '', 'Africa/Algiers', 'english', 2, NULL),
-(12, 'Bio', 'ALLIANCE', 'contact@bioalliancelab.com', '', '+21350505050', '', '', '', '', '', 'Africa/Algiers', 'english', 1, NULL),
-(15, 'megherbi', 'abdelhak', 'megherbi.abdelhak@developily.com', NULL, '0790792956', '', NULL, NULL, '', '', 'Africa/Algiers', 'english', 3, '2024-03-26'),
-(18, 'sarah', 'arrar', 'arsarah880@gmail.com', '', '0790000000', '', '', '', '', '', 'Africa/Algiers', 'english', 4, NULL);
+INSERT INTO `ea_users` (`id`, `first_name`, `last_name`, `email`, `mobile_number`, `phone_number`, `address`, `state`, `zip_code`, `notes`, `timezone`, `language`, `id_roles`, `birthdate`) VALUES
+(8, 'BIOALLIANCE', 'Lab', 'contact@bioalliancelab.com', '', '0550717150', '', '', '', '', 'Africa/Algiers', 'french', 2, NULL),
+(12, 'Bio', 'ALLIANCE', 'contact@bioalliancelab.com', '', '+21350505050', '', '', '', '', 'Africa/Algiers', 'french', 1, NULL),
+(15, 'megherbi', 'abdelhak', 'megherbi.abdelhak@developily.com', NULL, '0790792956', '', NULL, '', '', 'Africa/Algiers', 'french', 3, '2024-03-26'),
+(18, 'sarah', 'arrar', 'arsarah880@gmail.com', '', '0790000000', '', '', '', '', 'Africa/Algiers', 'french', 4, NULL);
 
 -- --------------------------------------------------------
 
@@ -1985,8 +1984,7 @@ ALTER TABLE `ea_appointments`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_users_provider` (`id_users_provider`),
   ADD KEY `id_users_customer` (`id_users_customer`),
-  ADD KEY `id_services` (`id_services`),
-  ADD KEY `ea_appointments_city` (`city_id`);
+  ADD KEY `id_services` (`id_services`);
 
 --
 -- Indexes for table `ea_cities`
@@ -2120,8 +2118,7 @@ ALTER TABLE `ea_users`
 ALTER TABLE `ea_appointments`
   ADD CONSTRAINT `appointments_services` FOREIGN KEY (`id_services`) REFERENCES `ea_services` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `appointments_users_customer` FOREIGN KEY (`id_users_customer`) REFERENCES `ea_users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `appointments_users_provider` FOREIGN KEY (`id_users_provider`) REFERENCES `ea_users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `ea_appointments_city` FOREIGN KEY (`city_id`) REFERENCES `ea_cities` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+  ADD CONSTRAINT `appointments_users_provider` FOREIGN KEY (`id_users_provider`) REFERENCES `ea_users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `ea_secretaries_providers`

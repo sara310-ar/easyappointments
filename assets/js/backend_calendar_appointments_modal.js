@@ -57,8 +57,6 @@ window.BackendCalendarAppointmentsModal = window.BackendCalendarAppointmentsModa
 
             var appointment = {
                 id_services: $dialog.find('#select-service').val(),
-                city_id: $dialog.find('#select-city').val(),
-                location_id: $dialog.find('#select-commun').val(),
                 id_users_provider: $dialog.find('#select-provider').val(),
                 start_datetime: startDatetime,
                 end_datetime: endDatetime,
@@ -78,7 +76,9 @@ window.BackendCalendarAppointmentsModal = window.BackendCalendarAppointmentsModa
                 email: $dialog.find('#email').val(),
                 phone_number: $dialog.find('#phone-number').val(),
                 address: $dialog.find('#address').val(),
-                city: null,
+                city: $dialog.find('#city').val('hhh'),
+                city_id: $dialog.find('#select-city').val(),
+                location_id: $dialog.find('#select-commun').val(),
                 zip_code: $dialog.find('#zip-code').val(),
                 birthdate: $dialog.find('#birth').val(),
                 notes: $dialog.find('#customer-notes').val()

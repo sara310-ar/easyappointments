@@ -663,10 +663,16 @@ window.FrontendBook = window.FrontendBook || {};
             address: $('#address').val(),
             city: $('#city').val(),
             zip_code: null,
-            // birthdate: $('#birth').datepicker('getDate').toString('yyyy-MM-dd'),
+            birthdate: $('#birth').datepicker('getDate') ? $('#birth').datepicker('getDate').toString('yyyy-MM-dd') : null,
+            city_id: $('#select-city').val(),
             timezone: $('#select-timezone').val(),
             notes: $('#notes').val()
         };
+
+        if($('#select-commun').val() != 'null'){
+            console.log($('#select-commun').val());
+            data.customer.location_id = $('#select-commun').val()
+        }
 
         data.appointment = {
             start_datetime: $('#select-date').datepicker('getDate').toString('yyyy-MM-dd')
@@ -676,8 +682,6 @@ window.FrontendBook = window.FrontendBook || {};
             is_unavailable: false,
             id_users_provider: $('#select-provider').val(),
             id_services: $('#select-service').val(),
-            city_id: $('#select-city').val(),
-            location_id: $('#select-commun').val() ? $('#select-commun').val() : null,
         };
 
         data.manage_mode = FrontendBook.manageMode;
@@ -733,8 +737,8 @@ window.FrontendBook = window.FrontendBook || {};
         try {
             // Select Service & Provider
             $('#select-service').val(appointment.id_services).trigger('change');
-            $('#select-city').val(appointment.city_id);
-            $('#select-commun').val(appointment.location_id).trigger('change');
+            $('#select-city').val(customer.city_id);
+            $('#select-commun').val(customer.location_id).trigger('change');
             $('#select-provider').val(appointment.id_users_provider);
 
             // Set Appointment Date
@@ -743,7 +747,6 @@ window.FrontendBook = window.FrontendBook || {};
             FrontendBookApi.getAvailableHours(moment(appointment.start_datetime).format('YYYY-MM-DD'));
 
             // Set Appointment Date
-            console.log(customer)
             $('#birth').datepicker('setDate', customer.birthdate);
 
             // Apply Customer's Data

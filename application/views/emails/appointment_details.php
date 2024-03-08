@@ -105,7 +105,7 @@
             </tr>
             <tr>
                 <td class="label" style="padding: 3px;font-weight: bold;"><?= lang('location') ?></td>
-                <td class="info" style="padding: 3px;"><?= $appointment_location['name'] ?></td>
+                <td class="info" style="padding: 3px;"><?= $appointment_location ? $appointment_location['name'] : '--' ?></td>
             </tr>
         </table>
 
@@ -122,7 +122,6 @@
         
     </div>
     <div id="content" style="padding: 10px 15px;">
-    <!-- TODO info company bdd -->
         <h2><?= lang('company_information_title') ?></h2>
         <table id="appointment-details">
             <tr>

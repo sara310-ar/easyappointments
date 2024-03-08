@@ -242,7 +242,6 @@
                                 </label>
                                 <input type="text" id="first-name" class="required form-control" maxlength="100" />
                             </div>
-                            <!-- TODO birth  -->
                             <div class="form-group birth">
                                 <label for="birth" class="control-label">
                                     <?= lang('date_birth') ?>

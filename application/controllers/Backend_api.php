@@ -39,6 +39,7 @@ class Backend_api extends EA_Controller {
         $this->load->model('appointments_model');
         $this->load->model('consents_model');
         $this->load->model('customers_model');
+        $this->load->model('cities_model');
         $this->load->model('providers_model');
         $this->load->model('roles_model');
         $this->load->model('secretaries_model');
@@ -215,6 +216,9 @@ class Backend_api extends EA_Controller {
                 $appointment['provider'] = $this->providers_model->get_row($appointment['id_users_provider']);
                 $appointment['service'] = $this->services_model->get_row($appointment['id_services']);
                 $appointment['customer'] = $this->customers_model->get_row($appointment['id_users_customer']);
+                $appointment['customer']['city'] = $this->cities_model->get_row($appointment['customer']['city_id']);
+                if(isset($appointment['customer']['location_id']))
+                $appointment['customer']['location'] = $this->cities_model->get_location_row($appointment['customer']['location_id']);
             }
 
             // Get unavailable periods (only for provider).
@@ -308,7 +312,6 @@ class Backend_api extends EA_Controller {
             $provider = $this->providers_model->get_row($appointment['id_users_provider']);
             $customer = $this->customers_model->get_row($appointment['id_users_customer']);
             $service = $this->services_model->get_row($appointment['id_services']);
-            // TODO
             $settings = [
                 'company_name' => $this->settings_model->get_setting('company_name'),
                 'company_link' => $this->settings_model->get_setting('company_link'),
@@ -564,7 +567,6 @@ class Backend_api extends EA_Controller {
                 'email LIKE upper("%' . $key . '%") OR ' .
                 'phone_number LIKE upper("%' . $key . '%") OR ' .
                 'address LIKE upper("%' . $key . '%") OR ' .
-                'city LIKE upper("%' . $key . '%") OR ' .
                 'zip_code LIKE upper("%' . $key . '%") OR ' .
                 'notes LIKE upper("%' . $key . '%"))';
 

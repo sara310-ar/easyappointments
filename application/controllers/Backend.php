@@ -109,6 +109,9 @@ class Backend extends EA_Controller {
         {
             $appointment = $results[0];
             $appointment['customer'] = $this->customers_model->get_row($appointment['id_users_customer']);
+            $appointment['customer']['city'] = $this->cities_model->get_row($appointment['customer']['city_id']);
+            if(isset($appointment['customer']['location_id']))
+            $appointment['customer']['location'] = $this->cities_model->get_location_row($appointment['customer']['location_id']);
             $view['edit_appointment'] = $appointment; // This will display the appointment edit dialog on page load.
         }
         else

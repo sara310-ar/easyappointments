@@ -223,7 +223,7 @@
                                 </div>
                                 
 
-                                <div class="form-group">
+                                <div class="form-group" style="display:none;">
                                     <label for="appointment-location" class="control-label">
                                         <?= lang('location') ?>
                                     </label>
@@ -307,7 +307,6 @@
                                     </label>
                                     <input id="last-name" class="required form-control">
                                 </div>
-                                <!-- TODO -->
                                 <div class="form-group">
                                     <label for="birth" class="control-label">
                                         <?= lang('date_birth') ?>
@@ -356,20 +355,19 @@
                                 
 
                                 
-                                    <div style="display: none;" class="form-group">
-                                        <label for="zip-code" class="control-label">
-                                        <?= lang('zip_code') ?>
-                                        </label>
-                                        <input id="zip-code" class="form-control">
-                                    </div>
+                                <div style="display: none;" class="form-group">
+                                    <label for="zip-code" class="control-label">
+                                    <?= lang('zip_code') ?>
+                                    </label>
+                                    <input id="zip-code" class="form-control">
+                                </div>
                                 
-                                 <!-- TODO commune 
                                  <div class="form-group">
-                                    <label for="city" class="control-label">
+                                    <label for="commune" class="control-label">
                                         <?= lang('commune') ?>
                                     </label>
-                                    <input type="text" id="city" class="form-control" maxlength="120"/>
-                                </div>-->
+                                    <input type="text" id="commune" class="form-control" maxlength="120"/>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
