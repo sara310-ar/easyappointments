@@ -350,4 +350,6 @@ $lang['list'] = 'List';
 $lang['default'] = 'Default';
 $lang['table'] = 'Table';
 $lang['date'] = 'Date';
+$lang['booked_on'] = 'Date de Réservation';
+$lang['service_date'] = 'Date du Rendez-vous';
 // End

@@ -350,4 +350,6 @@ $lang['list'] = 'List';
 $lang['default'] = 'Default';
 $lang['table'] = 'Table';
 $lang['date'] = 'التاريخ';
+$lang['booked_on'] = 'تاريخ الحجز';
+$lang['service_date'] = 'تاريخ الموعد';
 // End

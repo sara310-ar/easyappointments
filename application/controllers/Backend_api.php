@@ -1679,16 +1679,16 @@ class Backend_api extends EA_Controller {
 
         $appointments = $this->appointments_model->get_batch($where_clause);
 
-		$filename = 'employee.xlsx';  
+		$filename = lang('appointment_details_title').'.xlsx';  
 		$spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
        	$sheet->setCellValue('A1', 'Id');
-        $sheet->setCellValue('B1', 'Name');    
-        $sheet->setCellValue('C1', 'Email');    
-        $sheet->setCellValue('D1', 'Phone');    
-        $sheet->setCellValue('E1', 'City');    
-        $sheet->setCellValue('F1', 'Commune');    
-        $sheet->setCellValue('G1', 'Service');    
+        $sheet->setCellValue('B1', lang('customer'));    
+        $sheet->setCellValue('C1', lang('email'));    
+        $sheet->setCellValue('D1', lang('phone_number'));    
+        $sheet->setCellValue('E1', lang('city'));    
+        $sheet->setCellValue('F1', lang('commune'));    
+        $sheet->setCellValue('G1', lang('service'));    
         $sheet->setCellValue('H1', 'Booked on');    
         $sheet->setCellValue('I1', 'Service Date'); 
 
