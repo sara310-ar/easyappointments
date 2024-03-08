@@ -14,7 +14,10 @@
 use EA\Engine\Notifications\Email as EmailClient;
 use EA\Engine\Types\Email;
 use EA\Engine\Types\Text;
-
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\Style\Alignment;
+use PhpOffice\PhpSpreadsheet\Style\Border;
 /**
  * Backend API Controller
  *
@@ -1661,5 +1664,92 @@ class Backend_api extends EA_Controller {
         $this->output
             ->set_content_type('application/json')
             ->set_output(json_encode($response));
+    }
+
+    public function ajax_export_appointment_data() {
+        // Get appointments strtotime($this->input->post('end_date')
+        $start_date = $this->db->escape(date('Y-m-d', strtotime('2024-03-01')));
+        $end_date = $this->db->escape(date('Y-m-d', strtotime('2024-03-25')));
+
+        $where_clause = '
+            ((start_datetime > ' . $start_date . ' AND start_datetime < ' . $end_date . ') 
+            or (start_datetime <= ' . $start_date . ' AND end_datetime >= ' . $end_date . ')) 
+            AND is_unavailable = 0
+        ';
+
+        $appointments = $this->appointments_model->get_batch($where_clause);
+
+		$filename = 'employee.xlsx';  
+		$spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+       	$sheet->setCellValue('A1', 'Id');
+        $sheet->setCellValue('B1', 'Name');    
+        $sheet->setCellValue('C1', 'Email');    
+        $sheet->setCellValue('D1', 'Phone');    
+        $sheet->setCellValue('E1', 'City');    
+        $sheet->setCellValue('F1', 'Commune');    
+        $sheet->setCellValue('G1', 'Service');    
+        $sheet->setCellValue('H1', 'Booked on');    
+        $sheet->setCellValue('I1', 'Service Date'); 
+
+        $sheet->getColumnDimension('A')->setWidth(15);
+        $sheet->getColumnDimension('B')->setWidth(30); 
+        $sheet->getColumnDimension('C')->setWidth(30);
+        $sheet->getColumnDimension('D')->setWidth(15); 
+        $sheet->getColumnDimension('E')->setWidth(15); 
+        $sheet->getColumnDimension('F')->setWidth(15); 
+        $sheet->getColumnDimension('G')->setWidth(20); 
+        $sheet->getColumnDimension('H')->setWidth(20); 
+        $sheet->getColumnDimension('I')->setWidth(20);
+        
+        // Apply styling to the header row
+        $headerStyleArray = [
+            'font' => [
+                'bold' => true,
+            ],
+            'alignment' => [
+                'horizontal' => Alignment::HORIZONTAL_CENTER,
+            ],
+            'borders' => [
+                'allBorders' => [
+                    'borderStyle' => Border::BORDER_THIN,
+                ],
+            ],
+        ];
+        $sheet->getStyle('A1:I1')->applyFromArray($headerStyleArray);
+        
+        $rows = 2;
+        foreach ($appointments as $val){
+            $service = $this->services_model->get_row($val['id_services']);
+            $customer = $this->customers_model->get_row($val['id_users_customer']);
+            $customer_city = $this->cities_model->get_row($customer['city_id']);
+            if(isset($customer['location_id']))
+            $customer_location = $this->cities_model->get_location_row($customer['location_id']);
+
+            $sheet->setCellValue('A' . $rows, $val['hash']);
+            $sheet->setCellValue('B' . $rows, $customer['first_name'].' '.$customer['last_name'] );
+            $sheet->setCellValue('C' . $rows, $customer['email']);
+            $sheet->setCellValue('D' . $rows, $customer['phone_number']);
+            $sheet->setCellValue('E' . $rows, $customer_city['name']);
+            $sheet->setCellValue('F' . $rows, $customer['location_id'] ? $customer_location['name'] : '-');
+            $sheet->setCellValue('G' . $rows, $service['name']);
+            $sheet->setCellValue('H' . $rows, $val['book_datetime']);
+            $sheet->setCellValue('I' . $rows, $val['start_datetime']);
+            $rows++;
+        } 
+        $styleArray = [
+            'borders' => [
+                'allBorders' => [
+                    'borderStyle' => Border::BORDER_THIN,
+                ],
+            ],
+        ];
+        $sheet->getStyle('A1:I' . ($rows - 1))->applyFromArray($styleArray);
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="' . $filename . '"');
+        header('Cache-Control: max-age=0');
+        $writer = new Xlsx($spreadsheet);
+        $writer->save('php://output');
+        exit();             
     }
 }

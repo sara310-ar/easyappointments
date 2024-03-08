@@ -816,7 +816,6 @@ class Appointments extends EA_Controller {
         }
 
         return $provider_list;
-    }
-
+    } 
 
 }
