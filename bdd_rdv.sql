@@ -41,7 +41,7 @@ CREATE TABLE `ea_appointments` (
   `id_services` int(11) DEFAULT NULL,
   `id_google_calendar` text DEFAULT NULL,
   `city_id` int(11) DEFAULT NULL,
-  `location_id` int(11) DEFAULT NULL
+  `location_id` INT NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------

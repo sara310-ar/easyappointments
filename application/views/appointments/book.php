@@ -90,7 +90,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="booking-header-bar row">
+                <div class="booking-header-bar row" style="display:none;">
                     <div class="col-12 col-md-10">
                         <small>
                             <?= lang('delete_personal_information_hint') ?>
@@ -260,23 +260,13 @@
                                 </label>
                                 <input type="text" id="address" class="form-control" maxlength="120" />
                             </div>
-
                             <div class="form-group">
-
-                                <div class="form-group">
-                                    <label for="city" class="control-label">
+                                <label for="select-commun">
+                                    <strong>
                                         <?= lang('commune') ?>
-                                    </label>
-                                    <select id="select-commun" class="form-control" required>
-                                        <?php foreach ($locations as $location): ?>
-                                            <option value="<?php echo $location['id']; ?>">
-                                                <?php echo $location['name']; ?>
-                                            </option>
-                                        <?php endforeach; ?>
-                                        <option value="<?php null?>">Autre</option>
-                                    </select>
-                                </div>
-
+                                    </strong>
+                                </label>
+                                <select id="select-commun" class="form-control"></select>
                             </div>
                         </div>
 
@@ -466,6 +456,7 @@
                 availableServices: <?= json_encode($available_services) ?>,
                 availableProviders: <?= json_encode($available_providers) ?>,
                 availableCities: <?= json_encode($available_cities) ?>,
+                availableLocations: <?= json_encode($locations) ?>,
                 baseUrl: <?= json_encode(config('base_url')) ?>,
                 manageMode: <?= $manage_mode ? 'true' : 'false' ?>,
                 customerToken: <?= json_encode($customer_token) ?>,

@@ -59,7 +59,6 @@
     </style>
 </head>
 <body style="font: 13px arial, helvetica, tahoma;">
-<!-- DONE -->
 <div class="email-container">
     <div id="header">
         <img src="<?= base_url('assets/img/logo.webp') ?>" class="logo">
@@ -75,31 +74,11 @@
                 <td class="label" style="padding: 3px;font-weight: bold;"><?= lang('service') ?></td>
                 <td class="info" style="padding: 3px;"><?= $appointment_service ?></td>
             </tr>
-            <!-- 
-                <tr>
-                <td class="label" style="padding: 3px;font-weight: bold;"><?= lang('provider') ?></td>
-                <td class="info" style="padding: 3px;"><?= $appointment_provider ?></td>
-                </tr>
-             -->
 
             <tr>
                 <td class="label" style="padding: 3px;font-weight: bold;"><?= lang('date') ?></td>
-                <!--TODO $appointment_date au lieu de  $appointment_start_date -->
                 <td class="info" style="padding: 3px;"><?= $appointment_start_date ?></td>
             </tr>
-           <!-- 
-             <tr>
-                <td class="label" style="padding: 3px;font-weight: bold;"><?= lang('end') ?></td>
-                <td class="info" style="padding: 3px;"><?= $appointment_end_date ?></td>
-            </tr>
-            -->
-            <!-- 
-                <tr>
-                <td class="label" style="padding: 3px;font-weight: bold;"><?= lang('timezone') ?></td>
-                <td class="info" style="padding: 3px;"><?= $appointment_timezone ?></td>
-            </tr>
-             -->
-             
         </table>
 
         <h2><?= lang('customer_details_title') ?></h2>
@@ -133,7 +112,7 @@
         <h2><?= lang('appointment_link_title') ?></h2>
 <a href="<?= $appointment_link ?>">
   <button style="padding: 5px 10px; border: 1px solid red; background-color: red; color: white; cursor: pointer; width: 200px; border-radius: 5px; font-size: 14px;">
-    <i class="fa-solid fa-link"></i> Modifier ou Annuler
+    <i class="fa-solid fa-link"></i> <?= lang('edit_or_cancel') ?>
   </button>
 </a>
 
@@ -163,7 +142,7 @@
 <td class="info" style="padding: 3px;">
     <button style="padding: 5px 10px; border: 1px solid #ccc; background-color: #f5f5f5; cursor: pointer; border-radius: 5px;">
         <a href="<?= $company_position ?>" style="text-decoration: none; color: #333; font-weight: bold;">
-             Google Maps
+            Google Maps
         </a>
     </button>
 </td>

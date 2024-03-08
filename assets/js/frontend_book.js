@@ -93,12 +93,6 @@ window.FrontendBook = window.FrontendBook || {};
 
         var weekDayId = GeneralFunctions.getWeekDayId(GlobalVariables.firstWeekday);
 
-        // add cities to select-city
-
-        $('#select-city').empty();
-        GlobalVariables.availableCities.forEach(function (city) {
-            $('#select-city').append(new Option(city.name, city.id));
-        });
 
         $("#birth").datepicker({
             changeMonth: true,
@@ -170,6 +164,16 @@ window.FrontendBook = window.FrontendBook || {};
             bindEventHandlers();
         }
 
+        $('#select-city').empty();
+        GlobalVariables.availableCities.forEach(function (city) {
+            $('#select-city').append(new Option(city.name, city.id));
+        });
+
+        $('#select-commun').empty();
+        GlobalVariables.availableLocations.forEach(function (commune) {
+            $('#select-commun').append(new Option(commune.name, commune.id));
+        });
+        $('#select-commun').append(new Option('Autre', null));
         // If the manage mode is true, the appointments data should be loaded by default.
         if (FrontendBook.manageMode) {
             applyAppointmentData(GlobalVariables.appointmentData,
@@ -525,7 +529,7 @@ window.FrontendBook = window.FrontendBook || {};
 
             // Validate phone number.
             if (!GeneralFunctions.validatePhone($('#phone-number').val())) {
-                $('#email').parents('.form-group').addClass('has-error');
+                $('#phone-number').parents('.form-group').addClass('has-error');
                 throw new Error(EALang.invalid_phone);
             }
 
@@ -610,7 +614,6 @@ window.FrontendBook = window.FrontendBook || {};
         var phoneNumber = GeneralFunctions.escapeHtml($('#phone-number').val());
         var email = GeneralFunctions.escapeHtml($('#email').val());
         var address = GeneralFunctions.escapeHtml($('#address').val());
-        var city = GeneralFunctions.escapeHtml($('#city').val());
         var notes = GeneralFunctions.escapeHtml($('#notes').val());
 
         $('#customer-details').empty();
@@ -638,10 +641,6 @@ window.FrontendBook = window.FrontendBook || {};
                             'text': address ? EALang.address + ': ' + address : ''
                         }),
                         $(address ? '<br/>' :''),
-                        $('<span/>', {
-                            'text': city ? EALang.city + ': ' + city : ''
-                        }),
-                        $(city ? '<br/>' :''),
                         $('<span/>', {
                             'text': notes ? EALang.notes + ': ' + notes : ''
                         }),
@@ -678,7 +677,7 @@ window.FrontendBook = window.FrontendBook || {};
             id_users_provider: $('#select-provider').val(),
             id_services: $('#select-service').val(),
             city_id: $('#select-city').val(),
-            location_id: $('#select-commun').val(),
+            location_id: $('#select-commun').val() ? $('#select-commun').val() : null,
         };
 
         data.manage_mode = FrontendBook.manageMode;
@@ -734,13 +733,18 @@ window.FrontendBook = window.FrontendBook || {};
         try {
             // Select Service & Provider
             $('#select-service').val(appointment.id_services).trigger('change');
-            $('#select-city').val(appointment.city_id).trigger('change');
+            $('#select-city').val(appointment.city_id);
+            $('#select-commun').val(appointment.location_id).trigger('change');
             $('#select-provider').val(appointment.id_users_provider);
 
             // Set Appointment Date
             $('#select-date').datepicker('setDate',
                 Date.parseExact(appointment.start_datetime, 'yyyy-MM-dd HH:mm:ss'));
             FrontendBookApi.getAvailableHours(moment(appointment.start_datetime).format('YYYY-MM-DD'));
+
+            // Set Appointment Date
+            console.log(customer)
+            $('#birth').datepicker('setDate', customer.birthdate);
 
             // Apply Customer's Data
             $('#last-name').val(customer.last_name);
@@ -750,7 +754,6 @@ window.FrontendBook = window.FrontendBook || {};
             $('#address').val(customer.address);
             $('#city').val(customer.city);
             $('#zip-code').val(customer.zip_code);
-            $('#birth').val(customer.birthdate);
             if (customer.timezone) {
                 $('#select-timezone').val(customer.timezone)
             }
