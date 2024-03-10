@@ -65,6 +65,20 @@
                 </button>
             <?php endif ?>
 
+            <?php if ($role_slug == DB_SLUG_ADMIN): ?>
+                <div class="btn-group birth">
+                    <input type="text" readonly id="export-start-date" class="form-control mr-2"
+                        maxlength="120" />
+                    <input type="text" readonly id="export-end-date" class="form-control mr-2"
+                        maxlength="120" />
+                        
+                    <button id="download-appointments" class="btn btn-light"
+                            data-tippy-content="<?= lang('export_appointments_hint') ?>">
+                        <i class="fas fa-download"></i>
+                    </button>
+                </div>
+            <?php endif ?>
+
             <?php if ($privileges[PRIV_APPOINTMENTS]['add'] == TRUE): ?>
                 <div class="btn-group">
                     <button class="btn btn-light" id="insert-appointment">

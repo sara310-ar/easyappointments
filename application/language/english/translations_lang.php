@@ -111,6 +111,7 @@ $lang['clear_fields_add_existing_customer_hint'] = 'Clear the fields and enter a
 $lang['pick_existing_customer_hint'] = 'Pick an existing patient.';
 $lang['new_appointment_title'] = 'New Appointment';
 $lang['edit_appointment_title'] = 'Edit Appointment';
+$lang['export_appointments_hint'] = 'Export Appointments';
 $lang['delete_appointment_title'] = 'Delete Appointment';
 $lang['write_appointment_removal_reason'] = 'Please take a minute to write the reason you are deleting the appointment:';
 $lang['appointment_saved'] = 'Appointment saved successfully.';

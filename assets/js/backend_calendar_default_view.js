@@ -51,6 +51,17 @@ window.BackendCalendarDefaultView = window.BackendCalendarDefaultView || {};
         });
 
         /**
+         * Event: Download Button "Click"
+         *
+         * When the user clicks the download .
+         */
+        $('#download-appointments').on('click', function () {
+            downloadAppointments(
+                $('#export-start-date').datepicker('getDate').toString('yyyy-MM-dd'),
+                $('#export-end-date').datepicker('getDate').toString('yyyy-MM-dd'));
+        });
+
+        /**
          * Event: Popover Close Button "Click"
          *
          * Hides the open popover element.
@@ -1368,6 +1379,46 @@ window.BackendCalendarDefaultView = window.BackendCalendarDefaultView || {};
             });
     }
 
+    function downloadAppointments(start_date, end_date){
+        var url = GlobalVariables.baseUrl + '/index.php/backend_api/ajax_export_appointment_data';
+
+        var data = {
+            csrfToken: GlobalVariables.csrfToken,
+            start_date: start_date,
+            end_date: end_date
+        };
+
+        
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: data,
+            xhrFields: {
+                responseType: 'blob'  
+            },
+            success:  function(blob, textStatus, xhr) {
+                // Extract the filename from the Content-Disposition header
+                const contentDisposition = xhr.getResponseHeader('Content-Disposition');
+                const filenameMatch = contentDisposition && contentDisposition.match(/filename="(.+?)"/);
+                const filename = filenameMatch ? filenameMatch[1] : 'exported_data.xlsx';
+                const link = document.createElement('a');
+                link.href = window.URL.createObjectURL(blob);
+                link.download = filename;
+
+                // Append the link to the document and trigger the download
+                document.body.appendChild(link);
+                link.click();
+
+                // Clean up
+                document.body.removeChild(link);
+            },
+            error: function(error) {
+                console.error('Error during file download:', error);
+            }
+        })
+
+    }
+
 
     exports.initialize = function () {
         // Dynamic date formats.
@@ -1651,6 +1702,57 @@ window.BackendCalendarDefaultView = window.BackendCalendarDefaultView || {};
                 calendarView.start,
                 calendarView.end);
         }, 60000);
+        var currentDate = new Date();
+        var formattedDate = $.datepicker.formatDate('dd-mm-yy', currentDate);
+        $('#export-start-date').val(formattedDate).datepicker({
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "-10:+0",
+            dateFormat: 'dd-mm-yy',
+            dayNames: [EALang.sunday, EALang.monday, EALang.tuesday, EALang.wednesday,
+                EALang.thursday, EALang.friday, EALang.saturday],
+            dayNamesShort: [EALang.sunday.substr(0, 3), EALang.monday.substr(0, 3),
+                EALang.tuesday.substr(0, 3), EALang.wednesday.substr(0, 3),
+                EALang.thursday.substr(0, 3), EALang.friday.substr(0, 3),
+                EALang.saturday.substr(0, 3)],
+            dayNamesMin: [EALang.sunday.substr(0, 2), EALang.monday.substr(0, 2),
+                EALang.tuesday.substr(0, 2), EALang.wednesday.substr(0, 2),
+                EALang.thursday.substr(0, 2), EALang.friday.substr(0, 2),
+                EALang.saturday.substr(0, 2)],
+            monthNames: [EALang.january, EALang.february, EALang.march, EALang.april,
+                EALang.may, EALang.june, EALang.july, EALang.august, EALang.september,
+                EALang.october, EALang.november, EALang.december],
+            prevText: EALang.previous,
+            nextText: EALang.next,
+            currentText: EALang.now,
+            closeText: EALang.close,
+            firstDay: GeneralFunctions.getWeekDayId(firstWeekday),
+        });
+        $('#export-end-date').val(formattedDate).datepicker({
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "-10:+0",
+            dateFormat: 'dd-mm-yy',
+            defaultDate: new Date(),
+            dayNames: [EALang.sunday, EALang.monday, EALang.tuesday, EALang.wednesday,
+                EALang.thursday, EALang.friday, EALang.saturday],
+            dayNamesShort: [EALang.sunday.substr(0, 3), EALang.monday.substr(0, 3),
+                EALang.tuesday.substr(0, 3), EALang.wednesday.substr(0, 3),
+                EALang.thursday.substr(0, 3), EALang.friday.substr(0, 3),
+                EALang.saturday.substr(0, 3)],
+            dayNamesMin: [EALang.sunday.substr(0, 2), EALang.monday.substr(0, 2),
+                EALang.tuesday.substr(0, 2), EALang.wednesday.substr(0, 2),
+                EALang.thursday.substr(0, 2), EALang.friday.substr(0, 2),
+                EALang.saturday.substr(0, 2)],
+            monthNames: [EALang.january, EALang.february, EALang.march, EALang.april,
+                EALang.may, EALang.june, EALang.july, EALang.august, EALang.september,
+                EALang.october, EALang.november, EALang.december],
+            prevText: EALang.previous,
+            nextText: EALang.next,
+            currentText: EALang.now,
+            closeText: EALang.close,
+            firstDay: GeneralFunctions.getWeekDayId(firstWeekday),
+        });
     };
 
 })(window.BackendCalendarDefaultView);

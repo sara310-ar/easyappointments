@@ -111,6 +111,7 @@ $lang['clear_fields_add_existing_customer_hint'] = 'تنظيف الحقول وا
 $lang['pick_existing_customer_hint'] = 'اختيار زبون موجود سابقا';
 $lang['new_appointment_title'] = 'موعد جديد';
 $lang['edit_appointment_title'] = 'تعديل موعد';
+$lang['export_appointments_hint'] = 'تصدير المواعيد';
 $lang['delete_appointment_title'] = 'حذف موعد';
 $lang['write_appointment_removal_reason'] = ':الرجاء كتابة سبب حذف الموعد ';
 $lang['appointment_saved'] = 'تم حفظ الموعد بنجاح';
