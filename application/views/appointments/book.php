@@ -200,7 +200,6 @@
                     </div>
                     <div class="row frame-content">
                         <div class="col-12 col-md-6">
-
                             <div class="form-group">
                                 <label for="last-name" class="control-label">
                                     <?= lang('last_name') ?>
@@ -208,6 +207,17 @@
                                 </label>
                                 <input type="text" id="last-name" class="required form-control" maxlength="120" />
                             </div>
+                        </div>
+                        <div class="col-12 col-md-6"> 
+                            <div class="form-group">
+                                <label for="first-name" class="control-label">
+                                    <?= lang('first_name') ?>
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <input type="text" id="first-name" class="required form-control" maxlength="100" />
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6"> 
                             <div class="form-group">
                                 <label for="phone-number" class="control-label">
                                     <?= lang('phone_number') ?>
@@ -216,6 +226,8 @@
                                 <input type="text" id="phone-number" maxlength="60" value="0"
                                     class="<?= $require_phone_number === '1' ? 'required' : '' ?> form-control"/>
                             </div>
+                        </div>
+                        <div class="col-12 col-md-6"> 
                             <div class="form-group">
                                 <label for="email" class="control-label">
                                     <?= lang('email') ?>
@@ -223,6 +235,30 @@
                                 </label>
                                 <input type="text" id="email" class="required form-control" maxlength="120" />
                             </div>
+                        </div>
+
+                        <div class="col-12 col-md-6"> 
+                            <div class="form-group birth">
+                                <label for="birth" class="control-label">
+                                    <?= lang('date_birth') ?>
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <input type="text" readonly id="birth" class="required form-control birth"
+                                    maxlength="120" />
+                                <div class="input-group-append" id="datepicker-trigger">
+                                    <span class="input-group-text birth-icon"><i class="fa fa-calendar"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6"> 
+                            <div class="form-group">
+                                <label for="address" class="control-label">
+                                    <?= lang('address') ?>
+                                </label>
+                                <input type="text" id="address" class="form-control" maxlength="120" />
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6"> 
                             <div class="form-group">
                                 <label for="select-city">
                                     <strong>
@@ -236,30 +272,6 @@
 
                         <div class="col-12 col-md-6">
                             <div class="form-group">
-                                <label for="first-name" class="control-label">
-                                    <?= lang('first_name') ?>
-                                    <span class="text-danger">*</span>
-                                </label>
-                                <input type="text" id="first-name" class="required form-control" maxlength="100" />
-                            </div>
-                            <div class="form-group birth">
-                                <label for="birth" class="control-label">
-                                    <?= lang('date_birth') ?>
-                                    <span class="text-danger">*</span>
-                                </label>
-                                <input type="text" readonly id="birth" class="required form-control birth"
-                                    maxlength="120" />
-                                <div class="input-group-append" id="datepicker-trigger">
-                                    <span class="input-group-text birth-icon"><i class="fa fa-calendar"></i></span>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="address" class="control-label">
-                                    <?= lang('address') ?>
-                                </label>
-                                <input type="text" id="address" class="form-control" maxlength="120" />
-                            </div>
-                            <div class="form-group">
                                 <label for="select-commun">
                                     <strong>
                                         <?= lang('commune') ?>
@@ -268,7 +280,6 @@
                                 <select id="select-commun" class="form-control"></select>
                             </div>
                         </div>
-
                     </div>
                     <div class="row frame-content">
                         <div class="col">
