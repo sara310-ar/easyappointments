@@ -36,7 +36,6 @@ class Providers implements ParsersInterface {
             'mobile' => $response['mobile_number'],
             'phone' => $response['phone_number'],
             'address' => $response['address'],
-            'city' => $response['city'],
             'state' => $response['state'],
             'zip' => $response['zip_code'],
             'notes' => $response['notes'],
@@ -124,11 +123,6 @@ class Providers implements ParsersInterface {
         if (array_key_exists('address', $request))
         {
             $decoded_request['address'] = $request['address'];
-        }
-
-        if (array_key_exists('city', $request))
-        {
-            $decoded_request['city'] = $request['city'];
         }
 
         if (array_key_exists('state', $request))

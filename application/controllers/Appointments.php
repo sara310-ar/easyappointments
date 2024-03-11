@@ -206,7 +206,6 @@ class Appointments extends EA_Controller {
                     'phone_number' => $customer['phone_number'],
                     'timezone' => $customer['timezone'],
                     'address' => $customer['address'],
-                    'city' => null,
                     'location_id' => $customer['location_id'],
                     'city_id' => $customer['city_id'],
                     'zip_code' => $customer['zip_code'],

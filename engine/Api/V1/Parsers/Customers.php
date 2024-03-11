@@ -35,7 +35,6 @@ class Customers implements ParsersInterface {
             'email' => $response['email'],
             'phone' => $response['phone_number'],
             'address' => $response['address'],
-            'city' => $response['city'],
             'zip' => $response['zip_code'],
             'notes' => $response['notes']
         ];
@@ -81,11 +80,6 @@ class Customers implements ParsersInterface {
         if ( array_key_exists('address', $request))
         {
             $decoded_request['address'] = $request['address'];
-        }
-
-        if ( array_key_exists('city', $request))
-        {
-            $decoded_request['city'] = $request['city'];
         }
 
         if ( array_key_exists('zip', $request))
