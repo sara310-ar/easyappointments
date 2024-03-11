@@ -124,10 +124,9 @@
                 email: $('#email').val(),
                 phone_number: $('#phone-number').val(),
                 address: $('#address').val(),
-                city: $('#city').val(),
                 zip_code: $('#zip-code').val(),
                 notes: $('#notes').val(),
-                timezone: $('#timezone').val(),
+                timezone: "Africa/Algiers",
                 language: $('#language').val() || 'english'
             };
 
@@ -259,7 +258,7 @@
             .find('input, select, textarea')
             .val('')
             .prop('disabled', true);
-        $('.record-details #timezone').val('UTC');
+        $('.record-details #timezone').val('Africa/Algiers');
 
         $('#language').val('english');
 
@@ -288,11 +287,10 @@
         $('#email').val(customer.email);
         $('#phone-number').val(customer.phone_number);
         $('#address').val(customer.address);
-        $('#city').val(customer.city);
         $('#zip-code').val(customer.zip_code);
         $('#birth').val(customer.birthdate);
         $('#notes').val(customer.notes);
-        $('#timezone').val(customer.timezone);
+        $('#timezone').val("Africa/Algiers");
         $('#language').val(customer.language || 'english');
 
         $('#customer-appointments').empty();

@@ -136,7 +136,7 @@
                         <input id="address" class="form-control">
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" style="display: none;">
                         <label class="control-label" for="city">
                             <?= lang('city') ?>
 
@@ -144,7 +144,7 @@
                         <input id="city" class="form-control">
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" style="display: none;">
                         <label class="control-label" for="zip-code">
                             <?= lang('zip_code') ?>
                         </label>
@@ -159,7 +159,7 @@
                         <select id="language" class="form-control required"></select>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" style="display: none;">
                         <label for="timezone">
                             <?= lang('timezone') ?>
                             <span class="text-danger">*</span>
