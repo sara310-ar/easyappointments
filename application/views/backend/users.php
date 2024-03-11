@@ -189,7 +189,7 @@
                                         <input id="provider-address" class="form-control" maxlength="256">
                                     </div>
 
-                                    <div class="form-group">
+                                    <div class="form-group" style="display: none;">
                                         <label for="provider-city">
                                             <?= lang('city') ?>
 
@@ -197,14 +197,14 @@
                                         <input id="provider-city" class="form-control" maxlength="256">
                                     </div>
 
-                                    <div class="form-group">
+                                    <div class="form-group" style="display: none;">
                                         <label for="provider-state">
                                             <?= lang('state') ?>
                                         </label>
                                         <input id="provider-state" class="form-control" maxlength="256">
                                     </div>
 
-                                    <div class="form-group">
+                                    <div class="form-group" style="display: none;">
                                         <label for="provider-zip-code">
                                             <?= lang('zip_code') ?>
 
@@ -478,7 +478,7 @@
                                 <input id="secretary-address" class="form-control" maxlength="256">
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group" style="display: none;">
                                 <label for="secretary-city">
                                     <?= lang('city') ?>
 
@@ -486,14 +486,14 @@
                                 <input id="secretary-city" class="form-control" maxlength="256">
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group" style="display: none;">
                                 <label for="secretary-state">
                                     <?= lang('state') ?>
                                 </label>
                                 <input id="secretary-state" class="form-control" maxlength="128">
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group" style="display: none;">
                                 <label for="secretary-zip-code">
                                     <?= lang('zip_code') ?>
 
@@ -686,7 +686,7 @@
                                 <input id="admin-address" class="form-control" maxlength="256">
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group" style="display: none;">
                                 <label for="admin-city">
                                     <?= lang('city') ?>
 
@@ -694,14 +694,14 @@
                                 <input id="admin-city" class="form-control" maxlength="256">
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group" style="display: none;">
                                 <label for="admin-state">
                                     <?= lang('state') ?>
                                 </label>
                                 <input id="admin-state" class="form-control" maxlength="128">
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group" style="display: none;">
                                 <label for="admin-zip-code">
                                     <?= lang('zip_code') ?>
 
