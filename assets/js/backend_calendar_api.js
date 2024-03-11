@@ -59,6 +59,40 @@ window.BackendCalendarApi = window.BackendCalendarApi || {};
     };
 
     /**
+     * Get the available cummune of city.
+     *
+     *
+     * @param {Number} cityId The selected city ID.
+     */
+    exports.getCommune = function (cityId) {
+
+        if (!cityId) {
+            return;
+        }
+
+
+        var url = GlobalVariables.baseUrl + '/index.php/appointments/ajax_get_commune';
+
+        var data = {
+            city_id: cityId
+        };
+
+        $.ajax({
+            url: url,
+            type: 'GET',
+            data: data,
+            dataType: 'json'
+        })
+            .done(function (response) {
+                $('#select-commun').empty();
+                response.forEach(function (commune) {
+                    $('#select-commun').append(new Option(commune.name, commune.id));
+                });
+                $('#select-commun').append(new Option('Autre', null));
+            });
+    };
+
+    /**
      * Save unavailable period to database.
      *
      * @param {Object} unavailable Contains the unavailable period data.

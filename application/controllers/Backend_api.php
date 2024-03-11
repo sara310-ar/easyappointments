@@ -1670,9 +1670,7 @@ class Backend_api extends EA_Controller {
 
         $where_clause = '
             ((start_datetime > ' . $start_date . ' AND start_datetime < ' . $end_date . ') 
-            or (start_datetime <= ' . $start_date . ' AND end_datetime >= ' . $end_date . ')) 
-            AND is_unavailable = 0
-        ';
+            or (start_datetime <= ' . $start_date . ' AND end_datetime >= ' . $end_date . ')) ';
 
         $appointments = $this->appointments_model->get_batch($where_clause);
 

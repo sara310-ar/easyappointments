@@ -887,3 +887,21 @@ body .form-horizontal .controls {
 #settings-page #update-ea {
     margin-left: 12px;
 }
+
+/*birth icon
+----------------------------------------------------------------------------*/
+.birth {
+    position: relative;
+    cursor: pointer;
+    background-color: transparent !important;
+}
+.input-group-append {
+    position: absolute;
+    left: 90%;
+    top: 58%;
+}
+.birth-icon {
+    background-color: transparent;
+    border: none;
+    color: var(--primary-color-dark);
+}

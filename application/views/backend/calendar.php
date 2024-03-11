@@ -16,6 +16,8 @@
         csrfToken: <?= json_encode($this->security->get_csrf_hash()) ?>,
         availableProviders: <?= json_encode($available_providers) ?>,
         availableServices: <?= json_encode($available_services) ?>,
+        availableCities: <?= json_encode($available_cities) ?>,
+        availableLocations: <?= json_encode($locations) ?>,
         baseUrl: <?= json_encode($base_url) ?>,
         dateFormat: <?= json_encode($date_format) ?>,
         timeFormat: <?= json_encode($time_format) ?>,
@@ -36,6 +38,14 @@
 
     $(function () {
         BackendCalendar.initialize(GlobalVariables.calendarView);
+    });
+</script>
+<script>
+    $(function () {
+        // Trigger date picker on icon click
+        $("#datepicker-trigger").click(function () {
+            $("#birth").datepicker("show");
+        });
     });
 </script>
 
@@ -66,7 +76,7 @@
             <?php endif ?>
 
             <?php if ($role_slug == DB_SLUG_ADMIN): ?>
-                <div class="btn-group birth">
+                <div class="btn-group">
                     <input type="text" readonly id="export-start-date" class="form-control mr-2"
                         maxlength="120" style="max-width: 140px;" />
                     <input type="text" readonly id="export-end-date" class="form-control mr-2"
@@ -322,11 +332,16 @@
                                     </label>
                                     <input id="last-name" class="required form-control">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group birth">
                                     <label for="birth" class="control-label">
                                         <?= lang('date_birth') ?>
+                                        <span class="text-danger">*</span>
                                     </label>
-                                    <input type="text" id="birth" class="form-control" maxlength="120"/>
+                                    <input type="text" readonly id="birth" class="required form-control birth"
+                                        maxlength="120" />
+                                    <div class="input-group-append" id="datepicker-trigger">
+                                        <span class="input-group-text birth-icon"><i class="fa fa-calendar"></i></span>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="email" class="control-label">
@@ -336,10 +351,11 @@
                                     <input id="email" class="required form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="city" class="control-label">
-                                        <?= lang('city') ?>
+                                    <label for="select-city">
+                                            <?= lang('city') ?>
+                                            <span class="text-danger">*</span>
                                     </label>
-                                    <input id="city" class="form-control">
+                                    <select id="select-city" class="form-control required"></select>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
@@ -377,11 +393,11 @@
                                     <input id="zip-code" class="form-control">
                                 </div>
                                 
-                                 <div class="form-group">
-                                    <label for="commune" class="control-label">
+                                <div class="form-group">
+                                    <label for="select-commun">
                                         <?= lang('commune') ?>
                                     </label>
-                                    <input type="text" id="commune" class="form-control" maxlength="120"/>
+                                    <select id="select-commun" class="form-control"></select>
                                 </div>
                             </div>
                         </div>

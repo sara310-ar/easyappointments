@@ -76,11 +76,10 @@ window.BackendCalendarAppointmentsModal = window.BackendCalendarAppointmentsModa
                 email: $dialog.find('#email').val(),
                 phone_number: $dialog.find('#phone-number').val(),
                 address: $dialog.find('#address').val(),
-                city: $dialog.find('#city').val('hhh'),
                 city_id: $dialog.find('#select-city').val(),
                 location_id: $dialog.find('#select-commun').val(),
                 zip_code: $dialog.find('#zip-code').val(),
-                birthdate: $dialog.find('#birth').val(),
+                birthdate: $('#birth').datepicker('getDate') ? $('#birth').datepicker('getDate').toString('yyyy-MM-dd') : null,
                 notes: $dialog.find('#customer-notes').val()
             };
 
@@ -429,6 +428,49 @@ window.BackendCalendarAppointmentsModal = window.BackendCalendarAppointmentsModa
 
         var firstWeekDay = GlobalVariables.firstWeekday;
         var firstWeekDayNumber = GeneralFunctions.getWeekDayId(firstWeekDay);
+
+        // TODO birth
+
+        $("#birth").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            firstDay: firstWeekDayNumber,
+            yearRange: "-100:+0",
+            dateFormat: "dd-mm-yy",
+            dayNames: [
+                EALang.sunday, EALang.monday, EALang.tuesday, EALang.wednesday,
+                EALang.thursday, EALang.friday, EALang.saturday
+            ],
+            dayNamesMin: [EALang.cal_sun, EALang.cal_mon,
+                EALang.cal_tue, EALang.cal_wed,
+                EALang.cal_thu, EALang.cal_fri,
+                EALang.cal_sat
+            ],
+            monthNamesShort: [EALang.january, EALang.february, EALang.march, EALang.april,
+                EALang.may, EALang.june, EALang.july, EALang.august, EALang.september,
+                EALang.october, EALang.november, EALang.december
+            ],
+            prevText: EALang.previous,
+            nextText: EALang.next,
+            currentText: EALang.now,
+            closeText: EALang.close,
+        });
+
+        $('#select-city').empty();
+        GlobalVariables.availableCities.forEach(function (city) {
+            $('#select-city').append(new Option(city.name, city.id));
+        });
+
+        $('#select-city').on('change', function () {
+            BackendCalendarApi.getCommune($(this).val());
+        });
+
+        $('#select-commun').empty();
+        GlobalVariables.availableLocations.forEach(function (commune) {
+            $('#select-commun').append(new Option(commune.name, commune.id));
+        });
+        $('#select-commun').append(new Option('Autre', null));
+
 
         $dialog.find('#start-datetime').datetimepicker({
             dateFormat: dateFormat,

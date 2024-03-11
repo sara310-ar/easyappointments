@@ -261,10 +261,8 @@
                         <div class="col-12 col-md-6"> 
                             <div class="form-group">
                                 <label for="select-city">
-                                    <strong>
                                         <?= lang('city') ?>
                                         <span class="text-danger">*</span>
-                                    </strong>
                                 </label>
                                 <select id="select-city" class="form-control required"></select>
                             </div>
@@ -273,9 +271,7 @@
                         <div class="col-12 col-md-6">
                             <div class="form-group">
                                 <label for="select-commun">
-                                    <strong>
-                                        <?= lang('commune') ?>
-                                    </strong>
+                                    <?= lang('commune') ?>
                                 </label>
                                 <select id="select-commun" class="form-control"></select>
                             </div>
