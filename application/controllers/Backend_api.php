@@ -1678,7 +1678,7 @@ class Backend_api extends EA_Controller {
 		$spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
        	$sheet->setCellValue('A1', 'Id');
-        $sheet->setCellValue('B1', lang('customer'));    
+        $sheet->setCellValue('B1', lang('full_name'));    
         $sheet->setCellValue('C1', lang('email'));    
         $sheet->setCellValue('D1', lang('phone_number'));    
         $sheet->setCellValue('E1', lang('city'));    

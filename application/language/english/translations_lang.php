@@ -14,6 +14,7 @@ $lang['appointment_hour_missing'] = 'Please select an appointment hour before co
 $lang['customer_information'] = 'Customer Information';
 $lang['first_name'] = 'First Name';
 $lang['last_name'] = 'Last Name';
+$lang['full_name'] = 'First Name & Last Name';
 $lang['email'] = 'Email';
 $lang['phone_number'] = 'Phone Number';
 $lang['phone'] = 'Phone';
