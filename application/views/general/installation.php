@@ -6,7 +6,7 @@
     <title>Installation | Easy!Appointments</title>
 
     <link rel="stylesheet" type="text/css" href="<?= asset_url('assets/ext/bootstrap/css/bootstrap.min.css') ?>">
-    <link rel="icon" type="image/x-icon" href="<?= asset_url('assets/img/logo.svg') ?>">
+    <link rel="icon" type="image/x-icon" href="<?= asset_url('assets/img/logo-developily.svg') ?>">
     <link rel="stylesheet" type="text/css" href="<?= asset_url('assets/ext/jquery-ui/jquery-ui.min.css') ?>">
     <link rel="stylesheet" type="text/css" href="<?= asset_url('assets/css/installation.css') ?>">
     <link rel="stylesheet" type="text/css" href="<?= asset_url('assets/css/general.css') ?>">

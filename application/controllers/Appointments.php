@@ -100,16 +100,6 @@ class Appointments extends EA_Controller {
                 $available_cities[$index] = $stripped_data;
             }
 
-            // Remove the data that are not needed inside the $locations array.
-            foreach ($locations as $index => $city)
-            {
-                $stripped_data = [
-                    'id' => $city['id'],
-                    'name' => $city['name']
-                ];
-                $locations[$index] = $stripped_data;
-            }
-
             // Remove the data that are not needed inside the $available_services array.
             foreach ($available_services as $index => $service)
             {

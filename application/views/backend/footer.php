@@ -1,7 +1,7 @@
 <div id="footer">
     <div id="footer-content" class="col-12 col-sm-8">
         <!-- DONE edit logo & name -->
-        <img class="mr-1" style="height: 16px;" src="<?= base_url('assets/img/logo.svg') ?>" alt="developily Logo">
+        <img class="mr-1" style="height: 16px;" src="<?= base_url('assets/img/logo-developily.svg') ?>" alt="developily Logo">
         <a href="https://developily.com/">
             Developily
         </a>

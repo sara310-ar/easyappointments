@@ -12,12 +12,7 @@
 root {
     display: block;
 }
-:root {
-    --primary-color: #3690fa;
-    --primary-color-dark: #005792;
-    --secondary-color: #bbebfd;
-    --white: #fff;
-}
+
 ::-webkit-scrollbar {
     height: 0.5rem;
     width: 0.5rem;
@@ -341,7 +336,7 @@ body {
         width: 100px;
         padding: 5px;
         margin: 5px auto;
-        background-color: #005792;
+        background-color: var(--primary-color-dark);
     }
 
     #book-appointment-wizard #frame-footer small {

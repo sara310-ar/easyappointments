@@ -68,6 +68,8 @@ body .ui-dialog #error-technical {
 
 body .ui-widget.ui-widget-content {
     border: 1px solid var(--primary-color-dark);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     padding: 0;
 }
 
@@ -199,14 +201,14 @@ li.language {
 }
 
 li.language:hover {
-    color: #005580;
+    color: var(--primary-color);
 }
 
 #select-language {
     cursor: pointer;
     display: inline-block;
     padding: 5px;
-    background-color: #005792;
+    background-color: var(--primary-color-dark);
 }
 
 #language-list {

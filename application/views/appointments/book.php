@@ -15,9 +15,10 @@
     <link rel="stylesheet" type="text/css" href="<?= asset_url('assets/ext/jquery-ui/jquery-ui.min.css') ?>">
     <link rel="stylesheet" type="text/css" href="<?= asset_url('assets/ext/cookieconsent/cookieconsent.min.css') ?>">
     <link rel="stylesheet" type="text/css" href="<?= asset_url('assets/css/frontend.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?= asset_url('assets/css/colors.css') ?>">
     <link rel="stylesheet" type="text/css" href="<?= asset_url('assets/css/general.css') ?>">
 
-    <link rel="icon" type="image/x-icon" href="<?= asset_url('assets/img/logo.svg') ?>">
+    <link rel="icon" type="image/x-icon" href="<?= asset_url('assets/img/logo-developily.svg') ?>">
     <link rel="icon" sizes="192x192" href="<?= asset_url('assets/img/logo.png') ?>">
 
     <script src="<?= asset_url('assets/ext/fontawesome/js/fontawesome.min.js') ?>"></script>
@@ -34,7 +35,7 @@
 
         .h4,
         h4 {
-            color: #005792;
+            color: #000;
         }
 
         #book-appointment-wizard #appointment-details p,
@@ -53,7 +54,7 @@
 
             <div id="header">
                 <!-- <span id="company-name"><?= $company_name ?></span> -->
-                <img src="<?= base_url('assets/img/logo_BIOALLIANCE.png') ?>" class="logo">
+                <img src="<?= base_url('assets/img/logo-company.png') ?>" class="logo">
                 <div id="steps">
                     <div id="step-1" class="book-step active-step"
                         data-tippy-content="<?= lang('service_and_info') ?>">

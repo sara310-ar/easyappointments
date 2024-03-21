@@ -16,12 +16,7 @@
 root {
     display: block;
 }
-:root {
-    --primary-color: #3690fa;
-    --primary-color-dark: #005792;
-    --secondary-color: #bbebfd;
-    --white: #fff;
-}
+
 /* BACKEND GENERAL ELEMENTS
    -------------------------------------------------------------------- */
 

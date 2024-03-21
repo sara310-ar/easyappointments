@@ -9,8 +9,9 @@
 
     <link rel="stylesheet" type="text/css" href="<?= asset_url('assets/ext/bootstrap/css/bootstrap.min.css') ?>">
     <link rel="stylesheet" type="text/css" href="<?= asset_url('assets/css/frontend.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?= asset_url('assets/css/colors.css') ?>">
 
-    <link rel="icon" type="image/x-icon" href="<?= asset_url('assets/img/logo.svg') ?>">
+    <link rel="icon" type="image/x-icon" href="<?= asset_url('assets/img/logo-developily.svg') ?>">
     <link rel="icon" sizes="192x192" href="<?= asset_url('assets/img/logo.png') ?>">
 
     <script src="<?= asset_url('assets/ext/fontawesome/js/fontawesome.min.js') ?>"></script>

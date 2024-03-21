@@ -57,10 +57,11 @@
     </style>
 </head>
 <body style="font: 13px arial, helvetica, tahoma;">
+
 <!-- DONE -->
 <div class="email-container">
     <div id="header">
-        <img src="<?= base_url('assets/img/logo_BIOALLIANCE.png') ?>" class="logo">
+        <img src="<?= base_url('assets/img/logo-company.png') ?>" class="logo">
     </div>
 
     <div id="content" style="padding: 10px 15px;">

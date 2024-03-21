@@ -61,7 +61,7 @@
 <body style="font: 13px arial, helvetica, tahoma;">
 <div class="email-container">
     <div id="header">
-        <img src="<?= base_url('assets/img/big_logo.png') ?>" class="logo">
+        <img src="<?= base_url('assets/img/logo-company.png') ?>" class="logo">
     </div>
 
     <div id="content" style="padding: 10px 15px;">
